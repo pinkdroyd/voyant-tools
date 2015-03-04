@@ -1,0 +1,149 @@
+Globales Fenstermenü:
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+    Help
+
+Cirrus:
+    Options
+        Stop Words List (Dropdown)
+        Edit Stop Words
+        Apply Stop Words Globally (Checkbox)
+        Search [Textfeld]
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+        a static PNG image
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Summary:
+    Options
+        Stop Words List (Dropdown)
+        Edit Stop Words
+        Apply Stop Words Globally (Checkbox)
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Words in the Entire Corpus:
+    Options
+        Stop Words List (Dropdown)
+        Edit Stop Words
+        Apply Stop Words Globally (Checkbox)
+        Comparison Corpus (Dropdown)
+        Minimum Z-Score (Textfeld)
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+        all types and counts as plain text
+        an HTML snippet with static tabular data
+        tabular data as plain text
+        current data as comma-separated values
+        current data as tab-separated values
+        current data as XML
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Corpus Reader:
+    Options
+        right-to-left text direction (Checkbox)
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Corpus:
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+        DHQAuthor (XML)
+        an HTML snippet with static tabular data
+        tabular data as plain text
+        current data as comma-separated values
+        current data as tab-separated values
+        current data as XML
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Word Trends:
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+        a static PNG image in a new window
+        a static SVG image in a new window
+        an HTML snippet with static tabular data
+        tabular data as plain text
+        current data as comma-separated values
+        current data as tab-separated values
+        current data as XML
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Keywords in Context:
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+        all KWICs (text only)
+        an HTML snippet with static tabular data
+        tabular data as plain text
+        current data as comma-separated values
+        current data as tab-separated values
+        current data as XML
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
+
+Words in Documents:
+    Options
+        Stop Words List (Dropdown)
+        Edit Stop Words
+        Apply Stop Words Globally (Checkbox)
+        Minimum Z-Score (Textfeld)
+    Export
+        a URL for this tool and current data
+        an HTML button for this tool and current data
+        an HTML snippet to embed this tool and current data
+        a bibliographic citation for this tool
+        a URL for a different tool/skin and current data
+        an HTML snippet with static tabular data
+        tabular data as plain text
+        current data as comma-separated values
+        current data as tab-separated values
+        current data as XML
+    Maximize (new window)
+    Help
+    Einklappen/ausklappen
