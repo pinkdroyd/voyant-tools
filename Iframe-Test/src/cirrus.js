@@ -12,6 +12,7 @@ document.getElementById('ifrm').onload= function() {
 $( "#change-button" ).click(function() {
 	var url = "http://voyant-tools.org/tool/Bubblelines/?input=http://digitalhumanities.org:8080/dhq/vol/3/3/000067.xml"
   	$('#ifrm').attr('src', url);
+  	$('#tool-heading').text("Bubblelines");
 });
 
 
