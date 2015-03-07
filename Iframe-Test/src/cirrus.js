@@ -1,6 +1,9 @@
 console.log("cirrus.js aufgerufen");
 
-var url = "http://voyant-tools.org/tool/Cirrus/?input=http://digitalhumanities.org:8080/dhq/vol/3/3/000067.xml";
+var textUrl1 = "http://digitalhumanities.org:8080/dhq/vol/3/3/000067.xml"
+var textUrlKafka = "https://dl.dropboxusercontent.com/u/90853566/kafka.txt"
+
+var url = "http://voyant-tools.org/tool/Cirrus/?input=" + textUrl1;
 
 setIFrameVisible(false);
 
@@ -26,10 +29,16 @@ function setIFrameVisible(visible)
 
 }
 
-$( "#change-button" ).click(function() {
+$( "#change-tool-button" ).click(function() {
 	var url = "http://voyant-tools.org/tool/Bubblelines/?input=http://digitalhumanities.org:8080/dhq/vol/3/3/000067.xml"
   	$('#ifrm').attr('src', url);
-  	$('#tool-heading').text("Bubblelines");
+  	$('#tool-heading').text("Bubblelines mit Beispieltext");
+});
+
+$( "#change-text-button" ).click(function() {
+	var url = "http://voyant-tools.org/tool/Cirrus/?input=" + textUrlKafka;
+  	$('#ifrm').attr('src', url);
+  	$('#tool-heading').text("Cirrus mit Kafka");
 });
 
 
