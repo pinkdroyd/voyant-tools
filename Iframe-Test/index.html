@@ -3,25 +3,33 @@
 	<head>
         <meta charset="utf-8">
         <title>Voyant-Tools</title>
+        <link rel="stylesheet" type="text/css" href="./res/cirrus.css"/>       
     </head>
+
     <body>
     	<div id="content">
-    		<div id="heading">
-    			<h1> Voyant - Tools </h1>
-    		</div>
+    		<div id="heading-container"></div>
+            <div>
+                <h3 id="text-input-heading">Textfeld</h3>
+            </div>
+            <div id="text-input-container">
+                <textarea id="text-input" style="width: 600px; height: 200px; overflow: hidden;"></textarea>
+            </div>
+            <button id="use-tool-button">OK</button>
             <div id="tool-heading-container">
-                <h3 id="tool-heading">Cirrus mit Beispieltext</h3>
+                <h3 id="tool-heading">Cirrus mit Digital Humanities</h3>
             </div>
     		<div id="tools" style="width: 600px; height: 400px; overflow: hidden;" >
     			<iframe id="ifrm" scrolling="no" frameborder="0" height="120%" width="100%" style="position:relative; top:-25px;"></iframe>
     		</div>
-            <button id="change-tool-button">Change Tool</button>
-            <button id="change-text-button">Change Text</button>
+            <select id='change-text-select'>
+                <option>Digital Humanities</option>
+                <option>Kafka</option>             
+            </select>                        
     	</div>
     </body>
     <script src="libs/jquery-2.0.3.min.js"></script>
-    <script src="libs/jquery.livequery.min.js"></script>
-
+    <script src="libs/jquery.livequery.min.js"></script>    
     <script src="src/Cirrus.js"></script>
 
 </html>
