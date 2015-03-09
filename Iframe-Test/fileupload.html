@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>File-Upload-Test</title>
+  <link rel="stylesheet" type="text/css" href="./res/cirrus.css"/>       
+</head> 
+
+<body>
+  <input type=file id="files" />"
+  <button id="upload">Upload</button>
+  <p id="text">Your uploaded text...</p>
+</body>
+
+<script src="libs/jquery-2.0.3.min.js"></script>
+<script src="libs/jquery.livequery.min.js"></script>  
+
+<script>
+  var fileInput = $('#files');
+  var uploadButton = $('#upload');
+
+  uploadButton.on('click', function() {
+    if (!window.FileReader) {
+        alert('Your browser is not supported')
+    }
+    var input = fileInput.get(0);
+    
+    // Create a reader object
+    var reader = new FileReader();
+    if (input.files.length) {
+        var textFile = input.files[0];
+        reader.readAsText(textFile);
+        $(reader).on('load', processFile);
+    } else {
+        alert('Please upload a file before continuing')
+    } 
+});
+
+function processFile(e) {
+    var file = e.target.result,
+        results;
+    if (file && file.length) {
+        results = file.split("\n");
+        console.log(results)
+        $('#text').text(results);
+    }
+    console.log(file);
+}
+</script>
+
+</html>
