@@ -15,3 +15,7 @@
 	width: 0;
 	border: none;
 }
+
+#use-tool-button{
+	display: block;
+}
