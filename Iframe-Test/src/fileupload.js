@@ -23,8 +23,28 @@ function processFile(e) {
         results;
     if (file && file.length) {
         results = file.split("\n");
-        console.log(results)
         $('#text-input').text(results);
     }
-    console.log(file);
 }
+
+
+  /*function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+
+    var reader = new FileReader(); 
+    console.log(files.FileList);
+  }
+
+  function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+  // Setup the dnd listeners.
+  var dropZone = document.getElementById('drop-zone');
+  dropZone.addEventListener('dragover', handleDragOver, false);
+  dropZone.addEventListener('drop', handleFileSelect, false);*/
