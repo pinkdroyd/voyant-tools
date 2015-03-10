@@ -23,13 +23,13 @@ $ifrm.attr('src', url);
 function setIFrameVisible(visible)
 {
 	if(visible){
-		$("#ifrm").css({ 
-						 "height":"400px",
-						 "width":"600px",
-						 "border":"none"
-						});
+
+		$("#ifrm").removeClass("iframe-invisible");
+		$("#ifrm").addClass("iframe-visible");
+
 	} else {
-		$("#ifrm").css({"height":"0", "width":"0", "border":"none"});
+		$("#ifrm").removeClass("iframe-visible");
+		$("#ifrm").addClass("iframe-invisible");
 	}
 }
 function initButtons(){
