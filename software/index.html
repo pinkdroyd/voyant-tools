@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Voyant Tools: Reveal Your Texts</title>
+    </head>
+    <body>
+        <!-- libraries -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+        <!-- scripts -->
+
+        <div id="logo-container">
+            <center>
+                <img src="resources/images/voyant-see.png"/>
+            </center>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="list-group" id="navigation">
+                        <a href="#" class="list-group-item" id="navigation-corpus">Corpus</a>
+                        <a href="#" class="list-group-item" id="navigation-analyze">Analyze</a>
+                        <a href="#" class="list-group-item" id="navigation-visualize">Visualize</a>
+                        <a href="#" class="list-group-item" id="navigation-npcs">Custom Tools</a>
+                        <a href="#" class="list-group-item" id="navigation-export">Export</a>
+                        <a href="#" class="list-group-item" id="navigation-help">Help</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function(){
+                Voyant.init();
+            });
+        </script>
+    </body>
+</html>
