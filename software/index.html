@@ -24,8 +24,16 @@
                     <!-- navigation -->
                     <div class="list-group" id="navigation">
                         <a href="#" class="list-group-item" id="navigation-corpus">Corpus</a>
-                        <a href="#" class="list-group-item" id="navigation-analyze">Analyze</a>
-                        <a href="#" class="list-group-item" id="navigation-visualize">Visualize</a>
+                        <a href="#" class="list-group-item" data-toggle="collapse" data-parent="#accordion" data-target="#tools-analyze">Analyze</a>
+                        <div class="list-group-collapse collapse" id="tools-analyze">
+                            <a href="#" class="list-group-item" id="">Tool 1</a>
+                            <a href="#" class="list-group-item" id="">Tool 2</a>
+                        </div>
+                        <a href="#" class="list-group-item" data-toggle="collapse" data-parent="#accordion" data-target="#tools-visualize">Visualize</a>
+                        <div class="list-group-collapse collapse" id="tools-visualize">
+                            <a href="#" class="list-group-item" id="">Tool 1</a>
+                            <a href="#" class="list-group-item" id="">Tool 2</a>
+                        </div>
                         <a href="#" class="list-group-item" id="navigation-npcs">Custom Tools</a>
                         <a href="#" class="list-group-item" id="navigation-export">Export</a>
                         <a href="#" class="list-group-item" id="navigation-help">Help</a>
