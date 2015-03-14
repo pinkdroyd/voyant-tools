@@ -13,7 +13,6 @@ initClickListener();
 initButtons();
 
 $ifrm = $("#ifrm");
-console.log($ifrm);
 $ifrm.load( function(event) { 
 	console.log("set iFrame visible"); 
   	setIFrameVisible(true);  
