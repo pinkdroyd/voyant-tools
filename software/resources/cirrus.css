@@ -1,0 +1,35 @@
+#heading-container {
+	width:655px;
+	height:176px;
+}
+
+#iframe-visible {
+	height: 400px;
+	width :600px;
+	border: none;
+}
+
+#iframe-invisible{
+	height: 0;
+	width: 0;
+	border: none;
+}
+
+#use-tool-button{
+	display: block;
+	margin-top: 20px;
+}
+
+#drop-zone{
+	border: 2px dashed #bbb;
+  	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+  	border-radius: 5px;
+  	padding: 25px;
+  	text-align: center;
+  	font: 20pt bold 'Vollkorn';
+  	color: #bbb;
+  	width: 400px;
+  	margin-bottom: 20px;
+  	margin-top: 20px;
+}
