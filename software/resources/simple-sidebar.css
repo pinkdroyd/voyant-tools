@@ -123,3 +123,10 @@
         margin-right: 0;
     }
 }
+
+#logo-container {
+    background-image: url("images/voyant-see.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 70px;
+}
