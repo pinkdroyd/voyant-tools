@@ -74,7 +74,7 @@
                                 <div class="well" style="background: #bbbbbb; height: 900px">
                                    
                                   
-                                    <div class="form-group" id="text-input-container">
+                                    <div class="form-group col-lg-12" id="text-input-container">
                                     	<input type="radio" name="optionsRadios" id="optionsFreeText" value="option1" checked>
                                     	<label for="text-input">Freetext</label>
                                     	<p class="help-block">Type your text in here or copy and paste documents you want to analyze.</p>
@@ -82,7 +82,7 @@
                                         <button type="submit" class="btn btn-default" id="use-tool-button">Analyse starten</button>
                                     </div>
                                     
-                                    <div class="form-group" id="upload-container">
+                                    <div class="form-group col-lg-12" id="upload-container">
                                     	
                                     	<div id="file-upload">
                                     	    <!--<div id="drag-and-drop-upload">
@@ -100,26 +100,27 @@
                                     	</div>                                    
                                     </div>
 
-                                    <div class="form-group" id="example-container">
+                                    <div class="form-group col-lg-12" id="example-container">
                                     	<input type="radio" name="optionsRadios" id="optionsExample" value="option3">
                                     	<label for="change-text-select">Example Texts</label>
-                                    	<p class="help-block">Choolse from example texts or corpora to explore the possibilities of Voyant.</p>
-                                    	<select id='change-text-select'>
-                                        	<option>Digital Humanities</option>
-                                        	<option>Kafka</option>             
-                                   		</select>     
+                                    	<p class="help-block">Choose from example texts or corpora to explore the possibilities of Voyant.</p>
+                                    	<div class="col-lg-2">
+                                    		<select class="form-control" id='change-text-select'>
+                                        		<option>Digital Humanities</option>
+                                        		<option>Kafka</option>             
+                                   			</select>
+                                   		</div>     
                                     </div>
-
                                      
-                                   
-                                    <div id="tool-heading-container">
-                                        <h3 id="tool-heading">Cirrus mit Digital Humanities</h3>
+                                   	<div class="form-group"> 
+                                    	<div id="tool-heading-container">
+                                    	    <h3 id="tool-heading">Cirrus mit Digital Humanities</h3>
+                                    	</div>
+                                    	
+                                    	<div id="tools" style="width: 600px; height: 400px; overflow: hidden;" >
+                                    	    <iframe id="ifrm" scrolling="no" frameborder="0" height="120%" width="100%" style="position:relative; top:-25px;"></iframe>
+                                    	</div>
                                     </div>
-                                    
-                                    <div id="tools" style="width: 600px; height: 400px; overflow: hidden;" >
-                                        <iframe id="ifrm" scrolling="no" frameborder="0" height="120%" width="100%" style="position:relative; top:-25px;"></iframe>
-                                    </div>
-                                    
                                             
                                 </div>
                             </div>
