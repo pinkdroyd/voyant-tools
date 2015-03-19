@@ -48,3 +48,35 @@ function processFile(e) {
   var dropZone = document.getElementById('drop-zone');
   dropZone.addEventListener('dragover', handleDragOver, false);
   dropZone.addEventListener('drop', handleFileSelect, false);*/
+  var client = new Dropbox.Client({ key: 'b671y7l5vwfj9l3' });
+ 
+        function doHelloWorld() {
+            client.writeFile('hello.txt', 'Hello, World!', function (error) {
+                if (error) {
+                    alert('Error: ' + error);
+                } else {
+                    alert('File written successfully!');
+                }
+            });
+        }
+ 
+        // Try to complete OAuth flow.
+        client.authenticate({ interactive: false }, function (error, client) {
+            if (error) {
+                alert('Error: ' + error);
+            }
+        });
+ 
+        if (client.isAuthenticated()) {
+            //doHelloWorld();
+        }
+ 
+        uploadButton.click(function () {
+            client.authenticate(function (error, client) {
+                if (error) {
+                    alert('Error: ' + error);
+                } else {
+                    doHelloWorld();
+                }
+            });
+        }); 
