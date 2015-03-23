@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Voyant Tools: Reveal Your Texts</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <!--<link rel="stylesheet" type="text/css" href="/stylesheets/cirrus.css"/>-->
-        <link rel="stylesheet" type="text/css" href="/stylesheets/sidebar.css">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/content.css">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-  </head>
-  <body>
-    <div id="website">
-        <!-- sidebar. wird von sidebar-tpl befüllt -->
-        <div id="sidebar" class="col-md-offset-1 col-md-3"> 
-        </div>
+    <head>
+        <title>Voyant Tools: Reveal Your Texts</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+            <!--<link rel="stylesheet" type="text/css" href="/stylesheets/cirrus.css"/>-->
+            <link rel="stylesheet" type="text/css" href="/stylesheets/sidebar.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/content.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+      </head>
+      <body>
+        <div id="website">
+            <!--sidebar-->
+            <div id="sidebar" class="col-md-offset-1 col-md-3"> 
+            </div>
 
-        <!--content-->
-        <div id="content" class="col-md-offset-1 col-md-6 col-md-offset-1">
+            <!--content-->
+            <div id="content" class="col-md-offset-1 col-md-6 col-md-offset-1">
+            </div>
         </div>
 
 
@@ -110,7 +111,6 @@
                     <div class="col-md-10 xpath-line">
                         <input id="xpath-author" class="form-control" type="text"/>
                     </div>
-                 </div>
                 <div class="form-group">
                     <div class="col-md-2">
                         <label class="content-text" for="xpath-title">Title:</label>
@@ -127,6 +127,7 @@
                         <input id="xpath-documents" class="form-control" type="text"/>
                     </div>
                 </div>
+            </div>
         </script>
 
         <!--Tool-Template-->
@@ -142,7 +143,6 @@
                 <h1> Hilfetext </h1>
             </div>
         </script>
-
             
         <!--Libs-->
         <script src="/javascripts/jquery-2.1.3.min.js"></script>
@@ -163,5 +163,5 @@
         <script>
                 Voyant.init();
         </script>
-  </body>
+    </body>
 </html>
