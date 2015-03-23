@@ -40,7 +40,7 @@
                     <span class="glyphicon glyphicon-signal"></span> Visualize
                 </li>
                 <li id="sidebar-cirrus-button" class="list-group-item sidebar-subitem">Cirrus</li>
-                <li id="sidebar-bubbles-button" class="list-group-item sidebar-subitem">Bubbles</li>
+                <li id="sidebar-bubblelines-button" class="list-group-item sidebar-subitem">Bubblelines</li>
                 <!--Custom-->
                 <li id="sidebar-custom-button" class="list-group-item sidebar-item">
                     <span class="glyphicon glyphicon-wrench"></span> Custom
@@ -125,8 +125,12 @@
                         <input id="xpath-documents" class="form-control" type="text"/>
                     </div>
                 </div>
+        </script>
+
+        <script type="text/template" id="tool-tpl">
+            <div id="tools" class="col-md-offset-1 col-md-10 col-md-offset-1" class="col-md" style="height: 400px; overflow: hidden;" >
+                <iframe id="ifrm" scrolling="no" frameborder="0" height="120%" width="100%" style="position:relative; top:-25px;"></iframe>
             </div>
-            <button type="submit" class="btn btn-default" id="apply-settings-button">Apply</button>
         </script>
 
             
@@ -137,7 +141,7 @@
         <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.2-latest.js" type="text/javascript"></script>
 
         <!--JS-Files-->
-        <script src="/javascripts/cirrus.js"></script>
+        <!--<script src="/javascripts/cirrus.js"></script>-->
         <script src="/javascripts/fileupload.js"></script>
         <script src="/javascripts/sidebar.js"></script>
         <script src ="/controllers/corpusController.js"></script>

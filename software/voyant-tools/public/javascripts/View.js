@@ -5,6 +5,7 @@ Voyant.View = (function() {
 		console.log("init View");
 		appendSidebar(); 
 		appendContent(); 
+		//appendTool("Cirrus");
 	},
 
 	appendSidebar = function () {
@@ -37,6 +38,7 @@ Voyant.View = (function() {
 		        	$("#sidebar-corpus-button").removeAttr('style');
 		        }
 		        break;
+
 		    /*Click für Analyze-Button*/
 		    case "sidebar-analyze-button":
 		    	if($("#sidebar-witec-button").css("display") == "none") {
@@ -50,29 +52,33 @@ Voyant.View = (function() {
 		        	$("#sidebar-analyze-button").removeAttr('style');
 		        }
 		        break; 
+
 		    /*Click für Visualize-Button*/
 		    case "sidebar-visualize-button":
 		    	if($("#sidebar-cirrus-button").css("display") == "none") {
 		        	$("#sidebar-cirrus-button").css("display", "block");
-		        	$("#sidebar-bubbles-button").css("display", "block");
+		        	$("#sidebar-bubblelines-button").css("display", "block");
 		        	$("#sidebar-visualize-button").css("background-color", "#838B8B");
 		        } else {
 		        	$("#sidebar-cirrus-button").css("display", "none");
-		        	$("#sidebar-bubbles-button").css("display", "none");
+		        	$("#sidebar-bubblelines-button").css("display", "none");
 		        	$("#sidebar-visualize-button").css("background-color", "#3B3B3C");
 		        	$("#sidebar-visualize-button").removeAttr('style');
 		        }
 		        break; 
+
 		    /*Click für Custom-Button*/
 		    case "sidebar-custom-button":
 		    	unselectMenuItems();
 		        $("#sidebar-custom-button").css("background-color", "#B02130");
 		        break; 
+
 		    /*Click für Export-Button*/
 		    case "sidebar-export-button":
 		    	unselectMenuItems();
 		        $("#sidebar-export-button").css("background-color", "#B02130");
 		        break; 
+
 		    /*Click für Help-Button*/
 		    case "sidebar-help-button":
 		    	unselectMenuItems();
@@ -93,34 +99,41 @@ Voyant.View = (function() {
 				var uploadTemplate = _.template($("#upload-tpl").html());
 				$("#content").html(uploadTemplate);
 				break; 
+
 			case "sidebar-settings-button":
 				unselectMenuItems();
 				$("#sidebar-settings-button").css("background-color", "#B02130");
 				var settingsTemplate = _.template($("#settings-tpl").html());
 				$("#content").html(settingsTemplate);
 				break; 
+
 			case "sidebar-witec-button":
 				unselectMenuItems();
 				$("#sidebar-witec-button").css("background-color", "#B02130");
 				break; 
+
 			case "sidebar-kic-button":
 				unselectMenuItems();
 				$("#sidebar-kic-button").css("background-color", "#B02130");
 				break; 
+
 			case "sidebar-cirrus-button":
 				unselectMenuItems();
 				$("#sidebar-cirrus-button").css("background-color", "#B02130");
+				appendTool("Cirrus"); 
 				break; 
-			case "sidebar-bubbles-button":
+
+			case "sidebar-bubblelines-button":
 				unselectMenuItems();
-				$("#sidebar-bubbles-button").css("background-color", "#B02130");
+				$("#sidebar-bubblelines-button").css("background-color", "#B02130");
+				appendTool("Bubblelines"); 
 				break; 
 			}
 		});
 	},
 
 	unselectMenuItems = function () {
-		$("#sidebar-upload-button, #sidebar-settings-button, #sidebar-witec-button, #sidebar-kic-button, #sidebar-cirrus-button, #sidebar-bubbles-button, #sidebar-custom-button, #sidebar-export-button, #sidebar-help-button").css("background-color", "#3B3B3C");
+		$("#sidebar-upload-button, #sidebar-settings-button, #sidebar-witec-button, #sidebar-kic-button, #sidebar-cirrus-button, #sidebar-bubblelines-button, #sidebar-custom-button, #sidebar-export-button, #sidebar-help-button").css("background-color", "#3B3B3C");
 	},
 
 	appendContent = function() {
@@ -131,6 +144,33 @@ Voyant.View = (function() {
 
 		var uploadTemplate = _.template($("#upload-tpl").html());
 		$("#content").html(uploadTemplate);
+	},
+
+	appendTool = function (tool) {
+		var toolTemplate = _.template($("#tool-tpl").html());
+		$("#content").html(toolTemplate);
+
+		var textUrl1 = "http://digitalhumanities.org:8080/dhq/vol/3/3/000067.xml"
+		var url = "http://voyant-tools.org/tool/" + tool +"/?input=" + textUrl1;
+
+		setIFrameVisible(false);
+
+		$ifrm = $("#ifrm");
+		$ifrm.load( function(event) { 
+  			setIFrameVisible(true);  
+		}); 
+
+		$ifrm.attr('src', url);
+	},
+
+	setIFrameVisible = function (visible) {
+		if(visible){
+			$("#ifrm").removeClass("iframe-invisible");
+			$("#ifrm").addClass("iframe-visible");
+		} else {
+			$("#ifrm").removeClass("iframe-visible");
+			$("#ifrm").addClass("iframe-invisible");
+		}
 	};
 
 	that.init = init;
