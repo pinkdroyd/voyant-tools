@@ -66,14 +66,17 @@ Voyant.View = (function() {
 		        break; 
 		    /*Click für Custom-Button*/
 		    case "sidebar-custom-button":
+		    	unselectMenuItems();
 		        $("#sidebar-custom-button").css("background-color", "#B02130");
 		        break; 
 		    /*Click für Export-Button*/
 		    case "sidebar-export-button":
+		    	unselectMenuItems();
 		        $("#sidebar-export-button").css("background-color", "#B02130");
 		        break; 
 		    /*Click für Help-Button*/
 		    case "sidebar-help-button":
+		    	unselectMenuItems();
 		        $("#sidebar-help-button").css("background-color", "#B02130");
 		        break;       
 			}
@@ -86,26 +89,36 @@ Voyant.View = (function() {
 
 		switch(clickedElement) {
 			case "sidebar-upload-button":
+				unselectMenuItems(); 
 				$("#sidebar-upload-button").css("background-color", "#B02130");
 				break; 
 			case "sidebar-settings-button":
+				unselectMenuItems();
 				$("#sidebar-settings-button").css("background-color", "#B02130");
 				break; 
 			case "sidebar-witec-button":
+				unselectMenuItems();
 				$("#sidebar-witec-button").css("background-color", "#B02130");
 				break; 
 			case "sidebar-kic-button":
+				unselectMenuItems();
 				$("#sidebar-kic-button").css("background-color", "#B02130");
 				break; 
 			case "sidebar-cirrus-button":
+				unselectMenuItems();
 				$("#sidebar-cirrus-button").css("background-color", "#B02130");
 				break; 
 			case "sidebar-bubbles-button":
+				unselectMenuItems();
 				$("#sidebar-bubbles-button").css("background-color", "#B02130");
 				break; 
 			}
 		});
-	};
+	},
+
+	unselectMenuItems = function () {
+		$("#sidebar-upload-button, #sidebar-settings-button, #sidebar-witec-button, #sidebar-kic-button, #sidebar-cirrus-button, #sidebar-bubbles-button, #sidebar-custom-button, #sidebar-export-button, #sidebar-help-button").css("background-color", "#3B3B3C");
+	}
 
 	that.init = init;
 
