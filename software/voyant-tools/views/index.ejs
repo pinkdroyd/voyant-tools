@@ -3,18 +3,37 @@
   <head>
     <title>Voyant Tools: Reveal Your Texts</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/cirrus.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="/stylesheets/cirrus.css"/>-->
         <link rel="stylesheet" type="text/css" href="/stylesheets/sidebar.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/content.css">
   </head>
   <body>
     <div id="website">
         <!-- sidebar. wird von sidebar-tpl befüllt -->
-        <div id="sidebar" class="col-md-3"> 
+        <div id="sidebar" class="col-md-offset-1 col-md-3"> 
         </div>
         <!--Ende Sidebar -->
 
         <!--Start Content-->
-        <div id="content" class="col-md-9">
+        <div id="content" class="col-md-offset-1 col-md-6 col-md-offset-1">
+            <div id="freetext" class="col-md-8">
+                <input type="radio" name="optionsRadios" id="optionsFreeText" value="option1" checked>
+                <label class="content-text" for="text-input">Freetext</label>
+                <p class="help-block content-text">Type your text in here or copy and paste documents you want to analyze.</p>
+                <textarea id="text-input"></textarea>
+                <button type="submit" class="btn btn-default" id="use-tool-button">Analyse starten</button>
+            </div>
+            <div id="upload" class="col-md-4">
+                <div id="file-upload">
+                    <input type="radio" name="optionsRadios" id="optionsUpload" value="option2">
+                    <label for="files" class="content-text">File Upload</label>
+                    <p class="help-block content-text">Upload your files from your local file system and get them analyzed.</p>
+                    <div id="button-upload">
+                        <input type="file" id="files" />
+                        <button type="submit" class="btn btn-default" id="upload">Upload</button>
+                    </div>
+                </div>          
+            </div>
         </div>
         <!--Ende Content-->
 

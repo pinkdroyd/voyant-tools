@@ -4,11 +4,10 @@ Voyant.View = (function() {
 	init = function() {
 		console.log("init View");
 		appendSidebar(); 
+		//appendContent(); 
 	},
 
 	appendSidebar = function () {
-		console.log("appendSidebar");
-
 		var sidebarTemplate = _.template($("#sidebar-tpl").html());
 		$("#sidebar").html(sidebarTemplate);
 
@@ -118,7 +117,12 @@ Voyant.View = (function() {
 
 	unselectMenuItems = function () {
 		$("#sidebar-upload-button, #sidebar-settings-button, #sidebar-witec-button, #sidebar-kic-button, #sidebar-cirrus-button, #sidebar-bubbles-button, #sidebar-custom-button, #sidebar-export-button, #sidebar-help-button").css("background-color", "#3B3B3C");
-	}
+	},
+
+	appendContent = function() {
+		var uploadTemplate = _.template($("#upload-tpl").html());
+		$("#content").html(uploadTemplate);
+	};
 
 	that.init = init;
 

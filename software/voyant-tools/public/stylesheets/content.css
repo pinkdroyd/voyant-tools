@@ -1,0 +1,24 @@
+html{
+	background-color: #838B8B;
+}
+
+
+#content {
+	margin-top: 20px; 
+    background-color: #3B3B3C;
+    padding-top: 15px;
+    padding-bottom: 15px; 
+}
+
+.content-text {
+	color: white; 
+}
+
+#upload-table {
+	width: 100%;
+}
+
+#text-input {
+	width: 100%; 
+	height: 200px;
+}
