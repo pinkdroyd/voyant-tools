@@ -90,10 +90,14 @@ Voyant.View = (function() {
 			case "sidebar-upload-button":
 				unselectMenuItems(); 
 				$("#sidebar-upload-button").css("background-color", "#B02130");
+				var uploadTemplate = _.template($("#upload-tpl").html());
+				$("#content").html(uploadTemplate);
 				break; 
 			case "sidebar-settings-button":
 				unselectMenuItems();
 				$("#sidebar-settings-button").css("background-color", "#B02130");
+				var settingsTemplate = _.template($("#settings-tpl").html());
+				$("#content").html(settingsTemplate);
 				break; 
 			case "sidebar-witec-button":
 				unselectMenuItems();
