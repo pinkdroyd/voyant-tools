@@ -120,6 +120,11 @@ Voyant.View = (function() {
 	},
 
 	appendContent = function() {
+		$("#sidebar-upload-button").css("display", "block");
+		$("#sidebar-settings-button").css("display", "block");
+		$("#sidebar-corpus-button").css("background-color", "#838B8B");
+		$("#sidebar-upload-button").css("background-color", "#B02130");
+
 		var uploadTemplate = _.template($("#upload-tpl").html());
 		$("#content").html(uploadTemplate);
 	};
