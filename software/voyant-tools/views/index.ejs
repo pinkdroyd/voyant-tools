@@ -6,6 +6,7 @@
         <!--<link rel="stylesheet" type="text/css" href="/stylesheets/cirrus.css"/>-->
         <link rel="stylesheet" type="text/css" href="/stylesheets/sidebar.css">
         <link rel="stylesheet" type="text/css" href="/stylesheets/content.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
   </head>
   <body>
     <div id="website">
@@ -33,8 +34,8 @@
                 <li id="sidebar-analyze-button" class="list-group-item sidebar-item">
                     <span class="glyphicon glyphicon-search"></span> Analyze
                 </li>
-                <li id="sidebar-witec-button" class="list-group-item sidebar-subitem">Words in the entire Corpus</li>
-                <li id="sidebar-kic-button" class="list-group-item sidebar-subitem">Keywords in Context</li>
+                <li id="sidebar-summary-button" class="list-group-item sidebar-subitem">Corpus Summary</li>
+                <li id="sidebar-ctfg-button" class="list-group-item sidebar-subitem">Corpus Type Frequencies Grid</li>
                 <!--Visualize-->
                 <li id="sidebar-visualize-button" class="list-group-item sidebar-item">
                     <span class="glyphicon glyphicon-signal"></span> Visualize
@@ -128,8 +129,14 @@
         </script>
 
         <script type="text/template" id="tool-tpl">
-            <div id="tools" class="col-md-offset-1 col-md-10 col-md-offset-1" class="col-md" style="height: 400px; overflow: hidden;" >
-                <iframe id="ifrm" scrolling="no" frameborder="0" height="120%" width="100%" style="position:relative; top:-25px;"></iframe>
+            <div id="tools" class="col-md-12" class="col-md" style="height: 400px; overflow: hidden;" >
+                <iframe id="ifrm" scrolling="no" frameborder="0" height="110%" width="100%" style="position:relative; top:-25px;"></iframe>
+            </div>
+        </script>
+
+        <script type="text/template" id="help-tpl">
+            <div id="help" class="col-md-12 content-text">
+                <h1> Hilfetext </h1>
             </div>
         </script>
 

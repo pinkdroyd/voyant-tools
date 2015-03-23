@@ -41,13 +41,13 @@ Voyant.View = (function() {
 
 		    /*Click für Analyze-Button*/
 		    case "sidebar-analyze-button":
-		    	if($("#sidebar-witec-button").css("display") == "none") {
-		        	$("#sidebar-witec-button").css("display", "block");
-		        	$("#sidebar-kic-button").css("display", "block");
+		    	if($("#sidebar-ctfg-button").css("display") == "none") {
+		    		$("#sidebar-summary-button").css("display", "block");
+		        	$("#sidebar-ctfg-button").css("display", "block");
 		        	$("#sidebar-analyze-button").css("background-color", "#838B8B");
 		        } else {
-		        	$("#sidebar-witec-button").css("display", "none");
-		        	$("#sidebar-kic-button").css("display", "none");
+		        	$("#sidebar-summary-button").css("display", "none");
+		        	$("#sidebar-ctfg-button").css("display", "none");
 		        	$("#sidebar-analyze-button").css("background-color", "#3B3B3C");
 		        	$("#sidebar-analyze-button").removeAttr('style');
 		        }
@@ -83,6 +83,8 @@ Voyant.View = (function() {
 		    case "sidebar-help-button":
 		    	unselectMenuItems();
 		        $("#sidebar-help-button").css("background-color", "#B02130");
+		        var helpTemplate = _.template($("#help-tpl").html());
+				$("#content").html(helpTemplate);
 		        break;       
 			}
 		});
@@ -107,14 +109,16 @@ Voyant.View = (function() {
 				$("#content").html(settingsTemplate);
 				break; 
 
-			case "sidebar-witec-button":
+			case "sidebar-summary-button":
 				unselectMenuItems();
-				$("#sidebar-witec-button").css("background-color", "#B02130");
-				break; 
+				$("#sidebar-summary-button").css("background-color", "#B02130");
+				appendTool("CorpusSummary");
+				break;
 
-			case "sidebar-kic-button":
+			case "sidebar-ctfg-button":
 				unselectMenuItems();
-				$("#sidebar-kic-button").css("background-color", "#B02130");
+				$("#sidebar-ctfg-button").css("background-color", "#B02130");
+				appendTool("CorpusTypeFrequenciesGrid");
 				break; 
 
 			case "sidebar-cirrus-button":
@@ -133,7 +137,7 @@ Voyant.View = (function() {
 	},
 
 	unselectMenuItems = function () {
-		$("#sidebar-upload-button, #sidebar-settings-button, #sidebar-witec-button, #sidebar-kic-button, #sidebar-cirrus-button, #sidebar-bubblelines-button, #sidebar-custom-button, #sidebar-export-button, #sidebar-help-button").css("background-color", "#3B3B3C");
+		$("#sidebar-upload-button, #sidebar-settings-button, #sidebar-ctfg-button, #sidebar-summary-button, #sidebar-cirrus-button, #sidebar-bubblelines-button, #sidebar-custom-button, #sidebar-export-button, #sidebar-help-button").css("background-color", "#3B3B3C");
 	},
 
 	appendContent = function() {
