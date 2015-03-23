@@ -48,7 +48,7 @@
 
 //Dropbox upload necessary with webserver?
 
-  var client = new Dropbox.Client({ key: 'b671y7l5vwfj9l3' });
+ /* var client = new Dropbox.Client({ key: 'b671y7l5vwfj9l3' });
  
         function doHelloWorld() {
             client.writeFile('hello.txt', 'Hello, World!', function (error) {
@@ -81,4 +81,4 @@
             });
         }); 
 
-    
+    */
