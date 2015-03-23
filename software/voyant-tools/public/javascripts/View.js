@@ -4,7 +4,7 @@ Voyant.View = (function() {
 	init = function() {
 		console.log("init View");
 		appendSidebar(); 
-		//appendContent(); 
+		appendContent(); 
 	},
 
 	appendSidebar = function () {
