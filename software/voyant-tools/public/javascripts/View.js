@@ -45,12 +45,9 @@ Voyant.View = (function() {
 		        if($("#sidebar-upload-button").css("display") == "none") {
 		        	$("#sidebar-upload-button").css("display", "block");
 		        	$("#sidebar-settings-button").css("display", "block");
-		        	//$("#sidebar-corpus-button").css("background-color", "#838B8B");
 		        } else {
 		        	$("#sidebar-upload-button").css("display", "none");
 		        	$("#sidebar-settings-button").css("display", "none");
-		        	//$("#sidebar-corpus-button").css("background-color", "#3B3B3C");
-		        	//$("#sidebar-corpus-button").removeAttr('style');
 		        }
 		        break;
 
@@ -59,12 +56,9 @@ Voyant.View = (function() {
 		    	if($("#sidebar-ctfg-button").css("display") == "none") {
 		    		$("#sidebar-summary-button").css("display", "block");
 		        	$("#sidebar-ctfg-button").css("display", "block");
-		        	//$("#sidebar-analyze-button").css("background-color", "#838B8B");
 		        } else {
 		        	$("#sidebar-summary-button").css("display", "none");
 		        	$("#sidebar-ctfg-button").css("display", "none");
-		        	//$("#sidebar-analyze-button").css("background-color", "#3B3B3C");
-		        	//$("#sidebar-analyze-button").removeAttr('style');
 		        }
 		        break; 
 
@@ -73,12 +67,9 @@ Voyant.View = (function() {
 		    	if($("#sidebar-cirrus-button").css("display") == "none") {
 		        	$("#sidebar-cirrus-button").css("display", "block");
 		        	$("#sidebar-bubblelines-button").css("display", "block");
-		        	//$("#sidebar-visualize-button").css("background-color", "#838B8B");
 		        } else {
 		        	$("#sidebar-cirrus-button").css("display", "none");
 		        	$("#sidebar-bubblelines-button").css("display", "none");
-		        	//$("#sidebar-visualize-button").css("background-color", "#3B3B3C");
-		        	//$("#sidebar-visualize-button").removeAttr('style');
 		        }
 		        break; 
 
@@ -99,6 +90,7 @@ Voyant.View = (function() {
 		    	unselectMenuItems();
 		        $("#sidebar-help-button").css("background-color", "#B02130");
 		        appendHelp(); 
+
 		        break;       
 			}
 		});
@@ -112,6 +104,7 @@ Voyant.View = (function() {
 			case "sidebar-upload-button":
 				unselectMenuItems(); 
 				$("#sidebar-upload-button").css("background-color", "#B02130");
+				appendUpload(); 
 				break; 
 
 			case "sidebar-settings-button":
@@ -154,7 +147,6 @@ Voyant.View = (function() {
 	appendContent = function() {
 		$("#sidebar-upload-button").css("display", "block");
 		$("#sidebar-settings-button").css("display", "block");
-		//$("#sidebar-corpus-button").css("background-color", "#838B8B");
 		$("#sidebar-upload-button").css("background-color", "#B02130");
 
 		var uploadTemplate = _.template($("#upload-tpl").html());
