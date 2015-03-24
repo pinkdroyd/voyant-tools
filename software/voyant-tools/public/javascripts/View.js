@@ -98,8 +98,7 @@ Voyant.View = (function() {
 		    case "sidebar-help-button":
 		    	unselectMenuItems();
 		        $("#sidebar-help-button").css("background-color", "#B02130");
-		        var helpTemplate = _.template($("#help-tpl").html());
-				$("#content").html(helpTemplate);
+		        appendHelp(); 
 		        break;       
 			}
 		});
@@ -190,7 +189,8 @@ Voyant.View = (function() {
 	},
 
 	appendHelp = function () {
-
+		var helpTemplate = _.template($("#help-tpl").html());
+		$("#content").html(helpTemplate);
 	},
 
 	setIFrameVisible = function (visible) {
