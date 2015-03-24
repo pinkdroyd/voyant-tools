@@ -90,7 +90,6 @@ Voyant.View = (function() {
 		    	unselectMenuItems();
 		        $("#sidebar-help-button").css("background-color", "#B02130");
 		        appendHelp(); 
-
 		        break;       
 			}
 		});
@@ -149,13 +148,29 @@ Voyant.View = (function() {
 		$("#sidebar-settings-button").css("display", "block");
 		$("#sidebar-upload-button").css("background-color", "#B02130");
 
-		var uploadTemplate = _.template($("#upload-tpl").html());
-		$("#content").html(uploadTemplate);
+		appendFreetext(); 
 	},
 
-	appendUpload = function () {
-		var uploadTemplate = _.template($("#upload-tpl").html());
-		$("#content").html(uploadTemplate);
+	appendFreetext = function () {
+		var freetextTemplate = _.template($("#freetext-tpl").html());
+		$("#content").html(freetextTemplate);
+
+		$("#selectFreetext").css("background-color", "#B02130");
+
+		$("#selectFileupload").click(function(e) {
+			appendFileupload(); 
+		}); 
+	},
+
+	appendFileupload = function() {
+		var fileuploadTemplate = _.template($("#fileupload-tpl").html());
+		$("#content").html(fileuploadTemplate);
+
+		$("#selectFileupload").css("background-color", "#B02130");
+
+		$("#selectFreetext").click(function(e) {
+			appendFreetext(); 
+		}); 
 	},
 
 	appendSettings = function () {
@@ -176,7 +191,6 @@ Voyant.View = (function() {
 		$ifrm.load( function(event) { 
   			setIFrameVisible(true);  
 		}); 
-
 		$ifrm.attr('src', url);
 	},
 

@@ -59,18 +59,25 @@
         </script>
 
         <!--Upload-Template-->
-        <script type="text/template" id="upload-tpl">
-            <div id="freetext" class="col-md-8">
-                <input type="radio" name="optionsRadios" id="optionsFreeText" value="option1" checked>
-                <label class="content-text" for="text-input">Freetext</label>
+        <script type="text/template" id="freetext-tpl">
+            <ul class="nav nav-tabs nav-justified">
+                <li id="selectFreetext" class="list-group-item corpus-nav-item">Freetext</li>
+                <li id="selectFileupload" class="list-group-item corpus-nav-item">File-Upload</li>
+            </ul>
+            <div id="freetext" class="col-md-12">
                 <p class="help-block content-text">Type your text in here or copy and paste documents you want to analyze.</p>
                 <textarea id="text-input"></textarea>
                 <button type="submit" class="btn btn-default" id="use-tool-button">Analyse starten</button>
             </div>
+        </script>
+
+        <script type="text/template" id="fileupload-tpl">
+            <ul class="nav nav-tabs nav-justified">
+                <li id="selectFreetext" class="list-group-item corpus-nav-item">Freetext</li>
+                <li id="selectFileupload" class="list-group-item corpus-nav-item">File-Upload</li>
+            </ul>
             <div id="upload" class="col-md-4">
                 <div id="file-upload">
-                    <input type="radio" name="optionsRadios" id="optionsUpload" value="option2">
-                    <label for="files" class="content-text">File Upload</label>
                     <p class="help-block content-text">Upload your files from your local file system and get them analyzed.</p>
                     <div id="button-upload">
                         <input type="file" id="files" />
