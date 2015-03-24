@@ -16,10 +16,10 @@
     font-size: 16px;
 }
 
-.sidebar-item:hover, .sidebar-subitem:hover {
+/*.sidebar-item:hover, .sidebar-subitem:hover {
     background-color: #B02130;
     cursor:pointer;
-}
+}*/
 
 .sidebar-subitem{
 	background-color: #3B3B3C;
