@@ -31,4 +31,11 @@
     color: white;
     font-size: 14px;
     text-align: center;
+    border: none;
+}
+
+.corpus-navbar{
+    border: solid;
+    border-color: white;
+    border-width: 1px;
 }
