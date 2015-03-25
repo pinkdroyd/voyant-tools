@@ -147,7 +147,6 @@ Voyant.View = (function() {
 		$("#sidebar-upload-button").css("display", "block");
 		$("#sidebar-settings-button").css("display", "block");
 		$("#sidebar-upload-button").css("background-color", "#B02130");
-
 		appendFreetext(); 
 	},
 
@@ -160,6 +159,18 @@ Voyant.View = (function() {
 		$("#selectFileupload").click(function(e) {
 			appendFileupload(); 
 		}); 
+
+		$( "#selectFileupload" ).mouseenter(function() {
+			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+				$(this).css("background-color", "#838B8B");
+			}
+		});
+
+		$( "#selectFileupload" ).mouseleave(function() {
+			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+				$(this).css("background-color", "#3B3B3C");
+			}
+		});
 	},
 
 	appendFileupload = function() {
@@ -171,6 +182,18 @@ Voyant.View = (function() {
 		$("#selectFreetext").click(function(e) {
 			appendFreetext(); 
 		}); 
+
+		$( "#selectFreetext" ).mouseenter(function() {
+			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+				$(this).css("background-color", "#838B8B");
+			}
+		});
+
+		$( "#selectFreetext" ).mouseleave(function() {
+			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+				$(this).css("background-color", "#3B3B3C");
+			}
+		});
 	},
 
 	appendSettings = function () {
