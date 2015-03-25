@@ -103,7 +103,7 @@ Voyant.View = (function() {
 			case "sidebar-upload-button":
 				unselectMenuItems(); 
 				$("#sidebar-upload-button").css("background-color", "#B02130");
-				appendUpload(); 
+				appendFreetext(); 
 				break; 
 
 			case "sidebar-settings-button":
