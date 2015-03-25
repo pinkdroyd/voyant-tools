@@ -29,18 +29,18 @@ Voyant.CorpusController = (function() {
 		var uploadButton = $('#upload');
 		var files = $('#files').prop('files')[0];
 		console.log("Files", files);
-
+	
 		if(files.type === 'text/plain' || files.type === 'text/xml'){
 
 			var formData = new FormData();			
 			formData.append('upload_files', files);
 
-			var fileType = files.type;
+			var fileType = files.type;			
 			
-			$.ajax({
+			$.ajax({				
         		url: '/fileupload/',  //Server script to process data
         		type: 'POST',
-        		data: {fileType: fileType, formData: formData},        	
+        		data:  formData,        	
         		cache: false,
         		contentType: false,
         		processData: false,
