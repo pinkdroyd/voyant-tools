@@ -1,3 +1,7 @@
+Voyant.FileUploader = (function() {
+    var that = {},
+
+
     uploadFile = function() {
            if (!window.FileReader) {
             alert('Your browser is not supported')
@@ -13,16 +17,16 @@
         } else {
             alert('Please upload a file before continuing')
         } 
-    }
+    },
     
-    function processFile(e) {
+    processFile = function(e) {
         var file = e.target.result,
             results;
         if (file && file.length) {
             results = file.split("\n");
             $('#text-input').text(results);           
         }
-    }
+    };
 
   /*function handleFileSelect(evt) {
     evt.stopPropagation();
@@ -81,4 +85,7 @@
             });
         }); 
 
-    */
+    */    
+
+    return that;
+}());
