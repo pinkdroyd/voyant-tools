@@ -5,6 +5,10 @@ Voyant.View = (function() {
 		console.log("init View");
 		appendSidebar(); 
 		appendContent(); 
+
+		/*window.onbeforeunload = function(){
+        return "Seite wirklich neu Laden? Alle bisherigen Daten gehen somit verloren!";
+    	}*/
 	},
 
 	appendSidebar = function () {
