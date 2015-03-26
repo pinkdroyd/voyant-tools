@@ -1,6 +1,6 @@
 var Voyant = {
 	init: function() {
-		console.log("init Voyant");
+		console.log("initVoyant");
 		Voyant.MainController.init();
 	}
 }

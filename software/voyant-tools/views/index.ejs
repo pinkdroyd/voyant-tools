@@ -10,210 +10,25 @@
       <body>
         <div id="website">
             <!--sidebar-->
-            <div id="sidebar" class="col-md-offset-1 col-md-3"> 
+            <div id="nav-bar"> 
             </div>
 
             <!--content-->
-            <div id="content" class="col-md-offset-1 col-md-6 col-md-offset-1">
+            <div id="content">
             </div>
         </div>
 
 
-        <!--Sidebar-Template-->
-        <script type="text/template" id="sidebar-tpl">
-            <ul class="list-group">
-                <!--Voyant-Logo-->
-                <img id="voyant-logo" src="/images/voyant-see.png"></img>
-
-                <!--Corpus-->
-                <li id="sidebar-corpus-button" class="list-group-item sidebar-item">
-                    <span class="glyphicon glyphicon-book"></span> Corpus
-                </li>
-                <li id="sidebar-upload-button" class="list-group-item sidebar-subitem">Upload</li>
-                <li id="sidebar-settings-button" class="list-group-item sidebar-subitem">Settings</li>
-
-                <!--Analyze-->
-                <li id="sidebar-analyze-button" class="list-group-item sidebar-item">
-                    <span class="glyphicon glyphicon-search"></span> Analyze
-                </li> 
-                <li id="sidebar-corpusgrid-button" class="list-group-item sidebar-subitem analyze-subitems">Corpus Grid</li>
-                <li id="sidebar-summary-button" class="list-group-item sidebar-subitem analyze-subitems">Corpus Summary</li>
-                <li id="sidebar-ctfg-button" class="list-group-item sidebar-subitem analyze-subitems">Corpus Type Frequencies Grid</li>
-                <li id="sidebar-dtcfg-button" class="list-group-item sidebar-subitem analyze-subitems">Document Type Collocate Frequencies Grid </li> 
-                <li id="sidebar-dtfg-button" class="list-group-item sidebar-subitem analyze-subitems">Document Type Frequencies Grid </li>
-                <li id="sidebar-dtkg-button" class="list-group-item sidebar-subitem analyze-subitems"> Document Type KWICs Grid </li>
-
-                <!--Visualize-->
-                <li id="sidebar-visualize-button" class="list-group-item sidebar-item">
-                    <span class="glyphicon glyphicon-signal"></span> Visualize
-                </li>
-                <li id="sidebar-bubblelines-button" class="list-group-item sidebar-subitem visualize-subitem">Bubblelines</li>
-                <li id="sidebar-cirrus-button" class="list-group-item sidebar-subitem visualize-subitem">Cirrus</li>
-                <li id="sidebar-knots-button" class="list-group-item sidebar-subitem visualize-subitem">Knots</li>
-                <li id="sidebar-lava-button" class="list-group-item sidebar-subitem visualize-subitem">Lava</li>
-                <li id="sidebar-links-button" class="list-group-item sidebar-subitem visualize-subitem">Links</li>
-                <li id="sidebar-mandala-button" class="list-group-item sidebar-subitem visualize-subitem">Mandala</li>
-                <li id="sidebar-rezoviz-button" class="list-group-item sidebar-subitem visualize-subitem">RezoViz</li>
-                <li id="sidebar-scatterplot-button" class="list-group-item sidebar-subitem visualize-subitem">Scatter Plot</li>
-                <li id="sidebar-termometer-button" class="list-group-item sidebar-subitem visualize-subitem">Termometer</li>
-                <li id="sidebar-termsradio-button" class="list-group-item sidebar-subitem visualize-subitem">Terms Radio</li>
-                <li id="sidebar-tfc-button" class="list-group-item sidebar-subitem visualize-subitem">Type Frequencies Chart</li>
-                <li id="sidebar-wcf-button" class="list-group-item sidebar-subitem visualize-subitem">Word Count Fountain</li>
-
-                <!--Custom-->
-                <li id="sidebar-custom-button" class="list-group-item sidebar-item">
-                    <span class="glyphicon glyphicon-wrench"></span> Custom
-                </li>
-
-                <!--Export-->
-                <li id="sidebar-export-button" class="list-group-item sidebar-item">
-                    <span class="glyphicon glyphicon-share"></span> Export
-                </li>
-
-                <!--Help-->
-                <li id="sidebar-help-button" class="list-group-item sidebar-item">
-                    <span class="glyphicon glyphicon-question-sign"></span> Help
-                </li>
-            </ul> 
-        </script>
-
-        <!--Upload-Freetext-Template-->
-        <script type="text/template" id="freetext-tpl">
-            <div class="corpus-navbar">
-                <ul class="nav nav-tabs nav-justified">
-                    <li id="selectFreetext" class="list-group-item corpus-nav-item">Freetext</li>
-                    <li id="selectFileupload" class="list-group-item corpus-nav-item">File-Upload</li>
-                </ul>
-            </div>
-            <div id="freetext" class="col-md-12">
-                <p class="content-text upload-description">Type your text in here or copy and paste documents you want to analyze.</p>
-                <textarea id="text-input"></textarea>
-                <button type="submit" class="btn btn-default" id="use-tool-button">Settings</button>
-                <button type="submit" class="btn btn-default" id="use-tool-button">Start Analyze</button>
-            </div>
-        </script>
-
-        <!--Upload-Fileupload-Template-->
-        <script type="text/template" id="fileupload-tpl">
-            <div class="corpus-navbar">
-                <ul class="nav nav-tabs nav-justified">
-                    <li id="selectFreetext" class="list-group-item corpus-nav-item">Freetext</li>
-                    <li id="selectFileupload" class="list-group-item corpus-nav-item">File-Upload</li>
-                </ul>
-            </div>
-            <div id="file-upload" class="col-md-12">
-                <p class="content-text upload-description">Upload your files from your local file system and get them analyzed.</p>
-                <div id="button-upload">
-                    <input type="file" id="files" />
-                    <button type="submit" class="btn btn-default" id="upload">Upload</button>
-                </div>
-                <button type="submit" class="btn btn-default" id="use-tool-button">Settings</button>
-                <button type="submit" class="btn btn-default" id="use-tool-button">Start Analyze</button>
-            </div>   
-
-        </script>
-
-        <!--Settings-Template-->
-        <script type="text/template" id="settings-tpl">
-            <div class="col-md-12" id="stopwordlist">
-                <div class="col-md-2">
-                    <p class="content-text">Stopwordlist</p>
-                </div>
-                <div class="col-md-10">
-                    <select name="stopwordlist">
-                        <option value="none">None</option>
-                        <option value="english">English</option>
-                        <option value="german">German</option>
-                        <option value="french">French</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-12" id="xpath-expressions">
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="content-text" for="xpath-content">Content:</label>
-                    </div>
-                    <div class="col-md-10 xpath-line">
-                        <input id="xpath-content" class="form-control" type="text"/>
-                    </div>                                        
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="content-text" for="xpath-author">Author:</label>
-                    </div>  
-                    <div class="col-md-10 xpath-line">
-                        <input id="xpath-author" class="form-control" type="text"/>
-                    </div>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="content-text" for="xpath-title">Title:</label>
-                    </div>
-                    <div class="col-md-10 xpath-line">
-                        <input id="xpath-title" class="form-control" type="text"/>  
-                    </div>                                          
-                </div>
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <label class="content-text" for="xpath-documents">Documents:</label>
-                    </div>
-                    <div class="col-md-10 xpath-line">    
-                        <input id="xpath-documents" class="form-control" type="text"/>
-                    </div>
-                </div>
-            </div>
-        </script>
-
-        <!--Tool-Template-->
-        <script type="text/template" id="tool-tpl">
-            <div id="tools" class="col-md-12" class="col-md" style="height: 400px; overflow: hidden;" >
-                <iframe id="ifrm" scrolling="no"  seamless="seamless" frameborder="0" height="110%" width="100%" style="position:relative; top:-25px;" sandbox="allow-same-origin allow-scripts allow-forms">/iframe>
-            </div>
-        </script>
-
-        <script type="text/template" id="custom-tpl">
-            <div class="gridster col-md-12">
-                <ul>
-                    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="test"></li>
-                    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" class="test"></li>
-                    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" class="test"></li>
-                </ul>
-            </div>
-        </script>
-
-        <!--Hilfe-Template-->
-        <script type="text/template" id="help-tpl">
-            <div id="help" class="col-md-12 content-text">
-                <h1> Tools Index </h1>
-            </div>
-            <div id="bubblelines-help-container" class="col-md-12 help-container">
-                <img id="bubblelines-help-image" src="./images/bubblelines-square.png" class="col-md-2"\>
-                <div id="bubblelines-help-text" class="col-md-10 content-text">
-                    <p>Bubblelines visualizes the frequency and repetition of  a word’s use in a corpus. Each document in the corpus is represented as a horizontal line and divided into segments of equal length. Each selected word is represented as a bubble with the size of the bubble indicating the word’s frequency in the corresponding segment of text. The larger the bubble’s radius the more frequently the word occurs.</p>
-                </div>
-            </div>
-            <div id="bubblelines-help-container" class="col-md-12 help-container">
-                <img id="bubblelines-help-image" src="./images/bubblelines-square.png" class="col-md-2"\>
-                <div id="bubblelines-help-text" class="col-md-10 content-text">
-                    <p>Bubblelines visualizes the frequency and repetition of  a word’s use in a corpus. Each document in the corpus is represented as a horizontal line and divided into segments of equal length. Each selected word is represented as a bubble with the size of the bubble indicating the word’s frequency in the corresponding segment of text. The larger the bubble’s radius the more frequently the word occurs.</p>
-                </div>
-            </div>
-        </script>
             
         <!--Libs-->
-        <script src="/javascripts/jquery-2.1.3.min.js"></script>
-        <script src="/javascripts/underscore-min.js"></script>
+        <script src="/javascripts/libs/jquery-2.1.3.min.js"></script>
+        <script src="/javascripts/libs/underscore-min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.2-latest.js" type="text/javascript"></script>
-        <script src="/javascripts/jquery.gridster.min.js"></script>
 
         <!--JS-Files-->
-        <script src="/javascripts/sidebar.js"></script>
         <script src="/javascripts/Voyant.js"></script>
-        <script src="/javascripts/MainController.js"></script>
-        <script src="/javascripts/Model.js"></script>
-        <script src="/javascripts/View.js"></script>
-        <script src="/javascripts/fileupload.js"></script>
-        <script src ="/controllers/corpusController.js"></script>
+        <script src="/javascripts/controller/MainController.js"></script>
+        <script src="/javascripts/views/NavbarView.js"></script>
 
         <script>
                 Voyant.init();
