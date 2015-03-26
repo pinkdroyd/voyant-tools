@@ -6,11 +6,13 @@ Voyant.MainController = (function() {
 		console.log("init MainController");
 		Voyant.View.init(); 
 		Voyant.Model.init();
-		Voyant.CorpusController.init(); 
+	},
+
+	appendUploadCorpus = function() {
+		console.log("appendUploadCorpus");
 	};
 
 	that.init = init;
-
 
 	return that;
 }());

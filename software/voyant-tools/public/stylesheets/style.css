@@ -1,0 +1,24 @@
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}*/
+
+html{
+	background-color: #646464;
+}
+
+#website{
+	background-color: #646464;
+}
+
+
+#content {
+	background-color: #3B3B3C;
+	clear: both;
+	overflow: auto;
+	padding: 0;
+}

@@ -1,0 +1,29 @@
+#stopwordlist{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#stopword-label, .xpath-label, #xpath-heading{
+	font-size: 16px;
+	color:white;
+}
+
+#stopword-dropdown {
+	font-size: 16px;
+}
+
+#xpath-heading{
+	margin-top: 20px;
+	text-decoration: underline;
+}
+
+#xpath-expressions{
+	border-top: solid;
+	border-color: white;
+	border-width: 1px;
+}
+
+.xpath-line{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
