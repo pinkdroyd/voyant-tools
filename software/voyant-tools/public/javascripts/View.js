@@ -74,6 +74,7 @@ Voyant.View = (function() {
 		    case "sidebar-custom-button":
 		    	unselectMenuItems();
 		        $("#sidebar-custom-button").css("background-color", "#B02130");
+		        appendCustom(); 
 		        break; 
 
 		    /*Click für Export-Button*/
@@ -337,6 +338,21 @@ Voyant.View = (function() {
 		}); 
 		$ifrm.attr('src', url);
 	},
+
+	appendCustom = function () {
+		var customTemplate = _.template($("#custom-tpl").html());
+		$("#content").html(customTemplate);
+ 	
+ 		var gridster = $(".gridster ul").gridster().data('gridster');
+ 
+	    $(".gridster ul").gridster({
+	        widget_margins: [10, 10],
+	        avoid_overlapped_widgets: true
+	    });
+
+
+ 
+	}
 
 	appendHelp = function () {
 		var helpTemplate = _.template($("#help-tpl").html());

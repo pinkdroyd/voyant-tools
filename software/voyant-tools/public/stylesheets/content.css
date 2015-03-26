@@ -33,3 +33,8 @@
 #files {
 	height: 20px;
 }
+
+.test{
+	background-color: white;
+	border: solid;
+}
