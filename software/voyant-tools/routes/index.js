@@ -16,53 +16,41 @@ router.post('/fileupload/', function(req, res, next) {
   	console.log("receiving file");
  	var filePath = './public/files/';
  	var form = new formidable.IncomingForm();
+    var files = [];
+    var fields = [];
  	form.uploadDir = filePath;
-
-    form.on('file', function(name, file) {
-    	var fileExtension = '';
-
-    	if(file.type === 'text/plain'){	
-    		fileExtension = ".txt";
-    	} else if(file.type === 'text/xml') {
-    		fileExtension = ".xml";
-    	} else {
-    		console.log("filetype not supported");
-    	}
-    	file.name  = name + fileExtension;
-	});
     
-
-/*
-  	var body = '';
-    var filePath = './public/files/';
-    var fileName = 'document_' + Date.now();
-	console.log(req.body);
-    req.on('data', function(data) {    	
-        body += data;
+    form
+    .on('field', function(field, value) {
+        console.log(field, value);
+        fields.push([field, value]);
+      })
+    .on('file', function(field, file) {
+        console.log(field, file);
+        var fileExtension = '';
+    
+            if(file.type === 'text/plain'){ 
+                fileExtension = ".txt";
+            } else if(file.type === 'text/xml') {
+                fileExtension = ".xml";
+            } else {
+                console.log("filetype not supported");
+            }
+    
+        file.name = "upload_" + Date.now() + fileExtension;
+        fs.rename(file.path, filePath + file.name);
+        files.push([field, file]);
+      })
+    .on('end', function() {
+        console.log('-> upload done');
+        	
+        res.write('received fields:\n\n '+util.inspect(fields));
+        res.write('\n\n');
+        res.end('received files:\n\n '+util.inspect(files));
+    
     });
+    form.parse(req);    
 
-    req.on('end', function (){
-		 //console.log("object", req);  	
-    	
-    	var fileExtension = "";
-    	var fileType = req.body.type; 
-    	
-
-    	if(fileType === 'text/plain;charset=UTF-8') 
-    	{	
-    		fileExtension = ".txt";
-    	} else if(fileType === 'text/xml') {
-    		fileExtension = ".xml";
-    	} else {
-    		console.log("filetype not supported");
-    	}
-    	var fullpath = filePath + fileName + fileExtension;
-        fs.appendFile(fullpath, body.formData, function() {
-
-           res.send(req.headers);
-        });
-    });
-*/
 });
 
 module.exports = router;

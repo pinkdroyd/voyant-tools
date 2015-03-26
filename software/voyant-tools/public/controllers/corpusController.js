@@ -27,15 +27,14 @@ Voyant.CorpusController = (function() {
 	initExpressUpload = function (file){
 		var fileInput = $('#files');
 		var uploadButton = $('#upload');
-		var files = $('#files').prop('files')[0];
-		console.log("Files", files);
+		var files = $('#files').prop('files')[0];		
 	
 		if(files.type === 'text/plain' || files.type === 'text/xml'){
 
-			var formData = new FormData();			
-			formData.append('upload_files', files);
-
+			var formData = new FormData();
 			var fileType = files.type;			
+			formData.append('file_type', fileType);			
+			formData.append('file_data', files);
 			
 			$.ajax({				
         		url: '/fileupload/',  //Server script to process data
