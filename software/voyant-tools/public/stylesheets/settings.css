@@ -29,6 +29,13 @@
 }
 
 #apply-xpath-button, #to-tools-button {
+	margin-top: 10px;
 	margin-bottom: 20px;
 	width: 15%; 
+}
+
+#settings-feedback{
+	color: green; 
+	margin-bottom: 10px;
+	visibility: hidden;
 }
