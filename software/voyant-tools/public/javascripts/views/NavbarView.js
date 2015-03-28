@@ -8,6 +8,7 @@ Voyant.NavbarView = (function() {
 		setupHover();
 		setupMenuClicklistener();
 		appendFreetext();
+		//appendFileupload(); 
 	},
 
 	setupHover = function () {

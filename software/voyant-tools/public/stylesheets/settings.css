@@ -1,15 +1,16 @@
-#stopwordlist{
+#stopword-label{
 	margin-top: 20px;
-	margin-bottom: 20px;
+	text-decoration: underline;
 }
+
 
 #stopword-label, .xpath-label, #xpath-heading{
 	font-size: 16px;
 	color:white;
 }
 
-#stopword-dropdown {
-	font-size: 16px;
+#select-stopwordlist, #add-stopwordlist{
+	width: 100%;
 }
 
 #xpath-heading{
@@ -18,7 +19,6 @@
 }
 
 #xpath-expressions{
-	border-top: solid;
 	border-color: white;
 	border-width: 1px;
 }
@@ -26,4 +26,9 @@
 .xpath-line{
 	margin-top: 10px;
 	margin-bottom: 20px;
+}
+
+#apply-xpath-button, #to-tools-button {
+	margin-bottom: 20px;
+	width: 15%; 
 }

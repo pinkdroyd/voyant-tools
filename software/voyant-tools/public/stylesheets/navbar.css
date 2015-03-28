@@ -19,3 +19,14 @@
 .nav-element-label {
 	color: white;
 }
+
+
+#logo-container {
+	padding: 0;
+	height: 100%;	
+}
+
+#logo{
+	height: 100%;
+	width: 100%;
+}
