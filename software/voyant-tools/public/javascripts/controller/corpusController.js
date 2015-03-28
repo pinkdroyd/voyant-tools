@@ -71,14 +71,15 @@ Voyant.CorpusController = (function() {
         		cache: false,
         		contentType: false,
         		processData: false,
-        		success: function(msg){
-        			onFileReady(msg);
+        		success: function(result){
+        			onFileReady(result);
         		}
     		});
 	},
 
-	onFileReady = function(fileName){
-		console.log(fileName);
+	onFileReady = function(result){
+		console.log(result);
+		console.log("Name " + result.files[0].name);
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
 	};	
