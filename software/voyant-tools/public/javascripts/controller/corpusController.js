@@ -9,9 +9,16 @@ Voyant.CorpusController = (function() {
 		console.log('init Buttons'); 
 		var fileInput = $('#files');		
 		$(document).on('click', '#upload', function(event) {
+			event.preventDefault();			
+    		initFileUpload();
+		});
+
+		//TODO: implement "next" button for freetext 
+	
+		$(document).on('click', '#next', function(event) {
 			event.preventDefault();
-			console.log('click upload'); 			
-    		initExpressUpload();
+			initFreeTextUpload();
+    		
 		});
 	},
 
@@ -24,9 +31,19 @@ Voyant.CorpusController = (function() {
 			});
 	},
 
-	initExpressUpload = function (file){
-		var fileInput = $('#files');
-		var uploadButton = $('#upload');
+	initFreeTextUpload = function (){
+		var textInput = $('#text-input');		
+		var text = $('#text-input').val();			
+		var formData = new FormData();
+		var fileType = 'text/plain';		
+		formData.append('file_type', fileType);			
+		formData.append('file_data', text);		
+		sendFileToServer(formData);		
+		
+	},
+
+	initFileUpload = function (){
+		var fileInput = $('#files');		
 		var files = $('#files').prop('files')[0];		
 	
 		if(files.type === 'text/plain' || files.type === 'text/xml'){
@@ -35,9 +52,17 @@ Voyant.CorpusController = (function() {
 			var fileType = files.type;			
 			formData.append('file_type', fileType);			
 			formData.append('file_data', files);
+			sendFileToServer(formData);
 			
-			$.ajax({				
-        		url: '/fileupload/',  //Server script to process data
+		} else {
+			alert('File type not supported');
+		}	
+		
+	},
+
+	sendFileToServer = function(formData){
+		$.ajax({				
+        		url: '/fileupload/', 
         		type: 'POST',
         		data:  formData,        	
         		cache: false,
@@ -47,46 +72,13 @@ Voyant.CorpusController = (function() {
         			onFileReady(msg);
         		}
     		});
-		} else {
-			alert('File type not supported');
-		}	
-		
 	},
 
 	onFileReady = function(fileName){
 		console.log(fileName);
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
-	},
-
-	readFile = function() {
-		
-		var fileInput = $('#files');
-        if (!window.FileReader) {
-            alert('Your browser is not supported')
-        }
-        var input = fileInput.get(0);
-        console.log("Input", input);
-        
-        // Create a reader object
-        var reader = new FileReader();
-        if (input.files.length) {
-            var textFile = input.files[0];
-            reader.readAsText(textFile);
-            $(reader).on('load', processFile);
-        } else {
-            alert('Please upload a file before continuing')
-        } 
-    },
-    
-    processFile = function(e) {
-        var file = e.target.result,
-            results;
-        if (file && file.length) {  
-            results = file.split("\n");           
-            $('#text-input').text(results);           
-        }
-    };
+	};	
 	
 	that.init = init;
 

@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/fileupload/', function(req, res, next) {  
   	console.log("receiving file");
- 	var filePath = './public/files/';
+ 	var filePath = '/public/files/';
  	var form = new formidable.IncomingForm();
     var files = [];
     var fields = [];
@@ -22,11 +22,11 @@ router.post('/fileupload/', function(req, res, next) {
     
     form
     .on('field', function(field, value) {
-        console.log(field, value);
-        fields.push([field, value]);
+        
+        fields.push(field);
       })
     .on('file', function(field, file) {
-        console.log(field, file);
+        
         var fileExtension = '';
     
             if(file.type === 'text/plain'){ 
@@ -39,14 +39,16 @@ router.post('/fileupload/', function(req, res, next) {
     
         file.name = "upload_" + Date.now() + fileExtension;
         fs.rename(file.path, filePath + file.name);
-        files.push([field, file]);
+        files.push(file);
       })
     .on('end', function() {
-        console.log('-> upload done');
-        	
-        res.write('received fields:\n\n '+util.inspect(fields));
-        res.write('\n\n');
-        res.end('received files:\n\n '+util.inspect(files));
+        console.log('-> upload done');        
+       	var result = {
+            path : filePath,
+            files: files
+        };       
+        res.send(result);
+        res.end();
     
     });
     form.parse(req);    
