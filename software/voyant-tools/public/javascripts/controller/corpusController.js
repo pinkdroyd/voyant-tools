@@ -1,8 +1,12 @@
 Voyant.CorpusController = (function() {
 	var that = {},
+	settingsController = null,
+
 	init = function() {
 		console.log("init CorpusController");
 		initButton();
+		settingsController = Voyant.SettingsController;
+		
 	},
 
 	initButton = function (){	
@@ -13,8 +17,7 @@ Voyant.CorpusController = (function() {
     		initFileUpload();
 		});
 
-		//TODO: implement "next" button for freetext 
-	
+		//TODO: implement "next" button for freetext 	
 		$(document).on('click', '#next', function(event) {
 			event.preventDefault();
 			initFreeTextUpload();
