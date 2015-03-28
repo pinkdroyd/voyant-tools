@@ -21,4 +21,7 @@ html{
 	clear: both;
 	overflow: auto;
 	padding: 0;
+	border: solid;
+	border-color: white;
+	border-width: 1px;
 }

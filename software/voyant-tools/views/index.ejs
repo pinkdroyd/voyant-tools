@@ -66,17 +66,24 @@
         </script>
 
         <script type="text/template" id="settings-tpl">
-        <div class="col-md-12" id="stopwordlist">
-            <div class="col-md-2">
-                <p id="stopword-label"> Stopwordlist </p>
+        <div class="col-md-5" id="stopwordlist">
+            <div class="col-md-3">
+                <div class="col-md-6">
+                    <p id="stopword-label"> Stopwordlist: </p>
+                </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-3">
                 <select id="stopword-dropdown" name="stopwordlist">
                     <option value="none">None</option>
                     <option value="english">English</option>
                     <option value="german">German</option>
                     <option value="french">French</option>
                 </select>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-default" id="freetext-corpus-settings">
+                    <span class="glyphicon glyphicon-plus"></span> Add new Stopwordlist
+                </button>
             </div>
         </div>
         <div class="col-md-12" id="xpath-expressions">
