@@ -108,7 +108,7 @@ Voyant.NavbarView = (function() {
 
 		$("#freetext-button").click(function(e) {
 			appendFreetext();
-		});
+		});	
 	},
 
 	appendSettings = function() {
