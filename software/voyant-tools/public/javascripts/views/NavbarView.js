@@ -4,11 +4,14 @@ Voyant.NavbarView = (function() {
 
 	init = function() {
 		console.log("init NavbarView");
-
+		$("#logo-container").height($("#upload-corpus").outerHeight());
+		
 		setupHover();
 		setupMenuClicklistener();
 		appendFreetext();
 		//appendFileupload(); 
+
+		
 	},
 
 	setupHover = function () {
