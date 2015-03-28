@@ -12,9 +12,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.post('/xpath/', function(req, res, next) {  
+     var val = req.body.data;
+});
+
 router.post('/fileupload/', function(req, res, next) {  
   	console.log("receiving file");
- 	var filePath = '/public/files/';
+ 	var filePath = './public/files/';
  	var form = new formidable.IncomingForm();
     var files = [];
     var fields = [];
