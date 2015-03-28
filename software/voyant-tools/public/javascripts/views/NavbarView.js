@@ -9,9 +9,6 @@ Voyant.NavbarView = (function() {
 		setupHover();
 		setupMenuClicklistener();
 		appendFreetext();
-		//appendFileupload(); 
-
-		
 	},
 
 	setupHover = function () {
@@ -113,6 +110,8 @@ Voyant.NavbarView = (function() {
 		$("#freetext-button").click(function(e) {
 			appendFreetext();
 		});	
+
+		$.getScript("/javascripts/libs/fileinput.js");
 	},
 
 	appendSettings = function() {

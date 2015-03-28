@@ -44,12 +44,7 @@
 }
 
 #upload-container {
-	display: block;
-	border: solid;
-	border-width: 1px;
-	border-color: white;
 	margin-bottom: 20px;
-	height: 300px;
 	width: 100%;
 }
 
