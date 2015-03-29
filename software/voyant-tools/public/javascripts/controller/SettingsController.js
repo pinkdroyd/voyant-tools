@@ -1,24 +1,25 @@
 Voyant.SettingsController = (function() {
-	var that = {},
-	files = [],
-	filePath = "",	
+	var that = {},	
+	fileName = "",	
 
-	init = function() {
-		console.log("init SettingsController");		
+	init = function(filename) {
+		console.log("init SettingsController");
+		initButtons();
+		setFileParameter(filename);		
 	},
 
 	initButtons = function(){
 		var buttonNext = $("#apply-xpath-button");
 
-		buttonNext.on('click', function(){
+		$(document).on('click','#apply-xpath-button', function(event){
+			event.preventDefault();
 			console.log('button next clicked');
 			getXPathExpressions();
 		});
 	},
 
-	setFileParameter = function(filpath, files){
-		filePath = filepath;
-		files = files;
+	setFileParameter = function(filename){
+		fileName = filename;		
 	},
 
 	getStopWordListValue = function(){
@@ -26,27 +27,25 @@ Voyant.SettingsController = (function() {
 		console.log("Stopwordlist: " + stopwordValue);
 	},
 
-	getXPathExpressions = function(){
+	getXPathExpressions = function(){		
 		var xPathContent 	= $("#xpath-content").val();
 		var xPathAuthor 	= $("#xpath-author").val();
 		var xPathTitle 		= $("#xpath-title").val();
 		var xPathDocuments 	= $("#xpath-documents").val();
 
-		if(files.length > 0){
-
 			var xPath = {
-				file_name		: files[0].name,
+				file_name		: fileName,
 				xpath_content	: xPathContent,
 				xpath_author	: xPathAuthor,
 				xpath_title		: xPathTitle,
 				xpath_documents : xPathDocuments
 			}		
-	
-			sendFileToServer(xPath);	
-		} 
+			console.log("xPath Object to Server: ",	 xPath);
+			sendXPathToServer(xPath);	
+			
 	},
 	
-	sendFileToServer = function(xPath){
+	sendXPathToServer = function(xPath){
 
 		$.post('/xpath/', {data : xPath}, function (result){
 			onXPathReady(result);
