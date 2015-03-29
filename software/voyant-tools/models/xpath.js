@@ -6,8 +6,12 @@ var fs = require('fs'),
     expressions = {};
     
 
-init = function(fileName, xpathExpressions){
-	parseFile(fileName);
+init = function(object){
+	initObject(object);
+}
+
+initObject = function(object){
+	parseFile(object.file_name);	
 	expressions = xpathExpressions;
 }
 
