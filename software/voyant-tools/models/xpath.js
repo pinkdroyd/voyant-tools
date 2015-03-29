@@ -1,5 +1,4 @@
-var fs = require('fs'),
-    xml2js = require('xml2js'),
+var fs = require('fs'),    
     xpath = require('xpath'),
     dom = require('xmldom').DOMParser,
     filePath = './public/files/'
@@ -11,33 +10,36 @@ init = function(object){
 }
 
 initObject = function(object){
+	console.log("xpath file name: " + object.file_name);
+	expressions = object.xpath_expressions;
 	parseFile(object.file_name);	
-	expressions = xpathExpressions;
 }
 
-parseFile = function(fileName){
-	var parser = new xml2js.Parser();
-	fs.readFile(filePath + fileName, function(err, data) {
+parseFile = function(fileName){	
+	//TODO: parse xml-File to string
+	fs.readFile(filePath + fileName, function(err, data) {	    
 
-	    parser.parseString(data, function (err, xml) {
-	        console.dir(xml);
-	        console.log('Done parsing...');
-
-	        applyXPath(xml);
+	        //applyXPath(xml);
 
 	    });
 
-	});
+	
 }
 
 applyXPath = function(xml){
-	for(var expression in expressions) {
+	
+	console.log("Expressions: " + expressions);
+	for(var key in expressions) {
 
-  		console.log(k, expressions[k]);
+		var attrValue = expressions[key];  		
+
+  		if(attrValue != ""){
+  			var doc = new dom().parseFromString(xml);  		
+    		var title = xpath.select(attrValue, doc).toString();
+    		console.log(title)
+  		}
   		
-    	var doc = new dom().parseFromString(xml);
-    	var title = xpath.select(expression, doc).toString();
-    	console.log(title)
+    
 
 	}
 }
