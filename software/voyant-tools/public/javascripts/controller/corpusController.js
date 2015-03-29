@@ -12,16 +12,15 @@ Voyant.CorpusController = (function() {
 	initButton = function (){	
 		console.log('init Buttons'); 
 		var fileInput = $('#files');		
-		$(document).on('click', '#upload', function(event) {
+		$(document).on('click', '#apply-upload-button', function(event) {
 			event.preventDefault();			
     		initFileUpload();
 		});
 
 		//TODO: implement "next" button for freetext 	
-		$(document).on('click', '#next', function(event) {
+		$(document).on('click', '#apply-freetext-button', function(event) {
 			event.preventDefault();
-			initFreeTextUpload();
-    		
+			initFreeTextUpload();    		
 		});
 	},
 
@@ -80,6 +79,8 @@ Voyant.CorpusController = (function() {
 	onFileReady = function(result){
 		console.log(result);
 		console.log("Name " + result.files[0].name);
+		var fileName = result.files[0].name;
+		$("#file-upload-feedback").append("<p>Your file: " + fileName + " has been uploaded!</p>");
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
 	};	

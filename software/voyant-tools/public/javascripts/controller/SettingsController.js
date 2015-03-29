@@ -8,7 +8,7 @@ Voyant.SettingsController = (function() {
 	},
 
 	initButtons = function(){
-		var buttonNext = $("#button-next");
+		var buttonNext = $("#apply-xpath-button");
 
 		buttonNext.on('click', function(){
 			console.log('button next clicked');
