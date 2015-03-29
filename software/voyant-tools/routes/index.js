@@ -13,11 +13,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/xpath/', function(req, res, next) {  
-     var val = req.body.data;
-     console.log(val);
-     //xpath.init(val);
-     res.send(req.body);
+router.get('/xpath/', function(req, res, next) {
+
+     var val = req.query.data;     
+     xpath.init(val);
+     res.send("parsing xpath");     
 });
 
 router.post('/textupload/', function(req, res, next) {
