@@ -12,8 +12,7 @@ Voyant.SettingsController = (function() {
 		var buttonNext = $("#apply-xpath-button");
 
 		$(document).on('click','#apply-xpath-button', function(event){
-			event.preventDefault();
-			console.log('button next clicked');
+			event.preventDefault();			
 			getXPathExpressions();
 		});
 	},
@@ -35,26 +34,28 @@ Voyant.SettingsController = (function() {
 
 			var xPath = {
 				file_name		: fileName,
-				xpath_content	: xPathContent,
-				xpath_author	: xPathAuthor,
-				xpath_title		: xPathTitle,
-				xpath_documents : xPathDocuments
+				xpath_expressions: {
+					xpath_content	: xPathContent,
+					xpath_author	: xPathAuthor,
+					xpath_title		: xPathTitle,
+					xpath_documents : xPathDocuments
+				}				
 			}		
-			console.log("xPath Object to Server: ",	 xPath);
+		
 			sendXPathToServer(xPath);	
 			
 	},
 	
 	sendXPathToServer = function(xPath){
 
-		$.post('/xpath/', {data : xPath}, function (result){
+		$.get('/xpath/', {data : xPath}, function (result){
 			onXPathReady(result);
 		});
 
 	},
 
 	onXPathReady = function(result){
-
+		console.log(result);
 	};
 
 
