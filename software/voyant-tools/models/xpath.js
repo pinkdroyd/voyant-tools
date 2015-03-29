@@ -1,7 +1,9 @@
 var fs = require('fs'),    
     xpath = require('xpath'),
     dom = require('xmldom').DOMParser,
-    filePath = './public/files/'
+    filePath = './public/files/',
+    util = require('util'),
+	xml = require("node-xml"),
     expressions = {};
     
 
@@ -17,11 +19,18 @@ initObject = function(object){
 
 parseFile = function(fileName){	
 	//TODO: parse xml-File to string
+	var parser = new xml.SaxParser();	
+		parser.parseFile(filePath + fileName);
+		parser.onEndDocument(function() {
+			console.log("RESULT: ");
+		})
+
+		 //applyXPath(xml);
 	fs.readFile(filePath + fileName, function(err, data) {	    
 
-	        //applyXPath(xml);
+	       
 
-	    });
+	});
 
 	
 }
