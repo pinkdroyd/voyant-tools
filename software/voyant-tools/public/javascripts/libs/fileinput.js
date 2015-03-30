@@ -1702,7 +1702,7 @@
         allowedPreviewTypes: defaultPreviewTypes,
         allowedPreviewMimeTypes: null,
         allowedFileTypes: null,
-        allowedFileExtensions: null,
+        allowedFileExtensions: ["txt", "html", "htm", "xml", "doc", "docx", "rtf", "pdf"],
         customLayoutTags: {},
         customPreviewTags: {},
         previewSettings: defaultPreviewSettings,
