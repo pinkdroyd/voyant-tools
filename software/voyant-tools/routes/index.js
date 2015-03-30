@@ -16,8 +16,10 @@ router.get('/', function(req, res, next) {
 router.get('/xpath/', function(req, res, next) {
 
      var val = req.query.data;     
-     xpath.init(val);
-     res.send("parsing xpath");     
+     xpath.init(val, function(newFileName){
+        res.send("new file with applied xpath: " + newFileName);     
+     });
+     
 });
 
 router.post('/textupload/', function(req, res, next) {

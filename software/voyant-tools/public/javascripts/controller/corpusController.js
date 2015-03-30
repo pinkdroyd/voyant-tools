@@ -1,6 +1,8 @@
 Voyant.CorpusController = (function() {
 	var that = {},
 	settingsController = null,
+	fileUploaded = false,
+	fileName = "",
 
 	init = function() {
 		console.log("init CorpusController");
@@ -8,8 +10,8 @@ Voyant.CorpusController = (function() {
 		
 	},
 
-	initButton = function (){	
-		console.log('init Buttons'); 
+	initButton = function (){
+		 
 		var fileInput = $('#files');		
 		$(document).on('click', '#apply-upload-button', function(event) {
 			event.preventDefault();			
@@ -67,10 +69,9 @@ Voyant.CorpusController = (function() {
 	},
 
 	onFileReady = function(result){
-		console.log(result);
-		console.log("Name " + result.data.name);
-		console.log("Path " + result.data.path);
-		var fileName = result.data.name;
+		
+		fileName = result.data.name;
+		fileUploaded = true;
 
 		Voyant.SettingsController.init(fileName);
 
