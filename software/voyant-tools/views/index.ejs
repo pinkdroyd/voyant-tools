@@ -7,6 +7,7 @@
             <link rel="stylesheet" type="text/css" href="/stylesheets/navbar.css">
             <link rel="stylesheet" type="text/css" href="/stylesheets/upload.css">
             <link rel="stylesheet" type="text/css" href="/stylesheets/settings.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/selecttools.css">
             <link rel="stylesheet" type="text/css" href="/stylesheets/fileinput.css" media="all">
       </head>
       <body>
@@ -30,7 +31,17 @@
             </div>
 
             <div id="content" class="col-md-offset-1 col-md-10 col-md-offset-1">   
-            </div>
+                <div class="col-md-4" id="tool-container">
+                    <div  id="tool-image-container">
+                        <img src="/images/bubblelines-square.png" class="img-rounded" id="tool-image">
+                    </div>
+                    <div id="tool-description-container">
+                        <p id="tool-description"> Bubblelines visualizes the frequency and repetition of  a word’s use in a corpus. Each document in the corpus is represented as a horizontal line and divided into segments of equal length. Each selected word is represented as a bubble with the size of the bubble indicating the word’s frequency in the corresponding segment of text. The larger the bubble’s radius the more frequently the word occurs. </p>
+                    </div>
+                    <button type="submit" class="btn btn-default" id="select-tool-button">
+                        <span class="glyphicon glyphicon-plus"></span> Add 
+                    </button>
+                </div>
         </div>
 
         <script type="text/template" id="freetext-tpl">
