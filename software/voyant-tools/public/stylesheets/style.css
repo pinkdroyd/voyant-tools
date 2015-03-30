@@ -25,3 +25,13 @@ html{
 	border-color: white;
 	border-width: 1px;
 }
+
+.btn-primary {
+	  background-color: rgb(176, 33, 48);
+	  border-color: rgb(176, 33, 48);
+}
+
+.btn-primary:hover {
+ 	background-color: rgb(131, 139, 139);
+	  border-color: rgb(131, 139, 139);
+}
