@@ -24,9 +24,8 @@
     margin: 20px;
 }
 
-#tool-description, #tool-title {
+.select-tools-text {
     color: white;
-
 }
 
 #select-tool-button {

@@ -8,7 +8,7 @@ Voyant.NavbarView = (function() {
 		
 		setupHover();
 		setupMenuClicklistener();
-		//appendFreetext();
+		appendFreetext();
 
 
 		$("#tool-container").mouseenter(function(){
