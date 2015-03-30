@@ -4,53 +4,74 @@ var fs = require('fs'),
     filePath = './public/files/',
     util = require('util'),
 	xml = require("node-xml"),
+	path = require('path'),
+
     expressions = {};
     
 
-init = function(object){
-	initObject(object);
-}
-
-initObject = function(object){
-	console.log("xpath file name: " + object.file_name);
-	expressions = object.xpath_expressions;
-	parseFile(object.file_name);	
-}
-
-parseFile = function(fileName){	
-	//TODO: parse xml-File to string
-	var parser = new xml.SaxParser();	
-		parser.parseFile(filePath + fileName);
-		parser.onEndDocument(function() {
-			console.log("RESULT: ");
-		})
-
-		 //applyXPath(xml);
-	fs.readFile(filePath + fileName, function(err, data) {	    
-
-	       
-
+init = function(object, callback){
+	initObject(object, function(newFileName){
+		callback(newFileName);
 	});
-
-	
 }
 
-applyXPath = function(xml){
+initObject = function(object, callback){
+
+	expressions = object.xpath_expressions;
+	parseFile(object.file_name, function(newFileName){
+		callback(newFileName);
+	});	
+}
+
+parseFile = function(fileName, callback){		
 	
-	console.log("Expressions: " + expressions);
+	fs.readFile(filePath + fileName, 'utf8', function(err, xml) {
+       	if(err){
+           	return console.log(err);
+       	}
+       	 applyXPath(xml, fileName, function(newFileName){
+       	 	callback(newFileName);
+       	 });
+    });
+}
+
+applyXPath = function(xml, fileName, callback){	
+	
 	for(var key in expressions) {
 
 		var attrValue = expressions[key];  		
 
   		if(attrValue != ""){
   			var doc = new dom().parseFromString(xml);  		
-    		var title = xpath.select(attrValue, doc).toString();
-    		console.log(title)
-  		}
-  		
-    
+    		var data = xpath.select(attrValue, doc).toString();    		
+    		var tempFileName = filePath + "_" + fileName;
 
+    		fs.writeFile(tempFileName, data, function(err) {
+            	if(err) {
+            	    return console.log(err);
+            	}                	
+            	
+        	});
+        	modFileName(filePath, fileName, tempFileName, function(newFileName) {
+        		callback(newFileName);
+        	});
+  		}
 	}
+}
+
+modFileName = function(file_path, file_name, temp_filename, callback){
+
+	var fileName = file_path + file_name;
+	var ext = path.extname(fileName);
+	var removedExtensionString = fileName.slice(0, fileName.length - ext.length);	
+	var newFileName = removedExtensionString + "_mod" + ext;	
+
+	fs.rename(temp_filename, newFileName, function(err){
+		if(err) {
+            return console.log(err);
+        }  
+	});
+	callback(newFileName);
 }
 
 exports.init = init;
