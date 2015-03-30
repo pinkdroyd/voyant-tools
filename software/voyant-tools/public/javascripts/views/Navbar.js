@@ -1,24 +1,25 @@
-Voyant.NavbarView = (function() {
+Voyant.Navbar = (function() {
 	var that = {},
+	MainController = Voyant.MainController, 
 
 
 	init = function() {
-		console.log("init NavbarView");
+		console.log("init Navbar");
 		$("#logo-container").height($("#upload-corpus").outerHeight());
 		
 		setupHover();
 		setupMenuClicklistener();
-		appendFreetext();
+		appendUpload();
 	},
 
 	setupHover = function () {
-		$(".nav-element , .upload-nav-element").mouseenter(function() {
+		$(".nav-element").mouseenter(function() {
 			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 				$(this).css("background-color", "#838B8B");
 			}
 		});
 
-		$(".nav-element, .upload-nav-element").mouseleave(function() {
+		$(".nav-element").mouseleave(function() {
 			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 				$(this).css("background-color", "#3B3B3C");
 			}
@@ -34,14 +35,14 @@ Voyant.NavbarView = (function() {
 					if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 						$(".nav-element").css("background-color", "#3B3B3C");
 						$(this).css("background-color", "#B02130");
-						appendFreetext();
+						appendUpload();
 					}
 	        		break;
 	        	case "upload-corpus-span":
 	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 						$(".nav-element").css("background-color", "#3B3B3C");
 						$(this).css("background-color", "#B02130");
-						appendFreetext();
+						appendUpload();
 					}
 	        		break;
 	        	case "corpus-settings":
@@ -88,54 +89,16 @@ Voyant.NavbarView = (function() {
 		});
 	},
 
-	appendFreetext = function() {
-		var freetextTemplate = _.template($("#freetext-tpl").html());
-		$("#content").html(freetextTemplate);
-
-		$("#upload-corpus").css("background-color", "#B02130");
-		$("#freetext-button").css("background-color", "#B02130");
-		setupHover();
-
-		$("#upload-button").click(function(e) {
-			appendFileupload();
-		});
-
-	},
-
-	appendFileupload = function() {
-		var fileuploadTemplate = _.template($("#fileupload-tpl").html());
-		$("#content").html(fileuploadTemplate);
-
-		$("#upload-button").css("background-color", "#B02130");
-		setupHover();
-
-		$("#freetext-button").click(function(e) {
-			appendFreetext();
-		});	
-
-		$.getScript("/javascripts/libs/fileinput.js");
-	},
+	appendUpload = function () {
+		MainController.appendUpload();
+	}
 
 	appendSettings = function() {
-		var settingsTemplate = _.template($("#settings-tpl").html());
-		$("#content").html(settingsTemplate);
-
-		setupHover();
+		MainController.appendSettings();
 	},
 
 	appendSelectTools = function () {
-		var selectToolsTemplate = _.template($("#selectTools-tpl").html());
-		$("#content").html(selectToolsTemplate);
-
-		$("#tool-container").mouseenter(function(){
-			$("#tool-image-container").css("display", "none");
-			$("#tool-description-container").fadeIn(300);
-		});
-
-		$("#tool-container").mouseleave(function(){
-			$("#tool-description-container").css("display", "none");
-			$("#tool-image-container").fadeIn(300);
-		});
+		MainController.appendTools();
 	};
 
 	that.init = init;

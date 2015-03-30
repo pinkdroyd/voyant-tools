@@ -4,13 +4,28 @@ Voyant.MainController = (function() {
 
 	init = function() {
 		console.log("init MainController");
-		Voyant.NavbarView.init();
-		Voyant.CorpusController.init();		
+		Voyant.Navbar.init();
+		Voyant.CorpusController.init();	
+		Voyant.Upload.init();
+		Voyant.Settings.init();	
 		Voyant.Tools.init();
+	},
+
+	appendUpload = function () {
+		Voyant.Upload.appendUpload(); 
+	},
+
+	appendSettings = function () {
+		Voyant.Settings.appendSettings();
+	},
+
+	appendTools = function () {
+		Voyant.Tools.appendTools();
 	};
 
 	that.init = init;
-
-
+	that.appendUpload = appendUpload; 
+	that.appendSettings = appendSettings;
+	that.appendTools = appendTools;
 	return that;
 }());

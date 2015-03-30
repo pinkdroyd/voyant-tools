@@ -29,13 +29,24 @@ Voyant.Tools = (function() {
 		console.log("init Tools.js");
 	},
 
+	appendTools = function () {
+		var selectToolsTemplate = _.template($("#tools-tpl").html());
+		//var resultingHtml = selectToolsTemplate ({tools : listOfTools});
+		$("#content").html(selectToolsTemplate);
 
-	getToolList = function () {
-		console.log("getToolList");
+		$("#tool-container").mouseenter(function(){
+			$("#tool-image-container").css("display", "none");
+			$("#tool-description-container").fadeIn(300);
+		});
+
+		$("#tool-container").mouseleave(function(){
+			$("#tool-description-container").css("display", "none");
+			$("#tool-image-container").fadeIn(300);
+		});
 	};
 
 	that.init = init;
-	that.getToolList = getToolList;
+	that.appendTools = appendTools;
 
 	return that;
 }());
