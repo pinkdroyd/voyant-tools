@@ -1,53 +1,43 @@
 Voyant.CorpusController = (function() {
 	var that = {},
 	settingsController = null,
+	fileUploaded = false,
+	fileName = "",
 
 	init = function() {
 		console.log("init CorpusController");
-		initButton();
-		settingsController = Voyant.SettingsController;
+		initButton();	
 		
 	},
 
-	initButton = function (){	
-		console.log('init Buttons'); 
+	initButton = function (){
+		 
 		var fileInput = $('#files');		
-		$(document).on('click', '#upload', function(event) {
+		$(document).on('click', '#apply-upload-button', function(event) {
 			event.preventDefault();			
     		initFileUpload();
 		});
-
-		//TODO: implement "next" button for freetext 	
-		$(document).on('click', '#next', function(event) {
+			
+		$(document).on('click', '#apply-freetext-button', function(event) {
 			event.preventDefault();
-			initFreeTextUpload();
-    		
+			initFreeTextUpload();    		
 		});
-	},
-
-	initDropboxUpload = function (){
-		var	client = new Dropbox.Client({ key: 'b671y7l5vwfj9l3' });
-			client.authenticate(function () {
-    		client.writeFile('hello.txt', 'Hello, World!', function () {
-    			    alert('File written!');
-    			});
-			});
 	},
 
 	initFreeTextUpload = function (){
 		var textInput = $('#text-input');		
 		var text = $('#text-input').val();			
 		var formData = new FormData();
-		var fileType = 'text/plain';		
-		formData.append('file_type', fileType);			
+		var fileType = 'text/plain';
+		
 		formData.append('file_data', text);		
-		sendFileToServer(formData);		
+		sendFileToServer(formData, '/textupload/');		
 		
 	},
 
 	initFileUpload = function (){
-		var fileInput = $('#files');		
-		var files = $('#files').prop('files')[0];		
+		var fileInput = $('[name=uploadFile]');			
+		var files = fileInput.prop('files')[0];		
 	
 		if(files.type === 'text/plain' || files.type === 'text/xml'){
 
@@ -55,7 +45,7 @@ Voyant.CorpusController = (function() {
 			var fileType = files.type;			
 			formData.append('file_type', fileType);			
 			formData.append('file_data', files);
-			sendFileToServer(formData);
+			sendFileToServer(formData, '/fileupload/');
 			
 		} else {
 			alert('File type not supported');
@@ -63,22 +53,29 @@ Voyant.CorpusController = (function() {
 		
 	},
 
-	sendFileToServer = function(formData){
+	sendFileToServer = function(formData, url){
+
 		$.ajax({				
-        		url: '/fileupload/', 
+        		url: url, 
         		type: 'POST',
         		data:  formData,        	
         		cache: false,
         		contentType: false,
         		processData: false,
-        		success: function(msg){
-        			onFileReady(msg);
+        		success: function(result){
+        			onFileReady(result);
         		}
     		});
 	},
 
-	onFileReady = function(fileName){
-		console.log(fileName);
+	onFileReady = function(result){
+		
+		fileName = result.data.name;
+		fileUploaded = true;
+		console.log("Server result: ", result);
+		Voyant.SettingsController.init(fileName);
+
+		$("#file-upload-feedback").append($("<p>Your file: " + fileName + " has been uploaded!</p>"));
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
 	};	

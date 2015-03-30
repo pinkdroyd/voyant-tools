@@ -7,27 +7,41 @@
             <link rel="stylesheet" type="text/css" href="/stylesheets/navbar.css">
             <link rel="stylesheet" type="text/css" href="/stylesheets/upload.css">
             <link rel="stylesheet" type="text/css" href="/stylesheets/settings.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/selecttools.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/fileinput.css" media="all">
       </head>
       <body>
         <div id="website"> 
             <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="navbar">
-                <div class="nav-element col-md-3" id="upload-corpus">
+                <div class="col-md-4" id="logo-container">
+                    <img id="logo" src="images/Voyant-logo.png">
+                </div> 
+                <div class="nav-element col-md-2" id="upload-corpus">
                     <span id="upload-corpus-span" class="glyphicon glyphicon-open-file" style="display:block; margin:5px;"></span>Upload Corpus
                 </div> 
-                <div class="nav-element col-md-3" id="corpus-settings">
+                <div class="nav-element col-md-2" id="corpus-settings">
                     <span id="corpus-settings-span"class="glyphicon glyphicon-cog" style="display:block; margin:5px;"></span>Corpus Settings
                 </div>
-                <div class="nav-element col-md-3" id="select-tool">
+                <div class="nav-element col-md-2" id="select-tool">
                     <span id="select-tool-span"class="glyphicon glyphicon-wrench" style="display:block; margin:5px;"></span>Select Tools
                 </div>
-                <div class="nav-element col-md-3" id="analyze-corpus">
+                <div class="nav-element col-md-2" id="analyze-corpus">
                     <span id="analyze-corpus-span" class="glyphicon glyphicon-stats" style="display:block; margin:5px;"></span>Analyze Corpus
                 </div>
             </div>
 
             <div id="content" class="col-md-offset-1 col-md-10 col-md-offset-1">   
-                
-            </div>
+                <div class="col-md-4" id="tool-container">
+                    <div  id="tool-image-container">
+                        <img src="/images/bubblelines-square.png" class="img-rounded" id="tool-image">
+                    </div>
+                    <div id="tool-description-container" class="select-tools-text">
+                        <p id="tool-description"> Bubblelines visualizes the frequency and repetition of  a word’s use in a corpus. Each document in the corpus is represented as a horizontal line and divided into segments of equal length. Each selected word is represented as a bubble with the size of the bubble indicating the word’s frequency in the corresponding segment of text. The larger the bubble’s radius the more frequently the word occurs. </p>
+                    </div>
+                    <button type="submit" class="btn btn-default" id="select-tool-button">
+                        <span class="glyphicon glyphicon-plus"></span> Add 
+                    </button>
+                </div>
         </div>
 
         <script type="text/template" id="freetext-tpl">
@@ -36,15 +50,20 @@
                 <div class="upload-nav-element col-md-6" id="upload-button">File-Upload</div>
             </div>
             <div id="freetext" class="col-md-offset-1 col-md-10 col-md-offset-1">
-                <p id="freetext-description">Type your text in here or copy and paste documents you want to analyze</p>
+                <p id="freetext-description">Type your text in here or copy and paste documents you want to analyze.</p>
                 <textarea id="text-input"></textarea>
-                <button type="submit" class="btn btn-default" id="freetext-corpus-settings">
+                <button type="submit" class="btn btn-default" id="apply-freetext-button">
+                    <span class="glyphicon glyphicon-ok"></span> Apply
+                </button>
+                <button type="submit" class="btn btn-default disabled" id="freetext-to-settings-button">
                     Corpus Settings <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
             </div>
+            <div id="freetext-upload-feedback" class="col-md-offset-1 col-md-3 col-md-offset-6">
+                <p>Upload successful! </p>
+            </div>
         </script>
 
-        <!--Upload-Fileupload-Template-->
         <script type="text/template" id="fileupload-tpl">
             <div id="upload-navbar" class="col-md-offset-1 col-md-10 col-md-offset-1">
                 <div class="upload-nav-element col-md-6" id="freetext-button">Freetext</div>
@@ -52,45 +71,42 @@
             </div>
             <div id="file-upload" class="col-md-offset-1 col-md-10 col-md-offset-1">
             <p id="upload-description">Upload your files from your local file system and get them analyzed.</p>
-                <!--<div id="button-upload">
-                    <input type="file" id="files" />
-                    <button type="submit" class="btn btn-default" id="upload">Upload</button>
+                <div id="upload-container">
+                    <input name="uploadFile" id="input" type="file" class="file" multiple="true" data-show-upload="true" data-show-caption="true" enctype="multipart/form-data">
                 </div>
-                <button type="submit" class="btn btn-default" id="use-tool-button">Settings</button>
-                <button type="submit" class="btn btn-default" id="use-tool-button">Start Analyze</button>
-
-                <button type="submit" class="btn btn-default" id="freetext-corpus-settings">
+                <button type="submit" class="btn btn-default" id="apply-upload-button">
+                    <span class="glyphicon glyphicon-ok"></span> Apply
+                </button>
+                <button type="submit" class="btn btn-default disabled" id="upload-to-settings-button">
                     Corpus Settings <span class="glyphicon glyphicon-chevron-right"></span>
-                </button>-->
+                </button>
             </div>
-
-            <div id="dropzone"> 
-                
+            <div id="file-upload-feedback" class="col-md-offset-1 col-md-3 col-md-offset-6">
+                <p>Upload successful! </p>
             </div>
         </script>
 
         <script type="text/template" id="settings-tpl">
-        <div class="col-md-5" id="stopwordlist">
-            <div class="col-md-3">
-                <div class="col-md-6">
-                    <p id="stopword-label"> Stopwordlist: </p>
-                </div>
+        <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="stopwordlist">
+            <p id="stopword-label"> Stopwordlist: </p>
+            <div class="dropdown col-md-4">
+                <button class="btn btn-default dropdown-toggle" type="button" id="select-stopwordlist" data-toggle="dropdown" aria-expanded="true">
+                    Select Stopwordlist <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">None</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">German</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
+                </ul>
             </div>
-            <div class="col-md-3">
-                <select id="stopword-dropdown" name="stopwordlist">
-                    <option value="none">None</option>
-                    <option value="english">English</option>
-                    <option value="german">German</option>
-                    <option value="french">French</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <button type="submit" class="btn btn-default" id="freetext-corpus-settings">
-                    <span class="glyphicon glyphicon-plus"></span> Add new Stopwordlist
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-default" id="add-stopwordlist">
+                    <span class="glyphicon glyphicon-plus"></span> Create new Stopwordlist
                 </button>
             </div>
         </div>
-        <div class="col-md-12" id="xpath-expressions">
+        <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="xpath-expressions">
             <p id="xpath-heading"> XPath-Expressions </p>
             <div class="form-group">
                 <div class="col-md-2 xpath-line">
@@ -124,9 +140,18 @@
                     <input id="xpath-documents" class="form-control" type="text"/>
                 </div>
             </div>
-            <button type="submit" class="btn btn-default" id="freetext-corpus-settings">
-                    Corpus Settings <span class="glyphicon glyphicon-chevron-right"></span>
+        </div>
+        <div id="xpath-button-group" class="col-md-offset-1 col-md-10 col-md-offset-1">
+            <button type="submit" class="btn btn-default" id="apply-xpath-button">
+                <span class="glyphicon glyphicon-ok"></span> Apply
             </button>
+            <button type="submit" class="btn btn-default disabled" id="to-tools-button">
+                    Select Tools <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        </div>
+
+        <div id="settings-feedback" class="col-md-offset-1 col-md-3 col-md-offset-6">
+            <p>Settings saved! </p>
         </div>
         </script>
             
@@ -134,7 +159,7 @@
         <script src="/javascripts/libs/jquery-2.1.3.min.js"></script>
         <script src="/javascripts/libs/underscore-min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <script src="/javascripts/libs/dropzone.js"></script>
+        <script src="/javascripts/libs/fileinput.js"></script>
 
         <!--JS-Files-->
         <script src="/javascripts/Voyant.js"></script>

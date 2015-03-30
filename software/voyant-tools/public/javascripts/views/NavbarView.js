@@ -4,10 +4,22 @@ Voyant.NavbarView = (function() {
 
 	init = function() {
 		console.log("init NavbarView");
-
+		$("#logo-container").height($("#upload-corpus").outerHeight());
+		
 		setupHover();
 		setupMenuClicklistener();
 		appendFreetext();
+
+
+		$("#tool-container").mouseenter(function(){
+			$("#tool-image-container").css("display", "none");
+			$("#tool-description-container").fadeIn(300);
+		});
+
+		$("#tool-container").mouseleave(function(){
+			$("#tool-description-container").css("display", "none");
+			$("#tool-image-container").fadeIn(300);
+		});
 	},
 
 	setupHover = function () {
@@ -109,6 +121,8 @@ Voyant.NavbarView = (function() {
 		$("#freetext-button").click(function(e) {
 			appendFreetext();
 		});	
+
+		$.getScript("/javascripts/libs/fileinput.js");
 	},
 
 	appendSettings = function() {
