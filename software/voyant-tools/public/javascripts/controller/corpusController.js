@@ -30,15 +30,17 @@ Voyant.CorpusController = (function() {
 		var formData = new FormData();
 		var fileType = 'text/plain';
 		
-		formData.append('file_data', text);		
-		sendFileToServer(formData, '/textupload/');		
+		if(text != ""){
+			formData.append('file_data', text);		
+			sendFileToServer(formData, '/textupload/');				
+		}
 		
 	},
 
 	initFileUpload = function (){
 		var fileInput = $('[name=uploadFile]');			
 		var files = fileInput.prop('files')[0];		
-	
+		
 		if(files.type === 'text/plain' || files.type === 'text/xml'){
 
 			var formData = new FormData();
@@ -74,8 +76,8 @@ Voyant.CorpusController = (function() {
 		fileUploaded = true;
 		console.log("Server result: ", result);
 		Voyant.SettingsController.init(fileName);
-
-		$("#file-upload-feedback").append($("<p>Your file: " + fileName + " has been uploaded!</p>"));
+		var $feedback = $('<div class="alert alert-success" role="alert">Your file has been uploaded!</div>)').hide().fadeIn(1500);
+		$feedback.appendTo($(".upload-feedback"));
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
 	};	

@@ -56,6 +56,5 @@
 
 #freetext-upload-feedback, #file-upload-feedback{
 	color: green; 
-	margin-bottom: 10px;
-	visibility: hidden;
+	margin-bottom: 10px;	
 }
