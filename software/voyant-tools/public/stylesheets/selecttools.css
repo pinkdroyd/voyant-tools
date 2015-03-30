@@ -19,8 +19,9 @@
 }
 
 #tool-description-container {
-    height: 0px;
-    visibility: hidden;
+    height: 200px;
+    display: none;
+    margin: 20px;
 }
 
 #tool-description, #tool-title {

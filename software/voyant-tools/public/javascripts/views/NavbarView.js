@@ -12,19 +12,13 @@ Voyant.NavbarView = (function() {
 
 
 		$("#tool-container").mouseenter(function(){
-			$("#tool-image-container").outerHeight(0);
-			$("#tool-image").css("visibility", "hidden");
-
-			$("#tool-description-container").outerHeight(200);
-			$("#tool-description-container").css("visibility", "visible");
+			$("#tool-image-container").css("display", "none");
+			$("#tool-description-container").fadeIn(300);
 		});
 
 		$("#tool-container").mouseleave(function(){
-			$("#tool-image-container").outerHeight(200);
-			$("#tool-image").css("visibility", "visible");
-
-			$("#tool-description-container").outerHeight(0);
-			$("#tool-description-container").css("visibility", "hidden");
+			$("#tool-description-container").css("display", "none");
+			$("#tool-image-container").fadeIn(300);
 		});
 	},
 
