@@ -26,29 +26,49 @@ router.post('/textupload/', function(req, res, next) {
     var filePath = './public/files/';
     var fileName =  '';
     var form = new formidable.IncomingForm();
+    var isURL = false;
+    var url = "";
     form
     .on('field', function(field, value) {
-        var fileExtension = ".txt";
-        fileName = "upload_" + Date.now() + fileExtension;
-        fs.writeFile(filePath + fileName, value, function(err) {
-            if(err) {
-                return console.log(err);
-            }    
-            console.log("The file was saved!");
-        });
+
+        if(checkValidURL(value)){
+            isURL = true;
+            url = value;
+            console.log("value: "+ value);
+        } else {
+            var fileExtension = ".txt";
+            fileName = "upload_" + Date.now() + fileExtension;
+            fs.writeFile(filePath + fileName, value, function(err) {
+                if(err) {
+                    return console.log(err);
+                }    
+                console.log("The file was saved!");
+            });
+        }
+        
 
       })
-    .on('end', function() {
-
-        console.log('-> upload done');
+    .on('end', function() {        
         var result = {};
-        result.data = {
-            path : filePath,
-            name: fileName
-        };
 
-        res.send(result);
-        res.end();
+        if(!isURL){
+            result.data = {
+                path : filePath,
+                name: fileName
+            };
+    
+            res.send(result);
+            res.end();
+        } else {            
+            result.data = {
+                path : '',
+                name: url
+            };
+    
+            res.send(result);
+            res.end();
+        }
+        
     
     });
     form.parse(req);    
@@ -104,6 +124,11 @@ function createFileExtension(file){
     } else {
         console.log("filetype not supported");
     }
+}
+
+function checkValidURL(str) {
+  var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+      return regexp.test(str);
 }
 
 module.exports = router;

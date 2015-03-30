@@ -72,7 +72,7 @@ Voyant.CorpusController = (function() {
 		
 		fileName = result.data.name;
 		fileUploaded = true;
-
+		console.log("Server result: ", result);
 		Voyant.SettingsController.init(fileName);
 
 		$("#file-upload-feedback").append($("<p>Your file: " + fileName + " has been uploaded!</p>"));
