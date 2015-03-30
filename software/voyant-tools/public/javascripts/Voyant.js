@@ -3,4 +3,6 @@ var Voyant = {
 		console.log("init Voyant");
 		Voyant.MainController.init();
 	}
+
+
 }

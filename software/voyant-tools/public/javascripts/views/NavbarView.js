@@ -9,17 +9,6 @@ Voyant.NavbarView = (function() {
 		setupHover();
 		setupMenuClicklistener();
 		appendFreetext();
-
-
-		$("#tool-container").mouseenter(function(){
-			$("#tool-image-container").css("display", "none");
-			$("#tool-description-container").fadeIn(300);
-		});
-
-		$("#tool-container").mouseleave(function(){
-			$("#tool-description-container").css("display", "none");
-			$("#tool-image-container").fadeIn(300);
-		});
 	},
 
 	setupHover = function () {
@@ -73,12 +62,14 @@ Voyant.NavbarView = (function() {
 	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        		$(".nav-element").css("background-color", "#3B3B3C");
 		        		$(this).css("background-color", "#B02130");
+		        		appendSelectTools();
 		        	}
 	        		break;
 	        	case "select-tool-span":
 	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        		$(".nav-element").css("background-color", "#3B3B3C");
 		        		$(this).css("background-color", "#B02130");
+		        		appendSelectTools();
 		        	}
 	        		break;
         		case "analyze-corpus":
@@ -130,6 +121,21 @@ Voyant.NavbarView = (function() {
 		$("#content").html(settingsTemplate);
 
 		setupHover();
+	},
+
+	appendSelectTools = function () {
+		var selectToolsTemplate = _.template($("#selectTools-tpl").html());
+		$("#content").html(selectToolsTemplate);
+
+		$("#tool-container").mouseenter(function(){
+			$("#tool-image-container").css("display", "none");
+			$("#tool-description-container").fadeIn(300);
+		});
+
+		$("#tool-container").mouseleave(function(){
+			$("#tool-description-container").css("display", "none");
+			$("#tool-image-container").fadeIn(300);
+		});
 	};
 
 	that.init = init;

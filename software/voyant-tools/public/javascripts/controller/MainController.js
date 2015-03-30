@@ -6,6 +6,7 @@ Voyant.MainController = (function() {
 		console.log("init MainController");
 		Voyant.NavbarView.init();
 		Voyant.CorpusController.init();		
+		Voyant.Tools.init();
 	};
 
 	that.init = init;
