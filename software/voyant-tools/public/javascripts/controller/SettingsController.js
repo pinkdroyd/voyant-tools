@@ -33,7 +33,7 @@ Voyant.SettingsController = (function() {
 
 	setFileUploaded = function(uploaded){
 		fileUploaded = uploaded;
-	}
+	},
 
 	getStopWordListValue = function(){
 		var stopwordValue = $('#stopword-dropdown').val();
