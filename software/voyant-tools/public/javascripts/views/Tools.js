@@ -130,12 +130,11 @@ Voyant.Tools = (function() {
 
 	init = function() {
 		console.log("init Tools.js");
+		selectedItems = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		toolList = [];
 	},
 
 	appendTools = function () {
-
-		selectedItems = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-		toolList = [];
 		var selectToolsTemplate = _.template($("#tools-tpl").html());
 
 		//var resultingHtml = selectToolsTemplate ({tools : listOfTools});
