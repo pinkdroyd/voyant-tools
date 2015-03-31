@@ -1,25 +1,36 @@
 Voyant.SettingsController = (function() {
 	var that = {},	
-	fileName = "",	
+	fileNames = [],
+	fileUploaded = false,	
 
-	init = function(filename) {
+	init = function() {
 		console.log("init SettingsController");
-		initButtons();
-		setFileParameter(filename);		
+		initButtons();			
 	},
 
 	initButtons = function(){
 		var buttonNext = $("#apply-xpath-button");
 
 		$(document).on('click','#apply-xpath-button', function(event){
-			event.preventDefault();			
-			getXPathExpressions();
+			event.preventDefault();	
+			if(fileUploaded){
+				getXPathExpressions();
+			} else {
+				console.log("no file has been uploaded")
+				var $feedback = $('<div class="alert alert-danger" role="alert">No file has been uploaded!</div>)').hide().fadeIn(1500).next().fadeOut();				
+				$feedback.appendTo($(".upload-feedback"));
+			}		
+			
 		});
 	},
 
-	setFileParameter = function(filename){
-		fileName = filename;		
+	setFileParameter = function(filename){		
+		fileNames.push(filename);		
 	},
+
+	setFileUploaded = function(uploaded){
+		fileUploaded = uploaded;
+	}
 
 	getStopWordListValue = function(){
 		var stopwordValue = $('#stopword-dropdown').val();
@@ -32,6 +43,8 @@ Voyant.SettingsController = (function() {
 		var xPathTitle 		= $("#xpath-title").val();
 		var xPathDocuments 	= $("#xpath-documents").val();
 
+			fileNames.forEach(function(fileName){
+			
 			var xPath = {
 				file_name		: fileName,
 				xpath_expressions: {
@@ -41,8 +54,11 @@ Voyant.SettingsController = (function() {
 					xpath_documents : xPathDocuments
 				}				
 			}		
-		
-			sendXPathToServer(xPath);	
+			
+			
+				sendXPathToServer(xPath);	
+			});
+			
 			
 	},
 	
@@ -58,7 +74,8 @@ Voyant.SettingsController = (function() {
 		console.log(result);
 	};
 
-
+	that.setFileUploaded = setFileUploaded;
+	that.setFileParameter = setFileParameter;
 	that.init = init;	
 
 	return that;

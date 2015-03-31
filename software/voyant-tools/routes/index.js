@@ -76,11 +76,12 @@ router.post('/textupload/', function(req, res, next) {
 });  
 
 router.post('/fileupload/', function(req, res, next) {  
-  	console.log("receiving file");
+  	
  	var filePath = './public/files/';
  	var form = new formidable.IncomingForm();
     var files = [];
     var fields = [];
+    var numberOfFilesInUpload = 0;
  	form.uploadDir = filePath;
     
     form
@@ -90,9 +91,12 @@ router.post('/fileupload/', function(req, res, next) {
 
       })
     .on('file', function(field, file) { 
-
-        var fileExtension = createFileExtension(file);    
-        file.name = "upload_" + Date.now() + fileExtension;
+        console.log("receiving file");
+        numberOfFilesInUpload++;
+        var fileExtension = createFileExtension(file); 
+              
+        file.name = "upload_" + Date.now() + numberOfFilesInUpload + fileExtension;
+       
         fs.rename(file.path, filePath + file.name);
         files.push(file);
 
@@ -100,13 +104,18 @@ router.post('/fileupload/', function(req, res, next) {
     .on('end', function() {
 
         console.log('-> upload done');
-        var result = {};
-        files.forEach(function(file) {
-            result.data = {
+        var result = {data: []};
+        var length = files.length;
+        
+        for(var i = 0; i < length; i++) {
+           
+            var file = files[i];            
+            
+            result.data.push({
                 path : filePath,
                 name: file.name
-            };      
-        });    
+            }); 
+        }   
        	 
         res.send(result);
         res.end();
