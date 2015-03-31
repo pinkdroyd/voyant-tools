@@ -124,6 +124,8 @@ Voyant.Tools = (function() {
 		}
 	],
 
+	selectedItems = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 
 	init = function() {
 		console.log("init Tools.js");
@@ -153,11 +155,15 @@ Voyant.Tools = (function() {
 			$("#tool-container"+ i).append ("<div  class='col-md-6 tool-text-container' id=tool-text-container"+i+"></div>");
 			$("#tool-text-container"+ i).append ("<div id=tool-heading-container"+i+" class='tool-heading-container'>"+listOfTools[i].toolName+"</div>");
 			$("#tool-text-container"+ i).append ("<div id=tool-description-container"+i+ " class='tool-description-container select-tools-text'>");
-			$("#tool-description-container"+ i).append("<p> "+listOfTools[i].toolDescription+ " </p>");
+			$("#tool-description-container"+ i).append("<p id=tool-description"+i+"> "+listOfTools[i].toolDescription+ " </p>");
 			//$("#tool-heading-container"+ i).append ("<p class=tool-heading> " + listOfTools[i].toolName + " </p>");
 			//$("#tool-container"+ i).append ("<button type=submit class='btn btn-default select-tool-button' id=select-tool-button"+i+" ><span class='glyphicon glyphicon-plus'></span> Add Tool </button>");
 		}
+		setupHover();
+		setupClickListener();
+	},
 
+	setupHover = function() {
 		$(".tool-container").mouseenter(function() {
 			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 				$(this).css("background-color", "#838B8B");
@@ -171,7 +177,31 @@ Voyant.Tools = (function() {
 		});
 
 		$('.tool-container').css('cursor', 'pointer');
-	};
+	},
+
+	setupClickListener = function () {
+		$(".tool-container").click(function(e) {
+			var clickedElement = e.target.id;
+			var index = convertIdToIndex(clickedElement);
+			console.log(selectedItems.length);
+
+			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+				$(this).css("background-color", "#B02130");
+			} else {
+				$(this).css("background-color", "#3B3B3C");
+			}
+		});
+	},
+
+	convertIdToIndex = function(clickedElement) {
+		var index = "";
+		for (var i = 0; i < clickedElement.length; i++) {
+			if ((clickedElement.charCodeAt(i) >= 48) && (clickedElement.charCodeAt(i) <= 57)){
+				index += clickedElement.charAt(i);
+			}
+		}
+		return index; 
+	},
 
 	that.init = init;
 	that.appendTools = appendTools;

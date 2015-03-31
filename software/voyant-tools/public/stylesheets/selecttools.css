@@ -58,3 +58,9 @@
     width: inherit;
     margin-bottom: 20px;
 }
+
+#apply-tools-button, #to-analyze-button {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 15%; 
+}
