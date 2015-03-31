@@ -1,15 +1,15 @@
-#tool-image{
+.tool-image{
     height: 200px;    
 }
 
 
-#tool-container {
+.tool-container {
     border: solid;
     border-color: white;
     border-width: 1px;
 }
 
-#tool-image-container {
+.tool-image-container {
     width: 200px;
     display: block;
     margin-left: auto;
@@ -18,9 +18,9 @@
     margin-bottom: 20px;
 }
 
-#tool-description-container {
-    height: 200px;
-    display: none;
+.tool-description-container {
+    height: 120px;
+    display: block;
     margin: 20px;
 }
 
@@ -28,7 +28,7 @@
     color: white;
 }
 
-#select-tool-button {
+.select-tool-button {
     display: block;
     margin-left: auto;
     margin-right: auto;

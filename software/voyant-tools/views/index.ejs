@@ -146,16 +146,7 @@
         </script>
 
         <script type="text/template" id="tools-tpl">
-            <div class="col-md-4" id="tool-container">
-                <div  id="tool-image-container">
-                    <img src="/images/bubblelines-square.png" class="img-rounded" id="tool-image">
-                </div>
-                <div id="tool-description-container" class="select-tools-text">
-                    <p id="tool-description"> Bubblelines visualizes the frequency and repetition of  a word’s use in a corpus. Each document in the corpus is represented as a horizontal line and divided into segments of equal length. Each selected word is represented as a bubble with the size of the bubble indicating the word’s frequency in the corresponding segment of text. The larger the bubble’s radius the more frequently the word occurs. </p>
-                </div>
-                <button type="submit" class="btn btn-default" id="select-tool-button">
-                    <span class="glyphicon glyphicon-plus"></span> Add Tool 
-                </button>
+            <div id="tools">
             </div>
         </script>
             
@@ -174,6 +165,7 @@
         <script src="/javascripts/views/Upload.js"></script>
         <script src="/javascripts/views/Settings.js"></script>
         <script src="/javascripts/views/Tools.js"></script>
+        <script src="/javascripts/Template.js"></script>
 
         <script>
                 Voyant.init();
