@@ -169,6 +169,8 @@ Voyant.Tools = (function() {
 				$(this).css("background-color", "#3B3B3C");
 			}
 		});
+
+		$('.tool-container').css('cursor', 'pointer');
 	};
 
 	that.init = init;
