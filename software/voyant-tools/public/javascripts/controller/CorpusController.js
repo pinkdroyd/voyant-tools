@@ -32,6 +32,11 @@ Voyant.CorpusController = (function() {
 		if(text != ""){
 			formData.append('file_data', text);		
 			sendFileToServer(formData, '/textupload/');				
+		} else {
+			var $feedback = $('<div class="alert alert-danger" role="alert">No files / text to upload!</div>)').hide().fadeIn(2000, function(){
+				$(this).fadeOut();
+			});				
+			$feedback.appendTo($(".upload-feedback"));
 		}
 		
 	},

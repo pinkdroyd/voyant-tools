@@ -13,13 +13,16 @@ Voyant.SettingsController = (function() {
 
 		$(document).on('click','#apply-xpath-button', function(event){
 			event.preventDefault();	
+
 			if(fileUploaded){
 				getXPathExpressions();
 			} else {
-				console.log("no file has been uploaded")
-				var $feedback = $('<div class="alert alert-danger" role="alert">No file has been uploaded!</div>)').hide().fadeIn(1500).next().fadeOut();				
-				$feedback.appendTo($(".upload-feedback"));
-			}		
+
+				var $feedback = $('<div class="alert alert-danger" role="alert">No file / text has been upload!</div>)').hide().fadeIn(2000, function(){
+					$(this).fadeOut();
+				});	
+				$feedback.appendTo($(".settings-feedback"));	
+			}
 			
 		});
 	},
@@ -44,7 +47,7 @@ Voyant.SettingsController = (function() {
 		var xPathDocuments 	= $("#xpath-documents").val();
 
 			fileNames.forEach(function(fileName){
-			
+
 			var xPath = {
 				file_name		: fileName,
 				xpath_expressions: {
