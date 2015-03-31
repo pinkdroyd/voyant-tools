@@ -65,7 +65,7 @@
             <div id="file-upload" class="col-md-offset-1 col-md-10 col-md-offset-1">
             <p id="upload-description">Upload your files from your local file system and get them analyzed.</p>
                 <div id="upload-container">
-                    <input name="uploadFile" id="input" type="file" class="file" multiple="true" data-show-upload="true" data-show-caption="true" enctype="multipart/form-data">
+                    <input name="uploadFile" id="input" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="true" enctype="multipart/form-data">
                 </div>
                 <button type="submit" class="btn btn-default" id="apply-upload-button">
                     <span class="glyphicon glyphicon-ok"></span> Apply
@@ -86,17 +86,12 @@
                 <button class="btn btn-default dropdown-toggle" type="button" id="select-stopwordlist" data-toggle="dropdown" aria-expanded="true">
                     Select Stopwordlist <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="stopwordDropdown">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">None</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">German</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
                 </ul>
-            </div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-default" id="add-stopwordlist">
-                    <span class="glyphicon glyphicon-plus"></span> Create new Stopwordlist
-                </button>
             </div>
         </div>
         <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="xpath-expressions">
