@@ -124,7 +124,8 @@ Voyant.Tools = (function() {
 		}
 	],
 
-	selectedItems = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	selectedItems, 
+	toolList, 
 
 
 	init = function() {
@@ -132,6 +133,9 @@ Voyant.Tools = (function() {
 	},
 
 	appendTools = function () {
+
+		selectedItems = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		toolList = [];
 		var selectToolsTemplate = _.template($("#tools-tpl").html());
 
 		//var resultingHtml = selectToolsTemplate ({tools : listOfTools});
@@ -183,13 +187,18 @@ Voyant.Tools = (function() {
 		$(".tool-container").click(function(e) {
 			var clickedElement = e.target.id;
 			var index = convertIdToIndex(clickedElement);
-			console.log(selectedItems.length);
 
 			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 				$(this).css("background-color", "#B02130");
+				selectedItems[index] = 1;
 			} else {
 				$(this).css("background-color", "#3B3B3C");
-			}
+				selectedItems[index] = 0;			}
+		});
+
+		$("#apply-tools-button").click(function(e) {
+			convertSelectedItemsToList(); 
+			console.log(toolList);
 		});
 	},
 
@@ -203,8 +212,22 @@ Voyant.Tools = (function() {
 		return index; 
 	},
 
+	convertSelectedItemsToList = function () {
+		toolList = [];
+		for (var i = 0; i < listOfTools.length; i++) {
+			if (selectedItems[i] === 1) {
+				toolList.push(listOfTools[i].toolLink); 
+			}
+		}
+	},
+
+	getToolList = function () {
+		return toolList;
+	}
+
 	that.init = init;
 	that.appendTools = appendTools;
+	that.getToolList = getToolList; 
 
 	return that;
 }());
