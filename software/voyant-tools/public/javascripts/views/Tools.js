@@ -25,6 +25,30 @@ Voyant.Tools = (function() {
 			toolDescription: "Corpus Grid provides an overview of a corpus, displaying each document’s title, total number of words (word tokens), number of unique words (word types), and lexical density (the ratio of tokens to types).",
 			toolLink: "CorpusGrid",
 			toolSrc : "/images/bubblelines-square.png"
+		},
+		{
+			toolName: "Corpus Grid",
+			toolDescription: "Corpus Grid provides an overview of a corpus, displaying each document’s title, total number of words (word tokens), number of unique words (word types), and lexical density (the ratio of tokens to types).",
+			toolLink: "CorpusGrid",
+			toolSrc : "/images/bubblelines-square.png"
+		},
+		{
+			toolName: "Corpus Grid",
+			toolDescription: "Corpus Grid provides an overview of a corpus, displaying each document’s title, total number of words (word tokens), number of unique words (word types), and lexical density (the ratio of tokens to types).",
+			toolLink: "CorpusGrid",
+			toolSrc : "/images/bubblelines-square.png"
+		},
+		{
+			toolName: "Corpus Grid",
+			toolDescription: "Corpus Grid provides an overview of a corpus, displaying each document’s title, total number of words (word tokens), number of unique words (word types), and lexical density (the ratio of tokens to types).",
+			toolLink: "CorpusGrid",
+			toolSrc : "/images/bubblelines-square.png"
+		},
+		{
+			toolName: "Corpus Grid",
+			toolDescription: "Corpus Grid provides an overview of a corpus, displaying each document’s title, total number of words (word tokens), number of unique words (word types), and lexical density (the ratio of tokens to types).",
+			toolLink: "CorpusGrid",
+			toolSrc : "/images/bubblelines-square.png"
 		}
 	],
 
