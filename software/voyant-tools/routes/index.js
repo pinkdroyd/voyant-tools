@@ -49,21 +49,21 @@ router.post('/textupload/', function(req, res, next) {
 
       })
     .on('end', function() {        
-        var result = {};
+         var result = {data: []};
 
         if(!isURL){
-            result.data = {
+            result.data.push({
                 path : filePath,
                 name: fileName
-            };
+            });
     
             res.send(result);
             res.end();
         } else {            
-            result.data = {
+            result.data.push({
                 path : '',
                 name: url
-            };
+            });
     
             res.send(result);
             res.end();
