@@ -34,7 +34,7 @@ router.post('/textupload/', function(req, res, next) {
         if(checkValidURL(value)){
             isURL = true;
             url = value;
-            console.log("value: "+ value);
+            
         } else {
             var fileExtension = ".txt";
             fileName = "upload_" + Date.now() + fileExtension;

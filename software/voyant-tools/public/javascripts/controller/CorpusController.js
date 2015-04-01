@@ -36,8 +36,8 @@ Voyant.CorpusController = (function() {
 				tool_list : []
 				},
 			xpath_applied : false,
-			stoppwordlist : '',
-			tools : [],
+			stoppwordlist : ''
+			
 		}
 	},
 
@@ -47,8 +47,7 @@ Voyant.CorpusController = (function() {
 
 	initFreeTextUpload = function (){			
 		var text = $('#text-input').val();			
-		var formData = new FormData();
-		var fileType = 'text/plain';
+		var formData = new FormData();		
 		
 		if(text != ""){
 			formData.append('file_data', text);		
@@ -118,7 +117,7 @@ Voyant.CorpusController = (function() {
 	},
 
 	onFileReady = function(result){
-		console.log("Server result: ", result);		
+		
 		result.data.forEach( function(file){
 
 			corpusObject.file.file_names.push(file.name);
