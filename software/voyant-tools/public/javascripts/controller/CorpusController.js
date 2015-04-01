@@ -36,9 +36,11 @@ Voyant.CorpusController = (function() {
 				tool_list : []
 				},
 			xpath_applied : false,
-			stoppwordlist : ''
+			stoppwordlist : {stopword_applied : false,
+							 language : ''}
 			
 		}
+		sendCorpusToControllers(corpusObject);
 	},
 
 	setCorpusObject = function(object){
@@ -139,6 +141,7 @@ Voyant.CorpusController = (function() {
 	sendCorpusToControllers = function(object){
 		Voyant.SettingsController.setCorpusObject(corpusObject);
 		Voyant.ToolController.setCorpusObject(corpusObject);
+		Voyant.AnalyzeController.setCorpusObject(corpusObject);
 	};	
 	
 	that.setCorpusObject = setCorpusObject;

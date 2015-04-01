@@ -7,7 +7,8 @@ Voyant.MainController = (function() {
 		Voyant.Navbar.init();
 		Voyant.CorpusController.init();
 		Voyant.SettingsController.init();
-		Voyant.ToolController.init();		
+		Voyant.ToolController.init();
+		Voyant.AnalyzeController.init();		
 		Voyant.Upload.init();
 		Voyant.Settings.init();	
 		Voyant.Tools.init();

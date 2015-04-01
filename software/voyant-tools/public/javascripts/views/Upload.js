@@ -33,6 +33,15 @@ Voyant.Upload = (function() {
 			appendFreetext();
 		});	
 		$.getScript("/javascripts/libs/fileinput.js");
+
+		//TODO: adapt file input
+		$("#input").fileinput({
+    		allowedFileExtensions: ["txt", "xml", "text", "html"],    		
+			initialPreview: [],
+			multiple: true,
+			overwriteInitial: false,			
+    		previewFileType: "text"
+		});		
 	},
 
 	setupHover = function () {

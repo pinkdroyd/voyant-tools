@@ -24,15 +24,30 @@ Voyant.SettingsController = (function() {
 			}
 			
 		});
+
+		$(document).on('click','.stopword', function(event){
+			event.preventDefault();
+			var stopwordlist = $(event.target).text();			
+			setStopWordListValue(stopwordlist);
+		});
+
 	},
 
 	setCorpusObject = function(object){
 		corpusObject = object;		
 	},
 
-	getStopWordListValue = function(){
-		var stopwordValue = $('#stopword-dropdown').val();
-		console.log("Stopwordlist: " + stopwordValue);
+	setStopWordListValue = function(stopword){
+		if(stopword != "None"){
+			corpusObject.stoppwordlist.stopword_applied = true;
+			corpusObject.stoppwordlist.language = stopword;
+			sendCorpusToControllers(corpusObject);
+		} else {
+			corpusObject.stoppwordlist.stopword_applied = false;
+			corpusObject.stoppwordlist.language = "";
+			sendCorpusToControllers(corpusObject);
+		}
+		
 	},
 
 	getXPathExpressions = function(){		
@@ -80,6 +95,7 @@ Voyant.SettingsController = (function() {
 	sendCorpusToControllers = function(object){
 		Voyant.CorpusController.setCorpusObject(object);
 		Voyant.ToolController.setCorpusObject(object);
+		Voyant.AnalyzeController.setCorpusObject(object);
 	};
 
 	that.setCorpusObject = setCorpusObject;	
