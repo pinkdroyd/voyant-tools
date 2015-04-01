@@ -72,8 +72,8 @@ Voyant.AnalyzeController = (function() {
 		//check if links are valid
 		switch(name){
 			case 'English': return stop.en.taporware.txt;
-			case 'German' : return stop.ger.taporware.txt;
-			case 'French' : return stop.fr.taporware.txt;
+			case 'German' : return stop.de.german.txt;
+			case 'French' : return stop.fr.veronis.txt;
 		}
 
 	},
