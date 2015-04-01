@@ -1,12 +1,12 @@
 Voyant.CorpusController = (function() {
 	var that = {},
-	settingsController = null,
-	fileUploaded = false,
-	fileName = "",
+	settingsController = null,	
+	corpusObject = {},
 
 	init = function() {
 		console.log("init CorpusController");
-		initButton();	
+		initButton();
+		initCorpusObject();	
 		
 	},
 
@@ -22,6 +22,27 @@ Voyant.CorpusController = (function() {
 			event.preventDefault();
 			initFreeTextUpload();    		
 		});
+	},
+
+	initCorpusObject = function(){
+		corpusObject = {
+			file: {
+				file_uploaded 	: false,
+				file_names		: [],
+				file_names_xpath : []
+			     },
+			tools: {
+				tools_choosen : false,
+				tool_list : []
+				},
+			xpath_applied : false,
+			stoppwordlist : '',
+			tools : [],
+		}
+	},
+
+	setCorpusObject = function(object){
+		corpusObject = object;		
 	},
 
 	initFreeTextUpload = function (){			
@@ -97,14 +118,16 @@ Voyant.CorpusController = (function() {
 	},
 
 	onFileReady = function(result){
-		console.log("Server result: ", result);
-		fileUploaded = true;
-		result.data.forEach( function(file){			
-			
+		console.log("Server result: ", result);		
+		result.data.forEach( function(file){
+
+			corpusObject.file.file_names.push(file.name);
+			corpusObject.file.file_uploaded = true;
 			fileName = file.name;
 
-			Voyant.SettingsController.setFileUploaded(true);
-			Voyant.SettingsController.setFileParameter(fileName);
+			console.log("Corpus object: ", corpusObject);
+			sendCorpusToControllers(corpusObject);
+			
 
 		});
 
@@ -112,8 +135,14 @@ Voyant.CorpusController = (function() {
 		$feedback.appendTo($(".upload-feedback"));
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
+	},
+
+	sendCorpusToControllers = function(object){
+		Voyant.SettingsController.setCorpusObject(corpusObject);
+		Voyant.ToolController.setCorpusObject(corpusObject);
 	};	
 	
+	that.setCorpusObject = setCorpusObject;
 	that.init = init;
 
 

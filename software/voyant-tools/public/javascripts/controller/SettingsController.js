@@ -1,7 +1,6 @@
 Voyant.SettingsController = (function() {
-	var that = {},	
-	fileNames = [],
-	fileUploaded = false,	
+	var that = {},		
+	corpusObject = {},	
 
 	init = function() {
 		console.log("init SettingsController");
@@ -14,7 +13,7 @@ Voyant.SettingsController = (function() {
 		$(document).on('click','#apply-xpath-button', function(event){
 			event.preventDefault();	
 
-			if(fileUploaded){
+			if(corpusObject.file.file_uploaded){
 				getXPathExpressions();
 			} else {
 
@@ -27,12 +26,8 @@ Voyant.SettingsController = (function() {
 		});
 	},
 
-	setFileParameter = function(filename){		
-		fileNames.push(filename);		
-	},
-
-	setFileUploaded = function(uploaded){
-		fileUploaded = uploaded;
+	setCorpusObject = function(object){
+		corpusObject = object;		
 	},
 
 	getStopWordListValue = function(){
@@ -45,8 +40,8 @@ Voyant.SettingsController = (function() {
 		var xPathAuthor 	= $("#xpath-author").val();
 		var xPathTitle 		= $("#xpath-title").val();
 		var xPathDocuments 	= $("#xpath-documents").val();
-
-			fileNames.forEach(function(fileName){
+			
+			corpusObject.file.file_names.forEach(function(fileName){
 
 			var xPath = {
 				file_name		: fileName,
@@ -74,11 +69,20 @@ Voyant.SettingsController = (function() {
 	},
 
 	onXPathReady = function(result){
-		console.log(result);
+		
+		var xfileName = result;
+		corpusObject.xpath_applied = true;
+		corpusObject.file.file_names_xpath.push(xfileName);
+		sendCorpusToControllers(corpusObject);
+		console.log("Corpus object after xpath: ", corpusObject);
+	},
+
+	sendCorpusToControllers = function(object){
+		Voyant.CorpusController.setCorpusObject(object);
+		Voyant.ToolController.setCorpusObject(object);
 	};
 
-	that.setFileUploaded = setFileUploaded;
-	that.setFileParameter = setFileParameter;
+	that.setCorpusObject = setCorpusObject;	
 	that.init = init;	
 
 	return that;

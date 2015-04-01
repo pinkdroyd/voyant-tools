@@ -1,20 +1,29 @@
 Voyant.ToolController = (function() {
 	var that = {},
-	fileUploaded = false,
-	fileNames = [],	
+	corpusObject = {},
 
 	init = function() {
 		console.log("init ToolController");		
 	},
 
-	setFileParameter = function(filename){		
-		fileNames.push(filename);		
+	setCorpusObject = function(object){		
+		corpusObject = object;		
 	},
 
-	setFileUploaded = function(uploaded){
-		fileUploaded = uploaded;
+	setToolList = function(toollist){
+		corpusObject.tools.tools_choosen = true;
+		corpusObject.tools.tool_list = toollist;
+		sendCorpusToControllers(corpusObject);
+		console.log("Corpusobject after tools choosen", corpusObject);
+	},
+
+	sendCorpusToControllers = function(object){
+		Voyant.CorpusController.setCorpusObject(object);
+		Voyant.SettingsController.setCorpusObject(object);
 	};
 
+	that.setCorpusObject = setCorpusObject;
+	that.setToolList = setToolList;
 	that.init = init;
 
 	return that;

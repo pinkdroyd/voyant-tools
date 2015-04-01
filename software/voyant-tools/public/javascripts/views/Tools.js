@@ -196,7 +196,8 @@ Voyant.Tools = (function() {
 		});
 
 		$("#apply-tools-button").click(function(e) {
-			convertSelectedItemsToList(); 
+			convertSelectedItemsToList();
+			Voyant.ToolController.setToolList(toolList); 
 			console.log(toolList);
 		});
 	},
