@@ -61,6 +61,7 @@ Voyant.AnalyzeController = (function() {
 		});		
 		}
 		console.log(urls);
+		return urls;
 		
 	},
 
