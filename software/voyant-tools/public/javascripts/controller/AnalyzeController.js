@@ -16,9 +16,7 @@ Voyant.AnalyzeController = (function() {
 		var xpathApplied = corpusObject.xpath_applied;
 		var stopwordApplied = corpusObject.stoppwordlist.stopword_applied;
 
-		var countFiles = corpusObject.file.file_names.length;		
-
-
+		var countFiles = corpusObject.file.file_names.length;
 
 		//http://voyant-tools.org/tool/Cirrus/?corpus=regensburg&archive=http://www.uni-regensburg.de/index.html.en&archive=http://en.wikipedia.org/wiki/Regensberg
 		
@@ -70,7 +68,7 @@ Voyant.AnalyzeController = (function() {
 	},
 
 	defineStopWordList = function(name){
-		//check if links are valid
+		
 		switch(name){
 			case 'English': return stop.en.taporware.txt;
 			case 'German' : return stop.de.german.txt;
