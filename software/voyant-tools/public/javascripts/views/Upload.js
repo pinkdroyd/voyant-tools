@@ -170,10 +170,10 @@ Voyant.Upload = (function() {
 	},
 
 	sendCorpusToControllers = function(object){
-		Voyant.CorpusController.setCorpusObject(corpusObject);
-		Voyant.SettingsController.setCorpusObject(corpusObject);
-		Voyant.ToolController.setCorpusObject(corpusObject);
-		Voyant.AnalyzeController.setCorpusObject(corpusObject);
+		Voyant.CorpusController.setCorpusObject(object);
+		Voyant.SettingsController.setCorpusObject(object);
+		Voyant.ToolController.setCorpusObject(object);
+		Voyant.AnalyzeController.setCorpusObject(object);
 	};
 
 	that.init = init;

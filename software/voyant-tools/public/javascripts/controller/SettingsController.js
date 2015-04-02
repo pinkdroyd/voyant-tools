@@ -16,8 +16,8 @@ Voyant.SettingsController = (function() {
 			if(corpusObject.file.file_uploaded){
 				getXPathExpressions();
 			} else {
-
-				var $feedback = $('<div class="alert alert-danger" role="alert">No file / text has been upload!</div>)').hide().fadeIn(2000, function(){
+				
+				var $feedback = $('<div class="alert alert-danger" role="alert">No files / text uploaded!</div>)').hide().fadeIn(2000, function(){
 					$(this).fadeOut();
 				});	
 				$feedback.appendTo($(".settings-feedback"));	
