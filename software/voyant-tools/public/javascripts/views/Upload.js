@@ -22,7 +22,7 @@ Voyant.Upload = (function() {
 		});
 	},
 
-	appendFileupload = function() {
+	appendFileupload = function() {		
 		var fileuploadTemplate = _.template($("#fileupload-tpl").html());
 		$("#content").html(fileuploadTemplate);
 
@@ -34,15 +34,126 @@ Voyant.Upload = (function() {
 		});	
 		$.getScript("/javascripts/libs/fileinput.js");
 
-		//TODO: adapt file input
-		$("#input").fileinput({
-    		allowedFileExtensions: ["txt", "xml", "text", "html"],    		
-			initialPreview: [],
-			multiple: true,
-			overwriteInitial: false,			
-    		previewFileType: "text"
-		});		
+		//TODO: adapt file input	
+
+   		var corpusObject = Voyant.CorpusController.getCorpusObject();
+   		var fileUploaded = corpusObject.file.file_uploaded;
+
+   		var footer_value = setOriginalFooter();
+   		var caption_value = setOriginalCaption();  		
+
+   		if(fileUploaded){
+   			var initalPreviewEntries =[];
+   			var i = 0;
+   			corpusObject.file.file_names_original.forEach(function (file){
+   			i++;
+   			 var preview = 
+   			 			   '   <div class="file-preview-other" title="'+ file +'" ' + 'style="width:160px;height:160px;" data-fileindex="'+ i +'"' + '>\n' + 
+        				   '       <i class="glyphicon glyphicon-file"></i>\n' +
+        				   '   </div>\n' +
+        				   setFooterSnippet(file);
+        				   
+        	  initalPreviewEntries.push(preview);
+   			});
+   			$("#input").fileinput({
+    			allowedFileExtensions: ["txt", "xml", "text", "html"],		
+				multiple: true,
+				initialPreview: initalPreviewEntries,
+				overwriteInitial: false,			
+    			previewFileType: "object",
+    			previewTemplates: {
+    				 text: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
+        				   '   <div class="file-preview-other" title="{caption}" ' + 'style="width:{width};height:{height};"' + '>\n' + 
+        				   '       <i class="glyphicon glyphicon-file"></i>\n' +
+        				   '   </div>\n' +         			   
+        				   '   {footer}\n' +
+        				   '</div>\n',
+        		 	 html: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
+        				   '<div class="file-preview-other" style="width:{width};height:{height};">\n' +
+    					   '       <i class="glyphicon glyphicon-file"></i>\n' +
+   						   '   </div>' +
+        				   '   {footer}\n' +
+        				   '</div>',
+    			},
+    			previewSettings: {
+    				html: {width: "160px", height: "160px"},
+    				text: {width: "160px", height: "160px"}
+    			}   			
+    			
+			});
+   			
+   		} else {
+   			var footer_value = setOriginalFooter();
+   			var caption_value = setOriginalCaption();  		
+
+			$("#input").fileinput({
+    			allowedFileExtensions: ["txt", "xml", "text", "html"],		
+				multiple: true,
+				overwriteInitial: false,			
+    			previewFileType: "object",
+    			previewTemplates: {
+    				 text: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
+        				   '   <div class="file-preview-other" title="{caption}" ' + 'style="width:{width};height:{height};"' + '>\n' + 
+        				   '       <i class="glyphicon glyphicon-file"></i>\n' +
+        				   '   </div>\n' +         			   
+        				   '   {footer}\n' +
+        				   '</div>\n',
+        		 	 html: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
+        				   '<div class="file-preview-other" style="width:{width};height:{height};">\n' +
+    					   '       <i class="glyphicon glyphicon-file"></i>\n' +
+   						   '   </div>' +
+        				   '   {footer}\n' +
+        				   '</div>',
+    			},
+    			previewSettings: {
+    				html: {width: "160px", height: "160px"},
+    				text: {width: "160px", height: "160px"}
+    			},
+    			layoutTemplates: {
+    				caption: caption_value,
+    				footer: footer_value
+    			}
+    			
+			});
+		}
+		$('#input').on('filecleared', function(event) {
+			
+			corpusObject.file.file_uploaded = false;
+			corpusObject.file.file_names = [];
+			corpusObject.file.file_names_xpath = [];
+			corpusObject.file.file_names_xpath = [];
+			corpusObject.file.file_names_original = [];
+			corpusObject.xpath_applied = false;
+			sendCorpusToControllers(corpusObject);
+			appendFileupload();
+
+		});
+
+	},	
+
+	setOriginalFooter = function(){
+		var footer = '<div class="file-thumbnail-footer">\n' +
+        				'    <div class="file-caption-name" style="width:{width}">{caption}</div>\n' +
+        				'    {actions}\n' +
+        				'</div>';
+        return footer;
 	},
+
+	setOriginalCaption = function(){
+		var caption = '<div tabindex="-1" class="form-control file-caption {class}">\n' +
+       			         '   <span class="file-caption-ellipsis">&hellip;</span>\n' +
+       			         '   <div class="file-caption-name"></div>\n' +
+       			         '</div>';
+        return caption;
+	},
+
+	setFooterSnippet = function(file_name){
+		var fileName = file_name;
+		var footer = '<div class="file-thumbnail-footer">\n' +
+        				'    <div class="file-caption-name" style="width:160px">'+ fileName +'</div>\n' +        				
+        				'</div>';
+        return footer;
+	},	
 
 	setupHover = function () {
 		$(".upload-nav-element").mouseenter(function() {
@@ -56,6 +167,13 @@ Voyant.Upload = (function() {
 				$(this).css("background-color", "#3B3B3C");
 			}
 		});
+	},
+
+	sendCorpusToControllers = function(object){
+		Voyant.CorpusController.setCorpusObject(corpusObject);
+		Voyant.SettingsController.setCorpusObject(corpusObject);
+		Voyant.ToolController.setCorpusObject(corpusObject);
+		Voyant.AnalyzeController.setCorpusObject(corpusObject);
 	};
 
 	that.init = init;
