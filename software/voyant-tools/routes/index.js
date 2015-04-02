@@ -130,6 +130,8 @@ function createFileExtension(file){
         return ".txt";
     } else if(file.type === 'text/xml') {
         return ".xml";
+    } else if(file.type === 'text/html') {
+         return ".html";
     } else {
         console.log("filetype not supported");
     }
