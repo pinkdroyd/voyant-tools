@@ -116,7 +116,9 @@ applyXPathContent = function(xml, fileName, callback){
             
         		callback(newFileName);
         	});
-  		}
+  		} else {
+        callback([]);
+      }
 	
 }
 
