@@ -29,7 +29,8 @@ Voyant.CorpusController = (function() {
 			file: {
 				file_uploaded 	: false,
 				file_names		: [],
-				file_names_xpath : []
+				file_names_xpath : [],
+				file_names_original:[]
 			     },
 			tools: {
 				tools_choosen : false,
@@ -45,6 +46,10 @@ Voyant.CorpusController = (function() {
 
 	setCorpusObject = function(object){
 		corpusObject = object;		
+	},
+
+	getCorpusObject = function(){
+		return corpusObject;
 	},
 
 	initFreeTextUpload = function (){			
@@ -75,19 +80,16 @@ Voyant.CorpusController = (function() {
 
 				var file = files[i];
 				
-				if(file.type === 'text/plain' || file.type === 'text/xml'){	
+				if(file.type === 'text/plain' || file.type === 'text/xml' || file.type === 'text/html'){	
 					
-					var fileType = file.type;			
+					var fileType = file.type;
+					
+					corpusObject.file.file_names_original.push(file.name);			
 					formData.append('file_type', fileType);			
 					formData.append('file_data', file);
 				
 						
-				} else {					
-					var $feedback = $('<div class="alert alert-danger" role="alert">File type of' + file.name+ ' not supported!</div>)').hide().fadeIn(2000, function(){
-					$(this).fadeOut();
-				});				
-					$feedback.appendTo($(".upload-feedback"));
-				}	
+				} 
 			}
 		
 		sendFileToServer(formData, '/fileupload/');
@@ -142,8 +144,9 @@ Voyant.CorpusController = (function() {
 		Voyant.SettingsController.setCorpusObject(corpusObject);
 		Voyant.ToolController.setCorpusObject(corpusObject);
 		Voyant.AnalyzeController.setCorpusObject(corpusObject);
-	};	
-	
+	};
+
+	that.getCorpusObject = getCorpusObject;
 	that.setCorpusObject = setCorpusObject;
 	that.init = init;
 
