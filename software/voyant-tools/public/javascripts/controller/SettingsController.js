@@ -39,10 +39,13 @@ Voyant.SettingsController = (function() {
 
 	setStopWordListValue = function(stopword){
 		if(stopword != "None"){
+			$("#select-stopwordlist").text(stopword);
 			corpusObject.stoppwordlist.stopword_applied = true;
 			corpusObject.stoppwordlist.language = stopword;
 			sendCorpusToControllers(corpusObject);
 		} else {
+			$("#select-stopwordlist").text('Select Stopwordlist ');
+			$("#select-stopwordlist").append($("<span class='caret'></span>"));
 			corpusObject.stoppwordlist.stopword_applied = false;
 			corpusObject.stoppwordlist.language = "";
 			sendCorpusToControllers(corpusObject);
