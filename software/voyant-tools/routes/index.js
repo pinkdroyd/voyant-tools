@@ -16,8 +16,8 @@ router.get('/', function(req, res, next) {
 router.get('/xpath/', function(req, res, next) {
 
      var val = req.query.data;     
-     xpath.init(val, function(newFileName){
-        res.send("new file with applied xpath: " + newFileName);     
+     xpath.init(val, function(newFileNames){
+        res.send(newFileNames);     
      });
      
 });
