@@ -1,0 +1,12 @@
+.analyze-tool-container{
+	height: 400px;
+	width: 400px;
+	overflow: hidden;
+}
+
+.iframe {
+	top: -25px;
+	position: relative;
+	height: 120%;
+	width: 100%; 
+}
