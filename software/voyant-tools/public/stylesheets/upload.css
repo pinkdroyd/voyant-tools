@@ -51,7 +51,7 @@
 
 #apply-freetext-button, #apply-upload-button, #to-settings-button, #upload-to-settings-button, #freetext-to-settings-button{
 	margin-bottom: 20px;
-	width: 15%; 
+	width: 40%; 
 }
 
 #freetext-upload-feedback, #file-upload-feedback{
