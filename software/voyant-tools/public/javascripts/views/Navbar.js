@@ -77,12 +77,14 @@ Voyant.Navbar = (function() {
         			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 	        			$(".nav-element").css("background-color", "#3B3B3C");
 	        			$(this).css("background-color", "#B02130");
+	        			appendAnalyze(); 
 	        		}
         		break;
         		case "analyze-corpus-span":
         			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 	        			$(".nav-element").css("background-color", "#3B3B3C");
 	        			$(this).css("background-color", "#B02130");
+	        			appendAnalyze(); 
 	        		}
         		break;
 			}
@@ -99,7 +101,11 @@ Voyant.Navbar = (function() {
 
 	appendSelectTools = function () {
 		MainController.appendTools();
-	};
+	},
+
+	appendAnalyze = function () {
+		MainController.appendAnalyze();
+	},
 
 	that.init = init;
 

@@ -12,6 +12,7 @@ Voyant.MainController = (function() {
 		Voyant.Upload.init();
 		Voyant.Settings.init();	
 		Voyant.Tools.init();
+		Voyant.Analyze.init();
 	},
 
 	appendUpload = function () {
@@ -24,11 +25,23 @@ Voyant.MainController = (function() {
 
 	appendTools = function () {
 		Voyant.Tools.appendTools();
-	};
+	},
+
+	appendAnalyze = function () {
+		Voyant.Analyze.appendAnalyze(); 
+	},
+
+	getToolList = function () {
+		var toolList = Voyant.Tools.getToolList(); 
+		return toolList; 
+	}; 
 
 	that.init = init;
 	that.appendUpload = appendUpload; 
 	that.appendSettings = appendSettings;
 	that.appendTools = appendTools;
+	that.appendAnalyze = appendAnalyze; 
+	that.getToolList = getToolList; 
+	
 	return that;
 }());
