@@ -4,10 +4,11 @@
 	background-color: #3B3B3C;
 	clear: both;
 	margin-bottom: 20px;
+	height: 
 }
 
 .nav-element {
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 	border: solid;
 	border-color: white;
@@ -15,6 +16,7 @@
 	color: white;
 	padding: 15px;
 	cursor: pointer;
+	height: 90px;
 }
 
 .nav-element-label {
