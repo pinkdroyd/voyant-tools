@@ -27,7 +27,8 @@ Voyant.Analyze = (function() {
 	},
 
 	appendHtml = function (i) {
-		$("#analyze-container").append("<div id=tool"+i+" class='analyze-tool-container'><iframe id=iframe"+i+" class=iframe sandbox='allow-same-origin allow-scripts allow-forms'></iframe></div>");
+		$("#analyze-container").append("<div id=analyze-tool"+i+" class='analyze-tool-container col-md-6'></div>");
+		$("#analyze-tool"+i).append("<iframe id=iframe"+i+" class='iframe'></iframe>");
 	}
 
 	getIframeSrc = function () {
