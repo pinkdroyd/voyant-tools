@@ -9,9 +9,8 @@
 	color:white;
 }
 
-#select-stopwordlist, #add-stopwordlist{
+#select-stopwordlist{
 	width: 100%;
-	margin-bottom: 20px;
 }
 
 #stopwordlist{
@@ -19,6 +18,7 @@
 	border-color: white;
 	border-width: 1px;
 	margin-top: 20px;
+	padding-bottom: 20px;
 }
 
 #xpath-heading{

@@ -8,7 +8,7 @@
 - meldungen beim verlassen der seite
 - beschriftungen für upload
 - Auswahl der Tools setzen 
-- dropdown überarbeiten 
+
 
 
 
@@ -28,3 +28,4 @@ Erledigt:
 - feste fenstergröße
 - resize der textarea
 - Current Corpus: Bei fileupload überflüssig. Bei Corpus-Settings am Sinnvollsten. Oder direkt unter der Menülleiste für alle Punkte. Evtl auch Auflistung der ganzen settings. Oder Links eine Spalte einfügen
+- dropdown überarbeiten 
