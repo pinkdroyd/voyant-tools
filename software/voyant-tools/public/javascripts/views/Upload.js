@@ -179,7 +179,22 @@ Voyant.Upload = (function() {
 	},
 
 	fillCurrentCorpus = function () {
+		var corpusObject = Voyant.CorpusController.getCorpusObject();
+		var filesLength = corpusObject.file.file_names_original.length;
+		var allFilesLength = corpusObject.file.file_names.length;
+		var files = corpusObject.file.file_names_original;
+		
+		if (allFilesLength > filesLength){
+			files.push("Freetext");
+		}
 
+		files.forEach(function (file){
+			//Hier mit dem filenamen anstelle was du willst :D
+			var fileName = file;
+		});
+
+
+		
 	},
 
 	that.init = init;
