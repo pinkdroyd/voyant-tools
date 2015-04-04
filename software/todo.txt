@@ -1,0 +1,19 @@
+- Apply, Next - Buttons am Seitenende verändern. (Fix top / fix buttom und scrollt mit)
+- Current Corpus: Bei fileupload überflüssig. Bei Corpus-Settings am Sinnvollsten. Oder direkt unter der Menülleiste für alle Punkte. Evtl auch Auflistung der ganzen settings. Oder Links eine Spalte einfügen
+- Hilfefunktion: Screenshots für die verschiedenen Punkte erstellen, anzeigen lassen und beschreiben 
+- Überschriften bei der Analyze-Ansicht? 
+- Zu Beginn bestimmte buttons ausgrauen. nach und nach enablen 
+- Tools clickbar. Sandbox nicht möglich. Wenn div darüber gelegt wird, kann mit tool nicht mehr interagiert werden. => akzeptieren, dass man weitergeleitet wird? 
+
+
+
+Kleinigkeiten
+- Schriftart
+
+
+
+Erweiterungen (für doku):
+
+analyze: tools sortieren
+
+

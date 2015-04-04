@@ -7,6 +7,12 @@
 	height: 
 }
 
+#logo {
+	border: solid;
+	border-color: white;
+	border-width: 1px;
+}
+
 .nav-element {
 	font-size: 18px;
 	text-align: center;
