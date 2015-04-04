@@ -29,8 +29,9 @@
 
 #freetext-description, #upload-description{
 	color: white;
-	font-size: 14px;	
+	font-size: 16px;	
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 #text-input{
@@ -57,4 +58,21 @@
 #freetext-upload-feedback, #file-upload-feedback{
 	color: green; 
 	margin-bottom: 10px;	
+}
+
+#freetext-corpuslist-container, #fileupload-corpuslist-container{
+	margin-top: 20px;
+}
+
+#freetext-corpuslist-label, #upload-corpuslist-label {
+	font-size: 16px;
+	color: white;
+	margin-bottom: 20px;
+}
+.list-group-item {
+	height: 40px;
+}
+.delelte-listitem {
+	background-color: transparent;
+	border: none;
 }
