@@ -176,6 +176,17 @@ Voyant.Upload = (function() {
 		Voyant.AnalyzeController.setCorpusObject(object);
 	},
 
+	clearCorpurs = function(){
+		var corpusObject = Voyant.CorpusController.getCorpusObject();
+		corpusObject.file.file_uploaded = false;
+		corpusObject.file.file_names = [];
+		corpusObject.file.file_names_xpath = [];
+		corpusObject.file.file_names_original = [];
+		corpusObject.xpath_applied = false;
+		sendCorpusToControllers(corpusObject);
+	},
+
+
 	fillCurrentCorpus = function () {
 		var corpusObject = Voyant.CorpusController.getCorpusObject();
 		var filesLength = corpusObject.file.file_names_original.length;
