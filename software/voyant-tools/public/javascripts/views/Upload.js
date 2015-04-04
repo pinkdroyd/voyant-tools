@@ -34,6 +34,8 @@ Voyant.Upload = (function() {
 		});	
 		$.getScript("/javascripts/libs/fileinput.js");
 
+		fillCurrentCorpus(); 
+
 		//TODO: adapt file input	
 
    		var corpusObject = Voyant.CorpusController.getCorpusObject();
@@ -174,7 +176,11 @@ Voyant.Upload = (function() {
 		Voyant.SettingsController.setCorpusObject(object);
 		Voyant.ToolController.setCorpusObject(object);
 		Voyant.AnalyzeController.setCorpusObject(object);
-	};
+	},
+
+	fillCurrentCorpus = function () {
+
+	},
 
 	that.init = init;
 	that.appendUpload = appendUpload;

@@ -4,6 +4,7 @@
 - Überschriften bei der Analyze-Ansicht? 
 - Zu Beginn bestimmte buttons ausgrauen. nach und nach enablen 
 - Tools clickbar. Sandbox nicht möglich. Wenn div darüber gelegt wird, kann mit tool nicht mehr interagiert werden. => akzeptieren, dass man weitergeleitet wird? 
+-bilder zuschneiden
 
 
 

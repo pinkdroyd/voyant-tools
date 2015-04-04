@@ -26,6 +26,13 @@
 	border-bottom-right-radius: 15px; 
 }
 
+#freetext {
+	border-right: solid;
+	border-color: white;
+	border-width: 1px;
+	margin-top: 20px;
+}
+
 
 #freetext-description, #upload-description{
 	color: white;
@@ -64,15 +71,35 @@
 	margin-top: 20px;
 }
 
+#fileupload-corpuslist-container {
+	border-left: solid;
+	border-color: white;
+	border-width: 1px;
+}
+
 #freetext-corpuslist-label, #upload-corpuslist-label {
 	font-size: 16px;
 	color: white;
 	margin-bottom: 20px;
+	margin-top: 20px;
 }
+
 .list-group-item {
 	height: 40px;
+	background-color: transparent;
+	color: white;
 }
 .delelte-listitem {
 	background-color: transparent;
 	border: none;
+	padding: 0;
+	text-align: center;
+}
+
+.delelte-listitem:hover {
+	border:solid;
+	border-color: #B02130;
+	border-width: 1px;
+	cursor: pointer;
+
 }
