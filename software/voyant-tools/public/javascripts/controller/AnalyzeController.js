@@ -3,6 +3,7 @@ Voyant.AnalyzeController = (function() {
 	corpusObject = {},
 	baseURL = 'http://127.0.0.1:8888/tool/',
 	urls = [],
+	serverPath = 'http://localhost:3000/files/'
 
 	// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%
 
@@ -32,7 +33,7 @@ Voyant.AnalyzeController = (function() {
 				
 			if(countFiles == 1){				
 					var fileName = fileNames[0];	
-					url = baseURL + toolName +"/?input=" + fileName;
+					url = baseURL + toolName +"/?input=" + serverPath + fileName;
 					if(stopwordApplied){
 						var stopWordList = defineStopWordList(corpusObject.stoppwordlist.language);
 						url = url + "&stopList=" + stopWordList;
@@ -42,7 +43,7 @@ Voyant.AnalyzeController = (function() {
 			} else {	
 
 					var corpusName = "archive_dh2015_" + Date.now();
-					url = baseURL + toolName +"/?corpus=" + corpusName;
+					url = baseURL + toolName +"/?corpus=" + serverPath + corpusName;
 					console.log("Corpus Name", corpusName);
 
 					for (var i = 0; i<countFiles;i++){
