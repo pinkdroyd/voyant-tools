@@ -36,7 +36,7 @@ Voyant.AnalyzeController = (function() {
 					url = baseURL + toolName +"/?input=" + serverPath + fileName;
 					if(stopwordApplied){
 						var stopWordList = defineStopWordList(corpusObject.stoppwordlist.language);
-						url = url + "&stopList=" + stopWordList;
+						url = url + "&stopList=" + stopWordList;						
 					}
 					urls.push(url);									
 		
@@ -72,9 +72,9 @@ Voyant.AnalyzeController = (function() {
 	defineStopWordList = function(name){
 		
 		switch(name){
-			case 'English': return stop.en.taporware.txt;
-			case 'German' : return stop.de.german.txt;
-			case 'French' : return stop.fr.veronis.txt;
+			case 'English': return "stop.en.taporware.txt";
+			case 'German' : return "stop.de.german.txt";
+			case 'French' : return "stop.fr.veronis.txt";
 		}
 
 	},
