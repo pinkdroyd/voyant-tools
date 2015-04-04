@@ -7,7 +7,6 @@ Voyant.CorpusController = (function() {
 		console.log("init CorpusController");
 		initButton();
 		initCorpusObject();	
-		
 	},
 
 	initButton = function (){
@@ -16,11 +15,15 @@ Voyant.CorpusController = (function() {
 		$(document).on('click', '#apply-upload-button', function(event) {
 			event.preventDefault();			
     		initFileUpload();
+    		Voyant.Upload.fillCurrentCorpus(); 	
 		});
 			
 		$(document).on('click', '#apply-freetext-button', function(event) {
 			event.preventDefault();
-			initFreeTextUpload();    		
+			initFreeTextUpload(); 
+			setTimeout(function() {
+    			Voyant.Upload.fillCurrentCorpus(); 
+			}, 50);   		
 		});
 	},
 

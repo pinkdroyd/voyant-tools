@@ -19,6 +19,12 @@ Voyant.Upload = (function() {
 
 		$("#upload-button").click(function(e) {
 			appendFileupload();
+			fillCurrentCorpus(); 
+		});
+		
+		$("#freetext-clear-corpus").click(function(e) {
+			clearCorpurs();
+			appendFreetext(); 
 		});
 	},
 
@@ -31,8 +37,14 @@ Voyant.Upload = (function() {
 
 		$("#freetext-button").click(function(e) {
 			appendFreetext();
+			fillCurrentCorpus(); 
 		});	
 		$.getScript("/javascripts/libs/fileinput.js");
+
+		$("#fileupload-clear-corpus").click(function(e) {
+			clearCorpurs();
+			appendFileupload(); 
+		});
 
 		//TODO: adapt file input	
 
@@ -197,12 +209,14 @@ Voyant.Upload = (function() {
 			files.push("Freetext");
 		}
 
-		$("#corpus-list").empty(); 
+		$("#fileupload-corpus-list").empty(); 
+		$("#freetext-corpus-list").empty(); 
 
 		files.forEach(function (file){
 			//Hier mit dem filenamen anstelle was du willst :D
 			var fileName = file;
-			$("#corpus-list").append("<li class=list-group-item>"+fileName+"</li>") 
+			$("#fileupload-corpus-list").append("<li class=list-group-item>"+fileName+"</li>"); 
+			$("#freetext-corpus-list").append("<li class=list-group-item>"+fileName+"</li>");
 		});
 	},
 
@@ -210,6 +224,7 @@ Voyant.Upload = (function() {
 	that.appendUpload = appendUpload;
 	that.appendFreetext = appendFreetext;
 	that.appendFileupload = appendFileupload; 
+	that.fillCurrentCorpus = fillCurrentCorpus; 
 
 	return that;
 }());

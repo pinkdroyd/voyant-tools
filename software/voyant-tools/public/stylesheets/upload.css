@@ -27,12 +27,8 @@
 }
 
 #freetext {
-	border-right: solid;
-	border-color: white;
-	border-width: 1px;
 	margin-top: 20px;
 }
-
 
 #freetext-description, #upload-description{
 	color: white;
@@ -46,6 +42,7 @@
 	width: 100%;
 	height: 300px;
 	margin-bottom: 20px;
+	resize: none;
 }
 
 #freetext-corpus-settings{
@@ -53,6 +50,7 @@
 }
 
 #upload-container {
+	margin-top: 40px;
 	margin-bottom: 20px;
 	width: 100%;
 }
@@ -68,10 +66,7 @@
 }
 
 #freetext-corpuslist-container, #fileupload-corpuslist-container{
-	margin-top: 20px;
-}
-
-#fileupload-corpuslist-container {
+	margin-top: 80px;
 	border: dotted;
 	border-color: white;
 	border-width: 1px;
@@ -101,5 +96,12 @@
 	border-color: #B02130;
 	border-width: 1px;
 	cursor: pointer;
+}
 
+#fileupload-clear-corpus, #freetext-clear-corpus {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%; 
+	background-color: #B02130;
+	border-color: transparent;
 }
