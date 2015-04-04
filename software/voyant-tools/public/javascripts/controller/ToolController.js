@@ -15,7 +15,7 @@ Voyant.ToolController = (function() {
 		corpusObject.tools.tool_list = toollist;
 		sendCorpusToControllers(corpusObject);
 		console.log("Corpusobject after tools choosen", corpusObject);
-		var urlList = Voyant.AnalyzeController.createURLs();
+		var urlList = CorpusController.files.file_names.length;
 
 		if(urlList.length == 0){
 			var $feedback = $('<div class="alert alert-danger" role="alert">Nothing to show! Please check your settings and uploads!</div>)').hide().fadeIn(2000, function(){
