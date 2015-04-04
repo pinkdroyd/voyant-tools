@@ -32,31 +32,35 @@ Voyant.AnalyzeController = (function() {
 			}			
 				
 			if(countFiles == 1){				
-					var fileName = fileNames[0];	
-					url = baseURL + toolName +"/?input=" + serverPath + fileName;
+					var fileName = fileNames[0];
+					var serverP = serverPath;
+					if(checkValidURL(fileName)) serverP = "";	
+					url = baseURL + toolName +"/?input=" + serverP + fileName;
 					console.log(url);
 					if(stopwordApplied){
 						var stopWordList = defineStopWordList(corpusObject.stoppwordlist.language);
-						url = url + "&stopList=" + stopWordList;
-						console.log(url);						
+						url = url + "&stopList=" + stopWordList;											
 					}
 					urls.push(url);									
 		
 			} else {	
 
 					var corpusName = "archive_dh2015_" + Date.now();
-					url = baseURL + toolName +"/?corpus=" + serverPath + corpusName;
+					url = baseURL + toolName +"/?corpus=" + corpusName;
 					console.log("Corpus Name", corpusName);
 
 					for (var i = 0; i<countFiles;i++){
-						var fileName = fileNames[i];	
-						url = url + "&archive=" + fileName;
+						var fileName = fileNames[i];
+						var serverP = serverPath;
+						if(checkValidURL(fileName)) serverP = "";		
+						url = url + "&archive=" + serverP + fileName;
 					
 					}
 					if(stopwordApplied){
 						var stopWordList = defineStopWordList(corpusObject.stoppwordlist.language);
 						url = url + "&stopList=" + stopWordList;
 					}
+					console.log(url);
 					urls.push(url);					
 			}		
 		});	
@@ -79,6 +83,11 @@ Voyant.AnalyzeController = (function() {
 			case 'French' : return "stop.fr.veronis.txt";
 		}
 
+	},
+
+	checkValidURL = function(str) {
+  	var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+      return regexp.test(str);
 	},
 
 	sendCorpusToControllers = function(object){
