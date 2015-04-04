@@ -54,27 +54,23 @@ Voyant.SettingsController = (function() {
 	},
 
 	getXPathExpressions = function(){		
-		var xPathContent 	= $("#xpath-content").val();
-		var xPathAuthor 	= $("#xpath-author").val();
-		var xPathTitle 		= $("#xpath-title").val();
+		var xPathContent 	= $("#xpath-content").val();		
 		var xPathDocuments 	= $("#xpath-documents").val();
-			
-			corpusObject.file.file_names.forEach(function(fileName){
 
-			var xPath = {
-				file_name		: fileName,
-				xpath_expressions: {
-					xpath_content	: xPathContent,
-					xpath_author	: xPathAuthor,
-					xpath_title		: xPathTitle,
-					xpath_documents : xPathDocuments
-				}				
-			}		
-			
-			
-				sendXPathToServer(xPath);	
-			});
-			
+			if(xPathContent != "" || xPathDocuments !=""){
+				corpusObject.file.file_names.forEach(function(fileName){
+
+				var xPath = {
+					file_name		: fileName,
+					xpath_expressions: {
+						xpath_content	: xPathContent,					
+						xpath_documents : xPathDocuments
+					}				
+				}					
+	
+					sendXPathToServer(xPath);	
+				});
+			}
 			
 	},
 	

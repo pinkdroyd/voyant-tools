@@ -34,9 +34,11 @@ Voyant.AnalyzeController = (function() {
 			if(countFiles == 1){				
 					var fileName = fileNames[0];	
 					url = baseURL + toolName +"/?input=" + serverPath + fileName;
+					console.log(url);
 					if(stopwordApplied){
 						var stopWordList = defineStopWordList(corpusObject.stoppwordlist.language);
-						url = url + "&stopList=" + stopWordList;						
+						url = url + "&stopList=" + stopWordList;
+						console.log(url);						
 					}
 					urls.push(url);									
 		

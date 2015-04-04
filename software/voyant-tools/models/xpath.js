@@ -101,15 +101,16 @@ applyXPathContent = function(xml, fileName, callback){
 			var attrValue = expressions.xpath_content;
      
   		if(attrValue != ""){
+        console.log("Attr: "  + attrValue);
   			var doc = new dom().parseFromString(xml);  		
     		var data = xpath.select(attrValue, doc).toString();    		
     		var tempFileName = filePath + "_" + fileName;
-
+        console.log("Data" + data);
     		fs.writeFile(tempFileName, data, function(err) {
             	if(err) {
             	    return console.log(err);
             	}                	
-            	
+            	console.log("File written");
         	});
          
         	modFileName(filePath, fileName, tempFileName, "content", 1, function(newFileName) {
@@ -124,17 +125,17 @@ applyXPathContent = function(xml, fileName, callback){
 
 modFileName = function(file_path, file_name, temp_filename, temp_type, file_number, callback){
 
-	var fileName = file_path + file_name;
+	var fileName = file_name;
 	var ext = path.extname(fileName);
 	var removedExtensionString = fileName.slice(0, fileName.length - ext.length);	
-	var newFileName = removedExtensionString + "_mod_" + temp_type + file_number  + ext;	
- 
+	var newFileName = filePath + removedExtensionString + "_mod_" + temp_type + file_number  + ext;	
+  var fileNameToSend = removedExtensionString + "_mod_" + temp_type + file_number  + ext;
 	fs.rename(temp_filename, newFileName, function(err){
 		if(err) {
             return console.log(err);
         }  
 	});
-	callback(newFileName);
+	callback(fileNameToSend);
 }
 
 exports.init = init;
