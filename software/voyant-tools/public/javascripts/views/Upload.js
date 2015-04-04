@@ -34,8 +34,6 @@ Voyant.Upload = (function() {
 		});	
 		$.getScript("/javascripts/libs/fileinput.js");
 
-		fillCurrentCorpus(); 
-
 		//TODO: adapt file input	
 
    		var corpusObject = Voyant.CorpusController.getCorpusObject();
@@ -188,13 +186,13 @@ Voyant.Upload = (function() {
 			files.push("Freetext");
 		}
 
+		$("#corpus-list").empty(); 
+
 		files.forEach(function (file){
 			//Hier mit dem filenamen anstelle was du willst :D
 			var fileName = file;
+			$("#corpus-list").append("<li class=list-group-item>"+fileName+"</li>") 
 		});
-
-
-		
 	},
 
 	that.init = init;
