@@ -16,6 +16,17 @@
 	cursor: pointer;
 }
 
+#freetext-content, #upload-content{
+	height: 500px;
+}
+
+.upload-buttons  {
+	width: 45%;
+	background-color: #006600;
+	border-color: #006600;
+	margin-bottom: 20px;
+}
+
 #freetext-button{
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px; 
@@ -28,6 +39,7 @@
 
 #freetext, #file-upload {
 	margin-top: 20px;
+	height: 400px;
 }
 
 #freetext-description, #upload-description{
@@ -55,13 +67,14 @@
 	width: 100%;
 }
 
-#apply-freetext-button, #apply-upload-button, #to-settings-button, #upload-to-settings-button, #freetext-to-settings-button{
+/*#apply-freetext-button, #apply-upload-button, #to-settings-button, #upload-to-settings-button, #freetext-to-settings-button{
 	margin-bottom: 20px;
 	width: 40%; 
-}
+}*/
 
 #freetext-upload-feedback, #file-upload-feedback{
 	color: green; 
+	margin-top: 20px;
 	margin-bottom: 10px;	
 }
 

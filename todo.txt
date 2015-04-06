@@ -8,6 +8,7 @@
 - meldungen beim verlassen der seite
 - beschriftungen für upload
 - Auswahl der Tools setzen 
+-aktueller x-patch setzen 
 
 
 

@@ -39,58 +39,66 @@
         </div>
 
         <script type="text/template" id="freetext-tpl">
-            <div id="upload-navbar" class="col-md-offset-1 col-md-10 col-md-offset-1">
-                <div class="upload-nav-element col-md-6" id="freetext-button">Freetext</div>
-                <div class="upload-nav-element col-md-6" id="upload-button">File-Upload</div>
+            <div id="freetext-content">
+                <div id="upload-navbar" class="col-md-offset-1 col-md-10 col-md-offset-1">
+                    <div class="upload-nav-element col-md-6" id="freetext-button">Freetext</div>
+                    <div class="upload-nav-element col-md-6" id="upload-button">File-Upload</div>
+                </div>
+                <div id="freetext" class="col-md-offset-1 col-md-7">
+                    <p id="freetext-description">Type your text in here or copy and paste documents you want to analyze.</p>
+                    <textarea id="text-input"></textarea>
+                </div>
+                <div id="freetext-corpuslist-container" class="col-md-3">
+                    <div id="freetext-corpuslist-label">Current Corpus:</div>
+                    <ul id="freetext-corpus-list" class="list-group">
+                    </ul>
+                    <button class="btn btn-warning" id="freetext-clear-corpus">
+                        <span class="glyphicon glyphicon-trash"></span> Delete Corpus 
+                    </button>
+                </div>
+                <div id="freetext-upload-feedback" class="upload-feedback col-md-3">
+                </div>
             </div>
-            <div id="freetext" class="col-md-offset-1 col-md-7">
-                <p id="freetext-description">Type your text in here or copy and paste documents you want to analyze.</p>
-                <textarea id="text-input"></textarea>
-                <button type="submit" class="btn btn-default" id="apply-freetext-button">
+            <div id="freetext-button-group" class="col-md-offset-1 col-md-4">
+                <button type="submit" class="btn btn-success upload-buttons" id="apply-freetext-button">
                     <span class="glyphicon glyphicon-ok"></span> Apply
                 </button>
-                <button type="submit" class="btn btn-default disabled" id="freetext-to-settings-button">
+                <button type="submit" class="btn btn-success upload-buttons disabled" id="freetext-to-settings-button">
                     Corpus Settings <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
-            </div>
-            <div id="freetext-corpuslist-container" class="col-md-3">
-                <div id="freetext-corpuslist-label">Current Corpus:</div>
-                <ul id="freetext-corpus-list" class="list-group">
-                </ul>
-                <button class="btn btn-warning" id="freetext-clear-corpus">
-                    <span class="glyphicon glyphicon-trash"></span> Delete Corpus 
-                </button>
-            </div>
-            <div id="freetext-upload-feedback" class="upload-feedback col-md-offset-1 col-md-3 col-md-offset-6">
             </div>
         </script>
 
         <script type="text/template" id="fileupload-tpl">
-            <div id="upload-navbar" class="col-md-offset-1 col-md-10 col-md-offset-1">
-                <div class="upload-nav-element col-md-6" id="freetext-button">Freetext</div>
-                <div class="upload-nav-element col-md-6" id="upload-button">File-Upload</div>
-            </div>
-            <div id="file-upload" class="col-md-offset-1 col-md-6">
-            <p id="upload-description">Upload your files from your local file system and get them analyzed.</p>
-                <div id="upload-container">
-                    <input name="uploadFile" id="input" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="true" enctype="multipart/form-data">
+            <div id=upload-content>
+                <div id="upload-navbar" class="col-md-offset-1 col-md-10 col-md-offset-1">
+                    <div class="upload-nav-element col-md-6" id="freetext-button">Freetext</div>
+                    <div class="upload-nav-element col-md-6" id="upload-button">File-Upload</div>
                 </div>
-                <button type="submit" class="btn btn-default" id="apply-upload-button">
+                <div id="file-upload" class="col-md-offset-1 col-md-7">
+                    <p id="upload-description">Upload your files from your local file system and get them analyzed.</p>
+                    <div id="upload-container">
+                        <input name="uploadFile" id="input" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="true" enctype="multipart/form-data">
+                    </div>
+                </div>
+                <div id="fileupload-corpuslist-container" class="col-md-3">
+                    <div id="upload-corpuslist-label">Current Corpus:</div>
+                    <ul id="fileupload-corpus-list" class="list-group">
+                    </ul>
+                    <button class="btn btn-warning" id="fileupload-clear-corpus">
+                        <span class="glyphicon glyphicon-trash"></span> Delete Corpus 
+                    </button>
+                </div>
+                <div id="file-upload-feedback" class="upload-feedback col-md-3">     
+                </div>
+            </div>
+            <div id="upload-button-group" class="col-md-offset-1 col-md-4">
+                <button type="submit" class="btn btn-success upload-buttons" id="apply-upload-button">
                     <span class="glyphicon glyphicon-ok"></span> Apply
                 </button>
-                <button type="submit" class="btn btn-default disabled" id="upload-to-settings-button">
+                <button type="submit" class="btn btn-success upload-buttons disabled " id="upload-to-settings-button">
                     Corpus Settings <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
-            </div>
-            <div id="fileupload-corpuslist-container" class="col-md-offset-1 col-md-3">
-                <div id="upload-corpuslist-label">Current Corpus:</div>
-                <ul id="fileupload-corpus-list" class="list-group">
-                </ul>
-                <button class="btn btn-warning" id="fileupload-clear-corpus">
-                    <span class="glyphicon glyphicon-trash"></span> Delete Corpus 
-                </button>
-            </div>
-            <div id="file-upload-feedback" class="upload-feedback col-md-offset-1 col-md-3 col-md-offset-6">     
             </div>
         </script>
 
