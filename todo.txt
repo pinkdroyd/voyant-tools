@@ -1,4 +1,4 @@
-- Apply, Next - Buttons am Seitenende verändern. (Fix top / fix buttom und scrollt mit)
+
 
 - Hilfefunktion: Screenshots für die verschiedenen Punkte erstellen, anzeigen lassen und beschreiben 
 - Überschriften bei der Analyze-Ansicht? 
@@ -8,7 +8,7 @@
 - meldungen beim verlassen der seite
 - beschriftungen für upload
 - Auswahl der Tools setzen 
--aktueller x-patch setzen 
+
 - dropdown setzen 
 
 
@@ -31,3 +31,5 @@ Erledigt:
 - resize der textarea
 - Current Corpus: Bei fileupload überflüssig. Bei Corpus-Settings am Sinnvollsten. Oder direkt unter der Menülleiste für alle Punkte. Evtl auch Auflistung der ganzen settings. Oder Links eine Spalte einfügen
 - dropdown überarbeiten 
+- Apply, Next - Buttons am Seitenende verändern. (Fix top / fix buttom und scrollt mit)
+-aktueller x-path setzen 
