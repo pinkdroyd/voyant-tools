@@ -103,73 +103,74 @@
         </script>
 
         <script type="text/template" id="settings-tpl">
-        <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="stopwordlist">
-            <p id="stopword-label"> Stopwordlist: </p>
-            <div class="dropdown col-md-4">
-                <button class="btn btn-default dropdown-toggle" type="button" id="select-stopwordlist" data-toggle="dropdown" aria-expanded="true">
-                    Select Stopwordlist <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="stopwordDropdown">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">None</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">English</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">German</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">French</a></li>
-                </ul>
-            </div>           
-        </div>
-        <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="xpath-expressions">
-            <p id="xpath-heading"> XPath-Expressions </p>
-            <div class="form-group">
-                <div class="col-md-2 xpath-line">
-                    <label class="xpath-label" for="xpath-content">Content:</label>
-                </div>
-                <div class="col-md-10 xpath-line">
-                    <input id="xpath-content" class="form-control" type="text"/>
-                </div>                                        
+        <div id="settings-content">
+            <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="stopwordlist">
+                <p id="stopword-label"> Stopwordlist: </p>
+                <div class="dropdown col-md-4">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="select-stopwordlist" data-toggle="dropdown" aria-expanded="true">
+                        Select Stopwordlist <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="stopwordDropdown">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">None</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">English</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">German</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="stopword">French</a></li>
+                    </ul>
+                </div>           
             </div>
-            <div class="form-group">
-                <div class="col-md-2 xpath-line">
-                    <label class="xpath-label" for="xpath-documents">Documents:</label>
+            <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="xpath-expressions">
+                <p id="xpath-heading"> XPath-Expressions </p>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2 xpath-line">
+                        <label class="xpath-label" for="xpath-content">Content:</label>
+                    </div>
+                    <div class="col-md-8 xpath-line">
+                        <input id="xpath-content" class="form-control" type="text"/>
+                    </div>                                        
                 </div>
-                <div class="col-md-10 xpath-line">    
-                    <input id="xpath-documents" class="form-control" type="text"/>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2 xpath-line">
+                        <label class="xpath-label" for="xpath-documents">Documents:</label>
+                    </div>
+                    <div class="col-md-8 xpath-line">    
+                        <input id="xpath-documents" class="form-control" type="text"/>
+                    </div>
                 </div>
             </div>
+            <div id="file-settings-feedback" class="settings-feedback col-md-offset-1 col-md-3">
+            </div>
         </div>
-        <div id="xpath-button-group" class="col-md-offset-1 col-md-10 col-md-offset-1">
-            <button type="submit" class="btn btn-default" id="apply-xpath-button">
+        <div id="xpath-button-group" class="col-md-offset-1 col-md-4">
+            <button type="submit" class="btn btn-success settings-buttons" id="apply-xpath-button">
                 <span class="glyphicon glyphicon-ok"></span> Apply
             </button>
-            <button type="submit" class="btn btn-default disabled" id="to-tools-button">
+            <button type="submit" class="btn btn-success settings-buttons disabled" id="to-tools-button">
                     Select Tools <span class="glyphicon glyphicon-chevron-right"></span>
             </button>
-        </div>
-
-        <div id="file-settings-feedback" class="settings-feedback col-md-offset-1 col-md-3 col-md-offset-6">
-           
         </div>
         </script>
 
         <script type="text/template" id="tools-tpl">
-            <div id="tools">
+            <div id="tools" class="col-md-offset-1 col-md-10 col-md-offset-1">
             </div>
-            <button type="submit" class="btn btn-default" id="apply-tools-button">
-                <span class="glyphicon glyphicon-ok"></span> Apply
-            </button>
-            <button type="submit" class="btn btn-default disabled" id="to-analyze-button">
-                    Show Selected Tools <span class="glyphicon glyphicon-chevron-right"></span>
-            </button>
-            <div id="file-tools-feedback" class="tools-feedback col-md-offset-1 col-md-3 col-md-offset-6">
-           
+            <div id="tools-button-group" class="col-md-offset-1 col-md-4">
+                <button type="submit" class="btn btn-success tools-buttons" id="apply-tools-button">
+                    <span class="glyphicon glyphicon-ok"></span> Apply
+                </button>
+                <button type="submit" class="btn btn-success tools-buttons disabled" id="to-analyze-button">
+                        Show Selected Tools <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>
             </div>
-        </script>
-        <script type="text/template" id="analyze-tpl">
-            <div id="analyze-container">
 
+            <!--<div id="file-tools-feedback" class="tools-feedback col-md-offset-1 col-md-3 col-md-offset-6">
+            </div>-->
+        </script>
+
+        <script type="text/template" id="analyze-tpl">
+            <div id="analyze-container" class="col-md-offset-1 col-md-10 col-md-offset-1"">
             </div> 
-            <div id="file-tools-feedback" class="tools-feedback col-md-offset-1 col-md-3 col-md-offset-6">
-           
-            </div>
+            <!--<div id="file-tools-feedback" class="tools-feedback col-md-offset-1 col-md-3 col-md-offset-6">
+            </div>-->
         </script>
             
         <!--Libs-->

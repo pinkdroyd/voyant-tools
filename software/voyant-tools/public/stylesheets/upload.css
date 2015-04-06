@@ -17,13 +17,15 @@
 }
 
 #freetext-content, #upload-content{
-	height: 500px;
+	height: 600px;
+	overflow: scroll;
 }
 
 .upload-buttons  {
 	width: 45%;
 	background-color: #006600;
 	border-color: #006600;
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
@@ -66,11 +68,6 @@
 	margin-bottom: 20px;
 	width: 100%;
 }
-
-/*#apply-freetext-button, #apply-upload-button, #to-settings-button, #upload-to-settings-button, #freetext-to-settings-button{
-	margin-bottom: 20px;
-	width: 40%; 
-}*/
 
 #freetext-upload-feedback, #file-upload-feedback{
 	color: green; 

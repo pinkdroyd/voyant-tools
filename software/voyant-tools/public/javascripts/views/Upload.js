@@ -1,5 +1,6 @@
 Voyant.Upload = (function() {
 	var that = {},
+	uploadFirstload = true, 
 
 	init = function() {
 		console.log("init Upload.js");
@@ -7,6 +8,11 @@ Voyant.Upload = (function() {
 
 	appendUpload = function () {
 		appendFreetext();
+		if (uploadFirstload != true) {
+			fillCurrentCorpus();
+		} else {
+			uploadFirstload = false; 
+		}
 	};
 
 	appendFreetext = function() {

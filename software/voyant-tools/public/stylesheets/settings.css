@@ -1,3 +1,9 @@
+#settings-content {
+	height: 600px;
+	overflow: scroll;
+}
+
+
 #stopword-label{
 	margin-top: 20px;
 	text-decoration: underline;
@@ -13,17 +19,23 @@
 	width: 100%;
 }
 
+.dropdown {
+	margin-top: 20px;
+}
+
 #stopwordlist{
 	border: solid;
 	border-color: white;
 	border-width: 1px;
 	margin-top: 20px;
 	padding-bottom: 20px;
+	height: 150px; 
 }
 
 #xpath-heading{
 	margin-top: 20px;
 	text-decoration: underline;
+	margin-bottom: 50px;
 }
 
 #xpath-expressions{
@@ -31,6 +43,7 @@
 	border-color: white;
 	border-width: 1px;
 	margin-top: 20px;
+	height: 300px;
 }
 
 .xpath-line{
@@ -38,10 +51,16 @@
 	margin-bottom: 20px;
 }
 
-#apply-xpath-button, #to-tools-button {
-	margin-top: 20px;
+#xpath-button-group {
+	display: inline-block;
+}
+
+.settings-buttons {
+	width: 45%;
+	background-color: #006600;
+	border-color: #006600;
 	margin-bottom: 20px;
-	width: 15%; 
+	margin-top: 20px;
 }
 
 #settings-feedback{
