@@ -12,6 +12,7 @@ Voyant.AnalyzeController = (function() {
 	},
 
 	createURLs = function() {
+		urls = [];
 		var toolsChoosen = corpusObject.tools.tools_choosen;
 		var fileUploaded = corpusObject.file.file_uploaded;
 		var xpathApplied = corpusObject.xpath_applied;
@@ -41,7 +42,8 @@ Voyant.AnalyzeController = (function() {
 						var stopWordList = defineStopWordList(corpusObject.stoppwordlist.language);
 						url = url + "&stopList=" + stopWordList;											
 					}
-					urls.push(url);									
+					urls.push(url);
+					console.log("URLS: ", urls);								
 		
 			} else {	
 
@@ -61,12 +63,13 @@ Voyant.AnalyzeController = (function() {
 						url = url + "&stopList=" + stopWordList;
 					}
 					console.log(url);
-					urls.push(url);					
+					urls.push(url);		
+					console.log("URLS: ", urls);			
 			}		
 		});	
 			
 		}
-		console.log(urls);
+		console.log("URLS: ", urls);
 		return urls;
 		
 	},
