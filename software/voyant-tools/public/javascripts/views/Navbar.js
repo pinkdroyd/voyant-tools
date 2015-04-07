@@ -241,10 +241,11 @@ Voyant.Navbar = (function() {
 
 	corpusDeleted = function () {
 		corpusUploaded = false; 
+		toolSelected = false;
 		$('.nav-element').unbind('mouseenter mouseleave');
 		$('.nav-element').unbind('click');
 
-		$("#corpus-settings, #select-tool").css("background-color", "#C0C0C0");
+		$("#corpus-settings, #select-tool, #analyze-corpus").css("background-color", "#C0C0C0");
 		setupHover();
 		setupMenuClicklistener();
 	}

@@ -137,19 +137,7 @@ Voyant.Tools = (function() {
 	appendTools = function () {
 		var selectToolsTemplate = _.template($("#tools-tpl").html());
 
-		//var resultingHtml = selectToolsTemplate ({tools : listOfTools});
 		$("#content").html(selectToolsTemplate);
-
-		/*for (var i = 0; i < listOfTools.length; i++) {
-			$("#tools").append("<div class='col-md-4 tool-container' id=tool-container"+i+"></div>");
-			$("#tool-container"+ i).append ("<div  class='tool-image-container' id=tool-image-container"+i+"></div>");
-			$("#tool-container"+ i).append ("<div id=tool-heading-container"+i+" class=tool-heading-container>"+listOfTools[i].toolName+"</div>");
-			//$("#tool-heading-container"+ i).append ("<p class=tool-heading> " + listOfTools[i].toolName + " </p>");
-			$("#tool-image-container"+ i).append("<img src=" + listOfTools[i].toolSrc + " class='img-rounded tool-image' id=tool-image"+i+">");
-			$("#tool-container"+ i).append ("<div id=tool-description-container"+i+ " class='tool-description-container select-tools-text'>");
-			$("#tool-description-container"+ i).append("<p> "+listOfTools[i].toolDescription+ " </p>");
-			$("#tool-container"+ i).append ("<button type=submit class='btn btn-default select-tool-button' id=select-tool-button"+i+" ><span class='glyphicon glyphicon-plus'></span> Add Tool </button>");
-		}*/
 
 		for (var i = 0; i < listOfTools.length; i++) {
 			$("#tools").append("<div class='col-md-6 tool-container' id=tool-container"+i+"></div>");
@@ -159,8 +147,6 @@ Voyant.Tools = (function() {
 			$("#tool-text-container"+ i).append ("<div id=tool-heading-container"+i+" class='tool-heading-container'>"+listOfTools[i].toolName+"</div>");
 			$("#tool-text-container"+ i).append ("<div id=tool-description-container"+i+ " class='tool-description-container select-tools-text'>");
 			$("#tool-description-container"+ i).append("<p id=tool-description"+i+"> "+listOfTools[i].toolDescription+ " </p>");
-			//$("#tool-heading-container"+ i).append ("<p class=tool-heading> " + listOfTools[i].toolName + " </p>");
-			//$("#tool-container"+ i).append ("<button type=submit class='btn btn-default select-tool-button' id=select-tool-button"+i+" ><span class='glyphicon glyphicon-plus'></span> Add Tool </button>");
 		}
 		setupHover();
 		setupClickListener();
