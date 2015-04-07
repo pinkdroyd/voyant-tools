@@ -246,6 +246,7 @@ Voyant.Navbar = (function() {
 		$('.nav-element').unbind('click');
 
 		$("#corpus-settings, #select-tool, #analyze-corpus").css("background-color", "#C0C0C0");
+		$("#freetext-to-settings-button, #upload-to-settings-button").addClass("disabled");
 		setupHover();
 		setupMenuClicklistener();
 	}
