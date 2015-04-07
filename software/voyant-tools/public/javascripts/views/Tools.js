@@ -197,9 +197,17 @@ Voyant.Tools = (function() {
 
 		$("#apply-tools-button").click(function(e) {
 			convertSelectedItemsToList();
-			Voyant.ToolController.setToolList(toolList); 
-			Voyant.Navbar.toolsSelected(); 
-			console.log(toolList);
+			if (toolList.length == 0) {
+				var $feedback = $('<div class="alert alert-danger" role="alert">Select Tools First!</div>)').hide().fadeIn(2000, function(){
+					$(this).fadeOut();
+				});				
+				$feedback.appendTo($("#file-tools-feedback"));
+			} else {
+				Voyant.ToolController.setToolList(toolList); 
+				Voyant.Navbar.toolsSelected(); 
+				var $feedback = $('<div class="alert alert-success" role="alert">Selected Tools Saved!</div>)').hide().fadeIn(2000);
+				$feedback.appendTo($("#file-tools-feedback"));
+			}
 		});
 	},
 
