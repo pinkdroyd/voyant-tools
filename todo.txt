@@ -9,7 +9,8 @@
 
 nach tests: 
 - feedbacks überprüfen
-- pixelgröße anpassen
+- pixelgröße anpassen / scrollleisten
+
 
 
 Kleinigkeiten
