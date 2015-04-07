@@ -136,8 +136,10 @@ Voyant.Tools = (function() {
 
 	appendTools = function () {
 		var selectToolsTemplate = _.template($("#tools-tpl").html());
-
 		$("#content").html(selectToolsTemplate);
+		if (Voyant.Navbar.getIfToolSelected()) {
+			$("#to-analyze-button").removeClass("disabled");
+		}
 
 		for (var i = 0; i < listOfTools.length; i++) {
 			$("#tools").append("<div class='col-md-6 tool-container' id=tool-container"+i+"></div>");

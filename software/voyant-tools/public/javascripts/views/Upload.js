@@ -19,6 +19,10 @@ Voyant.Upload = (function() {
 		var freetextTemplate = _.template($("#freetext-tpl").html());
 		$("#content").html(freetextTemplate);
 
+		if (Voyant.Navbar.getCorpusUploaded() == true) {
+			$("#freetext-to-settings-button").removeClass("disabled");
+		}
+
 		$("#upload-corpus").css("background-color", "#B02130");
 		$("#freetext-button").css("background-color", "#B02130");
 		setupHover();
@@ -50,6 +54,10 @@ Voyant.Upload = (function() {
 	appendFileupload = function() {		
 		var fileuploadTemplate = _.template($("#fileupload-tpl").html());
 		$("#content").html(fileuploadTemplate);
+
+		if (Voyant.Navbar.getCorpusUploaded() == true) {
+			$("#upload-to-settings-button").removeClass("disabled");
+		}
 
 		$("#upload-button").css("background-color", "#B02130");
 		setupHover();

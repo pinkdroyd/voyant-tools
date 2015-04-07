@@ -18,7 +18,7 @@
 
 #freetext-content, #upload-content{
 	height: 600px;
-	overflow: scroll;
+	overflow: hidden;
 }
 
 .upload-buttons  {
