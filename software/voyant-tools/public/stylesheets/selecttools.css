@@ -3,7 +3,6 @@
     overflow: scroll;
 }
 
-
 .tool-image{
     height: 220px;    
 }
@@ -42,18 +41,6 @@
 
 .select-tools-text {
     color: white;
-}
-
-/*.select-tool-button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: inherit;
-    margin-bottom: 20px;
-}*/
-
-#tools-button-group {
-
 }
 
 .tools-buttons {
