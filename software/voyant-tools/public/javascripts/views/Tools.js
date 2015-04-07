@@ -207,7 +207,14 @@ Voyant.Tools = (function() {
 				Voyant.Navbar.toolsSelected(); 
 				var $feedback = $('<div class="alert alert-success" role="alert">Selected Tools Saved!</div>)').hide().fadeIn(2000);
 				$feedback.appendTo($("#file-tools-feedback"));
+				$("#to-analyze-button").removeClass("disabled");
 			}
+		});
+
+		$("#to-analyze-button").click(function(e) {
+			$(".nav-element").css("background-color", "#3B3B3C");
+			$("#analyze-corpus").css("background-color", "#B02130");
+			Voyant.MainController.appendAnalyze(); 
 		});
 	},
 
