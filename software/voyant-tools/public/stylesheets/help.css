@@ -2,10 +2,23 @@
 	color: white;
 }
 
+.code-container {
+	background-color: black;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 5px;
+	font-family: monospace;
+}
+
+.code {
+	
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
 th,td {
     padding: 15px;
 }

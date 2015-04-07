@@ -175,9 +175,11 @@
         </script>
 
         <script type="text/template" id="help-tpl">
-            <div id="help-container">
+            <div id="help-container" class="col-md-offset-1 col-md-10 col-md-offset-1">
                 <h2>Getting Started</h2>
                 Voyant Tools is a web-based text reading and analysis environment. It’s designed to make it easy for you to work with your own text or collection of texts in a variety of formats, including plain text, HTML, XML, PDF, RTF, and MS Word.
+
+                <hr>
                 <h2><span id="upload-corpus-span" class="glyphicon glyphicon-open-file" /> Upload Corpus</h2>
                 By default, you see the textbox in which you can paste plain text or weblinks to .txt, .xml, and .html pages.
                 <br /> Change to <i>File-Upload</i> to add files from your computer. Supported formats include:
@@ -190,13 +192,79 @@
                     <li>PDF (.pdf)</li>
                 </ul>
 
-                To delete the pasted texts and uploaded files, just click <i>Delete Corpus</i> on the right.
+                To delete the pasted texts and uploaded files, just click <i>Delete Corpus</i> on the right of the page.
 
-                <h2><span id="corpus-settings-span"class="glyphicon glyphicon-cog" /> Corpus Settings</h2>
-                
-                <h2><span id="select-tool-span"class="glyphicon glyphicon-wrench" /> Select Tools</h2>
+                <hr>
+                <h2><span class="glyphicon glyphicon-cog" /> Corpus Settings</h2>
+                Firstly, you can select preset stopwords from the dropdown list (English, German, French).
+                <br />Secondly, you can enter XPath expressions. It’s possible to split a single XML document into multiple Voyant documents with an XPath query, and it’s also possible to define XPath queries for which node to consider for content. See the example below for further explanation:
+                <br />
+                <br />
+                <pre>
+&lt;corpus&gt;
+    &lt;document&gt;
+        &lt;author&gt;
+            Arthur Conan Doyle
+        &lt;/author&gt;
+        &lt;title&gt;  
+            The Adventure of the Red Circle
+        &lt;/title&gt;
+        &lt;content&gt;
+            "Well, Mrs. Warren, I cannot see that you have any particular cause for uneasiness, nor do I understand why I [..]"
+        &lt;content&gt;
+    &lt;/document&gt;
+    &lt;document&gt;
+        &lt;author&gt;
+            Mark Twain
+        &lt;/author&gt;
+        &lt;title&gt;
+            Adventures of Huckleberry Finn
+        &lt;/title&gt;
+        &lt;content&gt;
+            You don't know about me without you have read a book by the name of The Adventures of Tom Sawyer; but that ain't no matter. [..]
+        &lt;content&gt;
+    &lt;/document&gt;
+&lt;/corpus&gt;</pre>
+                <br />
+                With the above XML code you can easily define which elements hold the important content for your analysis.
+                <br />
+                <br />
+                Use
+                <br />
+                <pre>
+/corpus/document</pre>
+                to select the <i>all</i> document elements that are the child of the corpus element.
+                <br />
+                <br />
+                Use
+                <br />
+                <pre>
+/corpus/document[1]</pre>
+                to select the <i>first</i> document element that is the child of the corpus element.
+                <br />
+                <br />
+                Use
+                <br />
+                <pre>
+/corpus/document[last()]</pre>
+                to select the <i>last</i> document element that is the child of the corpus element.
 
-                <h2><span id="help-span" class="glyphicon glyphicon-stats" /> Analyze Corpus</h2>
+                <hr>
+                <h2><span class="glyphicon glyphicon-wrench" /> Select Tools</h2>
+                Please select the tools you want to use for your analysis of the text(s). You can choose from twenty interactive tools that give information about the corpus you uploaded. Currently selected tools are highlighted in red.
+                <br />Hit apply at the bottom to save the current selection.
+
+                <hr>
+                <h2><span class="glyphicon glyphicon-stats" /> Analyze Corpus</h2>
+                All the tools that you selected in the previous step are shown here.
+
+                <hr>
+                <h2><span class="glyphicon glyphicon-book" /> Further information</h2>
+                For further information on how to use the tools visit the <a href="http://docs.voyant-tools.org/tools/">documentation</a>.
+
+                <br />
+                <br />
+                <br />
             </div>
         </script>
             
