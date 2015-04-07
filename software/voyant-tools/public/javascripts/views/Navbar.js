@@ -195,6 +195,8 @@ Voyant.Navbar = (function() {
 	corpusDeleted = function () {
 		corupusUploaded = false; 
 		$('.nav-element').unbind('mouseenter mouseleave');
+		$('.nav-element').unbind('click');
+		
 		$("#corpus-settings, #select-tool").css("background-color", "#C0C0C0");
 		setupHover();
 	}

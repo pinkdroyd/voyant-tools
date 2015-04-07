@@ -52,7 +52,6 @@ Voyant.Upload = (function() {
 			clearCorpurs();
 			appendFileupload(); 
 			Voyant.Navbar.corpusDeleted();
-			MainController.appendUpload(); 
 		});
 
 		//TODO: adapt file input	
