@@ -127,7 +127,6 @@ Voyant.Tools = (function() {
 	selectedItems, 
 	toolList, 
 
-
 	init = function() {
 		console.log("init Tools.js");
 		selectedItems = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -227,7 +226,7 @@ Voyant.Tools = (function() {
 
 	getToolList = function () {
 		return toolList;
-	}
+	},
 
 	that.init = init;
 	that.appendTools = appendTools;

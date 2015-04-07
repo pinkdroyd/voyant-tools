@@ -90,12 +90,9 @@ Voyant.CorpusController = (function() {
 					
 					corpusObject.file.file_names_original.push(file.name);			
 					formData.append('file_type', fileType);			
-					formData.append('file_data', file);
-				
-						
+					formData.append('file_data', file);		
 				} 
 			}
-		
 		sendFileToServer(formData, '/fileupload/');
 		Voyant.Navbar.corpusUploaded();
 		$("#upload-to-settings-button").removeClass("disabled");
@@ -106,9 +103,6 @@ Voyant.CorpusController = (function() {
 			});		
 				$feedback.appendTo($(".upload-feedback"));
 		}
-		
-		
-		
 	},
 
 	sendFileToServer = function(formData, url){
@@ -126,18 +120,14 @@ Voyant.CorpusController = (function() {
     		});
 	},
 
-	onFileReady = function(result){
-		
+	onFileReady = function(result){		
 		result.data.forEach( function(file){
-
 			corpusObject.file.file_names.push(file.name);
 			corpusObject.file.file_uploaded = true;
 			fileName = file.name;
 
 			console.log("Corpus object: ", corpusObject);
 			sendCorpusToControllers(corpusObject);
-			
-
 		});
 
 		var $feedback = $('<div class="alert alert-success" role="alert">Your file has been uploaded!</div>)').hide().fadeIn(2000, function(){
@@ -157,7 +147,5 @@ Voyant.CorpusController = (function() {
 	that.getCorpusObject = getCorpusObject;
 	that.setCorpusObject = setCorpusObject;
 	that.init = init;
-
-
 	return that;
 }());

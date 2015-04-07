@@ -165,7 +165,6 @@ Voyant.Upload = (function() {
 			});
 		}
 		$('#input').on('filecleared', function(event) {
-			
 			corpusObject.file.file_uploaded = false;
 			corpusObject.file.file_names = [];
 			corpusObject.file.file_names_xpath = [];
@@ -175,7 +174,6 @@ Voyant.Upload = (function() {
 			sendCorpusToControllers(corpusObject);
 			appendFileupload();
 		});
-
 	},	
 
 	setOriginalFooter = function(){
