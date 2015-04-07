@@ -62,7 +62,8 @@ Voyant.CorpusController = (function() {
 		if(text != ""){
 			formData.append('file_data', text);		
 			sendFileToServer(formData, '/textupload/');		
-			Voyant.Navbar.corpusUploaded();		
+			Voyant.Navbar.corpusUploaded();	
+			$("#freetext-to-settings-button").removeClass("disabled");	
 		} else {
 			var $feedback = $('<div class="alert alert-danger" role="alert">No files / text to upload!</div>)').hide().fadeIn(2000, function(){
 				$(this).fadeOut();
@@ -97,6 +98,7 @@ Voyant.CorpusController = (function() {
 		
 		sendFileToServer(formData, '/fileupload/');
 		Voyant.Navbar.corpusUploaded();
+		$("#upload-to-settings-button").removeClass("disabled");
 
 		} else {
 			var $feedback = $('<div class="alert alert-danger" role="alert">No files have been chosen!</div>)').hide().fadeIn(2000, function(){

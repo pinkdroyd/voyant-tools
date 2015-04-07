@@ -270,10 +270,15 @@ Voyant.Navbar = (function() {
 		setupMenuClicklistener(); 
 	}, 
 
+	getIfToolSelected = function () {
+		return toolSelected; 
+	},
+
 	that.init = init;
 	that.corpusUploaded = corpusUploaded; 
 	that.corpusDeleted = corpusDeleted; 
 	that.toolsSelected = toolsSelected; 
+	that.getIfToolSelected = getIfToolSelected; 
 
 	return that;
 }());

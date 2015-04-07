@@ -33,6 +33,17 @@ Voyant.Upload = (function() {
 			appendFreetext(); 
 			Voyant.Navbar.corpusDeleted(); 
 		});
+
+		$("#freetext-to-settings-button").click(function(e) {
+			$(".nav-element").css("background-color", "#3B3B3C");
+    		$("#corpus-settings").css("background-color", "#B02130");
+    		if (Voyant.Navbar.getIfToolSelected() == false) {
+				$("#analyze-corpus").css("background-color", "#C0C0C0");
+			}
+			Voyant.MainController.appendSettings(); 
+		});
+
+
 	},
 
 	appendFileupload = function() {		
@@ -47,6 +58,15 @@ Voyant.Upload = (function() {
 			fillCurrentCorpus(); 
 		});	
 		$.getScript("/javascripts/libs/fileinput.js");
+
+		$("#upload-to-settings-button").click(function(e) {
+			$(".nav-element").css("background-color", "#3B3B3C");
+    		$("#corpus-settings").css("background-color", "#B02130");
+    		if (Voyant.Navbar.getIfToolSelected() == false) {
+				$("#analyze-corpus").css("background-color", "#C0C0C0");
+			}
+			Voyant.MainController.appendSettings(); 
+		});
 
 		$("#fileupload-clear-corpus").click(function(e) {
 			clearCorpurs();
@@ -146,7 +166,6 @@ Voyant.Upload = (function() {
 			corpusObject.xpath_applied = false;
 			sendCorpusToControllers(corpusObject);
 			appendFileupload();
-
 		});
 
 	},	
@@ -204,6 +223,8 @@ Voyant.Upload = (function() {
 		corpusObject.file.file_names_original = [];
 		corpusObject.xpath_applied = false;
 		sendCorpusToControllers(corpusObject);
+
+		$("#freetext-to-settings-button").addClass("disabled");
 	},
 
 
