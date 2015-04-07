@@ -226,7 +226,7 @@ Voyant.Tools = (function() {
 
 	getToolList = function () {
 		return toolList;
-	},
+	};
 
 	that.init = init;
 	that.appendTools = appendTools;
