@@ -2,7 +2,7 @@
 
 - Hilfefunktion: Screenshots für die verschiedenen Punkte erstellen, anzeigen lassen und beschreiben 
 - Überschriften bei der Analyze-Ansicht? 
-- meldungen beim verlassen der seite
+
 
 
 
@@ -37,3 +37,4 @@ Erledigt:
 - Auswahl der Tools setzen 
 - bilder zuschneiden
 - Zu Beginn bestimmte buttons ausgrauen. nach und nach enablen 
+- meldungen beim verlassen der seite

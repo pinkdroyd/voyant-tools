@@ -13,10 +13,6 @@ Voyant.Navbar = (function() {
 		setupHover();
 		setupMenuClicklistener();
 		appendUpload();
-
-		window.onbeforeunload = function() {
-        	return "Are you sure you want to leave this page? Your data will be lost!";
-    	}
 	},
 
 	setupHover = function () {
