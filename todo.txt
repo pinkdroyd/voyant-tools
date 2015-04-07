@@ -11,6 +11,7 @@
 
 nach tests: 
 - feedbacks überprüfen
+- pixelgröße anpassen
 
 
 Kleinigkeiten
