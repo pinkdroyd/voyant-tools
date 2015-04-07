@@ -39,12 +39,16 @@ Voyant.Navbar = (function() {
 				$(this).removeAttr("title");
 			}); 
 
-			$("#help-container").mouseenter(function() {
-				$("#help-container").css("background-color", "#838B8B");
+			$("#help-container, #upload-corpus").mouseenter(function() {
+				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+					$(this).css("background-color", "#838B8B");
+				}
 			});
 
-			$("#help-container").mouseleave(function() {
-				$("#help-container").css("background-color", "#3B3B3C");
+			$("#help-container, #upload-corpus").mouseleave(function() {
+				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+					$(this).css("background-color", "#3B3B3C");
+				}
 			});
 		}
 	},
@@ -121,14 +125,32 @@ Voyant.Navbar = (function() {
 				switch(clickedElement) {
 					case "help-container":
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+		        			$("#upload-corpus").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
 			        		appendHelp(); 
 			        	}
 		        		break; 
 		        	case "help-span":
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+							$("#upload-corpus").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
 			        		appendHelp(); 
 			        	}
 		        		break; 
+		        	case "upload-corpus":
+						if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+							$("#help-container").css("background-color", "#3B3B3C");
+							$(this).css("background-color", "#B02130");
+							appendUpload();
+						}
+		        		break;
+		        	case "upload-corpus-span":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+		        			$("#help-container").css("background-color", "#3B3B3C");
+							$(this).css("background-color", "#B02130");
+							appendUpload();
+						}
+						break;
 		        }
 			}); 
 		}
