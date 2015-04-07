@@ -1,7 +1,8 @@
 Voyant.Navbar = (function() {
 	var that = {},
 	MainController = Voyant.MainController,
-	corpusUploaded = false,  
+	corpusUploaded = false, 
+	toolsSelected = false,  
 
 
 	init = function() {
@@ -30,8 +31,13 @@ Voyant.Navbar = (function() {
 			$("#corpus-settings, #select-tool, #analyze-corpus").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("cursor", "not-allowed");
+					$(this).attr("title", "Upload Corpus first");
 				}
 			});
+
+			$("#corpus-settings, #select-tool, #analyze-corpus").mouseleave(function() {
+				$(this).removeAttr("title");
+			}); 
 
 			$("#help-container").mouseenter(function() {
 				$("#help-container").css("background-color", "#838B8B");
@@ -44,7 +50,6 @@ Voyant.Navbar = (function() {
 	},
 
 	setupMenuClicklistener = function () {
-
 		if (corpusUploaded === true) {
 			$(".nav-element").click(function(e) {
 			var clickedElement = e.target.id;
@@ -98,8 +103,34 @@ Voyant.Navbar = (function() {
 			        		appendSelectTools();
 			        	}
 		        		break;
+		        	case "help-container":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		appendHelp(); 
+			        	}
+		        		break; 
+		        	case "help-span":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		appendHelp(); 
+			        	}
+		        		break; 
 				}
 			});
+		} else {
+			$(".nav-element").click(function(e) {
+				var clickedElement = e.target.id;
+				switch(clickedElement) {
+					case "help-container":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		appendHelp(); 
+			        	}
+		        		break; 
+		        	case "help-span":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		appendHelp(); 
+			        	}
+		        		break; 
+		        }
+			}); 
 		}
 	}
 
@@ -184,6 +215,10 @@ Voyant.Navbar = (function() {
 		MainController.appendAnalyze();
 	},
 
+	appendHelp = function () {
+		Voyant.Help.appendHelp(); 
+	}, 
+
 	corpusUploaded = function () {
 		corpusUploaded = true; 
 		setActiveColors(); 
@@ -204,6 +239,10 @@ Voyant.Navbar = (function() {
 		$("#upload-corpus").css("background-color", "rgb(176, 33, 48)");
 		$("#corpus-settings").css("background-color", "#3B3B3C");
 		$("#select-tool").css("background-color", "#3B3B3C");
+	}, 
+
+	toolsSelected = function () {
+
 	}, 
 
 	that.init = init;

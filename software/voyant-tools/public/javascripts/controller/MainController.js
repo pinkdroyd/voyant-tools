@@ -13,6 +13,7 @@ Voyant.MainController = (function() {
 		Voyant.Settings.init();	
 		Voyant.Tools.init();
 		Voyant.Analyze.init();
+		Voyant.Help.init(); 
 	},
 
 	appendUpload = function () {
