@@ -1,6 +1,8 @@
 #tools {
     height: 600px;
     overflow: scroll;
+    margin-top: 20px;
+    padding: 0;
 }
 
 .tool-image{
