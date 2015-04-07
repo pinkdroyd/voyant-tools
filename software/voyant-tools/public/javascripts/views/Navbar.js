@@ -1,6 +1,7 @@
 Voyant.Navbar = (function() {
 	var that = {},
-	MainController = Voyant.MainController, 
+	MainController = Voyant.MainController,
+	corupusUploaded = false,  
 
 
 	init = function() {
@@ -13,20 +14,97 @@ Voyant.Navbar = (function() {
 	},
 
 	setupHover = function () {
-		$(".nav-element").mouseenter(function() {
-			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-				$(this).css("background-color", "#838B8B");
-			}
-		});
+		console.log(corupusUploaded);
+		if (corupusUploaded === true) {
+			$("#upload-corpus, #corpus-settings, #select-tool").mouseenter(function() {
+				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+					$(this).css("background-color", "#838B8B");
+					$(this).css("cursor", "pointer");
+				}
+			});
+			$("#upload-corpus, #corpus-settings, #select-tool").mouseleave(function() {
+				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+					$(this).css("background-color", "#3B3B3C");
+				}
+			});
+		} else  {
+			$("#corpus-settings, #select-tool, #analyze-corpus").mouseenter(function() {
+				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+					$(this).css("cursor", "not-allowed");
+				}
+			});
 
-		$(".nav-element").mouseleave(function() {
-			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-				$(this).css("background-color", "#3B3B3C");
-			}
-		});
+			$("#help-container").mouseenter(function() {
+				$("#help-container").css("background-color", "#838B8B");
+			});
+
+			$("#help-container").mouseleave(function() {
+				$("#help-container").css("background-color", "#3B3B3C");
+			});
+		}
 	},
 
-	setupMenuClicklistener = function() {
+	setupMenuClicklistener = function () {
+
+		if (corupusUploaded === true) {
+			$(".nav-element").click(function(e) {
+			var clickedElement = e.target.id;
+
+				switch(clickedElement) {
+					case "upload-corpus":
+						if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+							$(".nav-element").css("background-color", "#3B3B3C");
+							$(this).css("background-color", "#B02130");
+							$("#analyze-corpus").css("background-color", "#C0C0C0");
+							appendUpload();
+						}
+		        		break;
+		        	case "upload-corpus-span":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+							$(".nav-element").css("background-color", "#3B3B3C");
+							$(this).css("background-color", "#B02130");
+							$("#analyze-corpus").css("background-color", "#C0C0C0");
+							appendUpload();
+						}
+		        		break;
+		        	case "corpus-settings":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		$(".nav-element").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		appendSettings();
+			        	}
+		        		break;
+		        	case "corpus-settings-span":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+		        			$(".nav-element").css("background-color", "#3B3B3C");
+		        			$(this).css("background-color", "#B02130");
+		        			$("#analyze-corpus").css("background-color", "#C0C0C0");
+		        			appendSettings();
+		        		}
+		        		break;
+		        	case "select-tool":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		$(".nav-element").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		appendSelectTools();
+			        	}
+		        		break;
+		        	case "select-tool-span":
+		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        		$(".nav-element").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		appendSelectTools();
+			        	}
+		        		break;
+				}
+			});
+		}
+	}
+
+	/*setupMenuClicklistener = function() {
 		$(".nav-element").click(function(e) {
 			var clickedElement = e.target.id;
 
@@ -89,7 +167,7 @@ Voyant.Navbar = (function() {
         		break;
 			}
 		});
-	},
+	},*/
 
 	appendUpload = function () {
 		MainController.appendUpload();
@@ -107,7 +185,29 @@ Voyant.Navbar = (function() {
 		MainController.appendAnalyze();
 	},
 
+	corpusUploaded = function () {
+		corupusUploaded = true; 
+		setActiveColors(); 
+		setupHover(); 
+		setupMenuClicklistener();
+	},
+
+	corpusDeleted = function () {
+		corupusUploaded = false; 
+		$('.nav-element').unbind('mouseenter mouseleave');
+		$("#corpus-settings, #select-tool").css("background-color", "#C0C0C0");
+		setupHover();
+	}
+
+	setActiveColors = function () {
+		$("#upload-corpus").css("background-color", "rgb(176, 33, 48)");
+		$("#corpus-settings").css("background-color", "#3B3B3C");
+		$("#select-tool").css("background-color", "#3B3B3C");
+	}, 
+
 	that.init = init;
+	that.corpusUploaded = corpusUploaded; 
+	that.corpusDeleted = corpusDeleted; 
 
 	return that;
 }());

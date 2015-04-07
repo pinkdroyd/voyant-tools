@@ -23,6 +23,7 @@ Voyant.Analyze = (function() {
 		for (var i = 0 ; i < selectedTools.length; i++) {
 			appendHtml(i); 
 			var url = selectedTools[i];
+			console.log(selectedTools);
 
 			//var url = "http://voyant-tools.org/tool/"+selectedTools[i]+"/?input=http://digitalhumanities.org:8080/dhq/vol/3/3/000067.xml"; 
 			$("#iframe"+i).attr('src', url);

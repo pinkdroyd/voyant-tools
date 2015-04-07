@@ -31,6 +31,7 @@ Voyant.Upload = (function() {
 		$("#freetext-clear-corpus").click(function(e) {
 			clearCorpurs();
 			appendFreetext(); 
+			Voyant.Navbar.corpusDeleted(); 
 		});
 	},
 
@@ -50,6 +51,8 @@ Voyant.Upload = (function() {
 		$("#fileupload-clear-corpus").click(function(e) {
 			clearCorpurs();
 			appendFileupload(); 
+			Voyant.Navbar.corpusDeleted();
+			MainController.appendUpload(); 
 		});
 
 		//TODO: adapt file input	
