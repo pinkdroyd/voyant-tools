@@ -1,7 +1,7 @@
 Voyant.Navbar = (function() {
 	var that = {},
 	MainController = Voyant.MainController,
-	corupusUploaded = false,  
+	corpusUploaded = false,  
 
 
 	init = function() {
@@ -14,8 +14,7 @@ Voyant.Navbar = (function() {
 	},
 
 	setupHover = function () {
-		console.log(corupusUploaded);
-		if (corupusUploaded === true) {
+		if (corpusUploaded === true) {
 			$("#upload-corpus, #corpus-settings, #select-tool").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("background-color", "#838B8B");
@@ -46,7 +45,7 @@ Voyant.Navbar = (function() {
 
 	setupMenuClicklistener = function () {
 
-		if (corupusUploaded === true) {
+		if (corpusUploaded === true) {
 			$(".nav-element").click(function(e) {
 			var clickedElement = e.target.id;
 
@@ -186,17 +185,17 @@ Voyant.Navbar = (function() {
 	},
 
 	corpusUploaded = function () {
-		corupusUploaded = true; 
+		corpusUploaded = true; 
 		setActiveColors(); 
 		setupHover(); 
 		setupMenuClicklistener();
 	},
 
 	corpusDeleted = function () {
-		corupusUploaded = false; 
+		corpusUploaded = false; 
 		$('.nav-element').unbind('mouseenter mouseleave');
 		$('.nav-element').unbind('click');
-		
+
 		$("#corpus-settings, #select-tool").css("background-color", "#C0C0C0");
 		setupHover();
 	}
