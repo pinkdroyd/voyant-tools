@@ -1,7 +1,7 @@
 Voyant.Navbar = (function() {
 	var that = {},
 	MainController = Voyant.MainController,
-	corpusUploaded = false, 
+	isCorpusUploaded = false, 
 	toolsSelected = false, 
 	toolSelected = false, 
 
@@ -16,7 +16,7 @@ Voyant.Navbar = (function() {
 	},
 
 	setupHover = function () {
-		if (corpusUploaded === true) {
+		if (isCorpusUploaded === true) {
 			$("#upload-corpus, #corpus-settings, #select-tool, #help-container").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("background-color", "#838B8B");
@@ -68,7 +68,7 @@ Voyant.Navbar = (function() {
 	},
 
 	setupMenuClicklistener = function () {
-		if (corpusUploaded == true) {
+		if (isCorpusUploaded == true) {
 			$(".nav-element").click(function(e) {
 			var clickedElement = e.target.id;
 
@@ -231,7 +231,7 @@ Voyant.Navbar = (function() {
 	}, 
 
 	corpusUploaded = function () {
-		corpusUploaded = true; 
+		isCorpusUploaded = true; 
 		$('.nav-element').unbind('mouseenter mouseleave');
 		$('.nav-element').unbind('click');
 		setActiveColors(); 
@@ -240,7 +240,7 @@ Voyant.Navbar = (function() {
 	},
 
 	corpusDeleted = function () {
-		corpusUploaded = false; 
+		isCorpusUploaded = false; 
 		toolSelected = false;
 		$('.nav-element').unbind('mouseenter mouseleave');
 		$('.nav-element').unbind('click');
@@ -269,7 +269,7 @@ Voyant.Navbar = (function() {
 	}, 
 
 	getCorpusUploaded = function () {
-		return corpusUploaded; 
+		return isCorpusUploaded; 
 	},
 
 	getIfToolSelected = function () {

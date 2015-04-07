@@ -84,8 +84,6 @@ Voyant.Upload = (function() {
 			Voyant.Navbar.corpusDeleted();
 		});
 
-		//TODO: adapt file input	
-
    		var corpusObject = Voyant.CorpusController.getCorpusObject();
    		var fileUploaded = corpusObject.file.file_uploaded;
 
