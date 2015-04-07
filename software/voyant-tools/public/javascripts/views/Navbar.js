@@ -2,7 +2,8 @@ Voyant.Navbar = (function() {
 	var that = {},
 	MainController = Voyant.MainController,
 	corpusUploaded = false, 
-	toolsSelected = false,  
+	toolsSelected = false, 
+	toolSelected = false, 
 
 
 	init = function() {
@@ -16,19 +17,33 @@ Voyant.Navbar = (function() {
 
 	setupHover = function () {
 		if (corpusUploaded === true) {
-			$("#upload-corpus, #corpus-settings, #select-tool").mouseenter(function() {
+			$("#upload-corpus, #corpus-settings, #select-tool, #help-container").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("background-color", "#838B8B");
 					$(this).css("cursor", "pointer");
 				}
 			});
 
-			$("#upload-corpus, #corpus-settings, #select-tool").mouseleave(function() {
+			$("#upload-corpus, #corpus-settings, #select-tool, #help-container").mouseleave(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("background-color", "#3B3B3C");
 				}
 			});
 
+			if(toolSelected === true) {
+				$("#analyze-corpus").mouseenter(function() {
+					if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+						$(this).css("cursor", "pointer");
+						$(this).css("background-color", "#838B8B");
+					}
+				});
+
+				$("#analyze-corpus").mouseleave(function() {
+					if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+						$(this).css("background-color", "#3B3B3C");
+					}
+				});
+		 	}
 		} else {
 			$("#corpus-settings, #select-tool, #analyze-corpus").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
@@ -64,8 +79,10 @@ Voyant.Navbar = (function() {
 					case "upload-corpus":
 						if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 							$(".nav-element").css("background-color", "#3B3B3C");
+							if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 							$(this).css("background-color", "#B02130");
-							$("#analyze-corpus").css("background-color", "#C0C0C0")
 							appendUpload();
 						}
 		        		break;
@@ -73,7 +90,9 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
+			        		if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 			        		appendUpload();
 						}
 		        		break;
@@ -81,7 +100,9 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
+			        		if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 			        		appendSettings();
 			        	}
 		        		break;
@@ -89,7 +110,9 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        			$(".nav-element").css("background-color", "#3B3B3C");
 		        			$(this).css("background-color", "#B02130");
-		        			$("#analyze-corpus").css("background-color", "#C0C0C0")
+		        			if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 		        			appendSettings();
 		        		}
 		        		break;
@@ -97,7 +120,9 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
+			        		if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 			        		appendSelectTools();
 			        	}
 		        		break;
@@ -105,15 +130,37 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 			        		appendSelectTools();
 			        	}
 		        		break;
+		        	case "analyze-corpus":
+		        		if (toolSelected == true) {
+		        			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        			$(".nav-element").css("background-color", "#3B3B3C");
+			        			$(this).css("background-color", "#B02130");
+			        			appendAnalyze(); 
+			        		}
+			        	}
+        				break;
+	        		case "analyze-corpus-span":
+	        			if (toolSelected == true) {
+		        			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+			        			$(".nav-element").css("background-color", "#3B3B3C");
+			        			$(this).css("background-color", "#B02130");
+			        			appendAnalyze(); 
+			        		}
+		        		}
+	        			break;
 		        	case "help-container":
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        			$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
+			        		if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 			        		appendHelp(); 
 			        	}
 		        		break; 
@@ -121,7 +168,9 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        			$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
+			        		if (toolSelected == false) {
+								$("#analyze-corpus").css("background-color", "#C0C0C0");
+							}
 			        		appendHelp(); 
 			        	}
 		        		break; 
@@ -186,6 +235,7 @@ Voyant.Navbar = (function() {
 
 	corpusUploaded = function () {
 		corpusUploaded = true; 
+		$('.nav-element').unbind('mouseenter mouseleave');
 		$('.nav-element').unbind('click');
 		setActiveColors(); 
 		setupHover(); 
@@ -209,16 +259,15 @@ Voyant.Navbar = (function() {
 	}, 
 
 	toolsSelected = function () {
-		toolsSelected = true; 
-		$("#analyze-corpus").css("background-color", "#3B3B3C");
-		$("#analyze-corpus").mouseenter(function() {
-			$(this).css("cursor", "pointer");
-		});
-		$("#analyze-corpus").click(function(e) {
-			$(".nav-element").css("background-color", "#3B3B3C");
-	        $(this).css("background-color", "#B02130");
-			appendAnalyze(); 
-		});
+		toolSelected = true; 
+
+		$('.nav-element').unbind('mouseenter mouseleave');
+		$('.nav-element').unbind('click');
+
+		$("#analyze-corpus").css("background-color", "#3B3B3C");		
+
+		setupHover(); 
+		setupMenuClicklistener(); 
 	}, 
 
 	that.init = init;
