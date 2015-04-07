@@ -140,7 +140,9 @@ Voyant.CorpusController = (function() {
 
 		});
 
-		var $feedback = $('<div class="alert alert-success" role="alert">Your file has been uploaded!</div>)').hide().fadeIn(1500);
+		var $feedback = $('<div class="alert alert-success" role="alert">Your file has been uploaded!</div>)').hide().fadeIn(2000, function(){
+				$(this).fadeOut();
+			});		
 		$feedback.appendTo($(".upload-feedback"));
 		//TODO: set the source of the iframe
 		// URL example: http://127.0.0.1:8888/tool/Cirrus/?input=http://localhost:3000/files/%fileName%

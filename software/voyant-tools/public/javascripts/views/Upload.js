@@ -39,6 +39,7 @@ Voyant.Upload = (function() {
     		$("#corpus-settings").css("background-color", "#B02130");
     		if (Voyant.Navbar.getIfToolSelected() == false) {
 				$("#analyze-corpus").css("background-color", "#C0C0C0");
+				$("#analyze-corpus").css("cursor","not-allowed");
 			}
 			Voyant.MainController.appendSettings(); 
 		});
@@ -64,6 +65,7 @@ Voyant.Upload = (function() {
     		$("#corpus-settings").css("background-color", "#B02130");
     		if (Voyant.Navbar.getIfToolSelected() == false) {
 				$("#analyze-corpus").css("background-color", "#C0C0C0");
+				$("#analyze-corpus").css("cursor","not-allowed");
 			}
 			Voyant.MainController.appendSettings(); 
 		});

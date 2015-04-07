@@ -9,6 +9,10 @@
 
 
 
+nach tests: 
+- feedbacks überprüfen
+
+
 Kleinigkeiten
 - Schriftart
 

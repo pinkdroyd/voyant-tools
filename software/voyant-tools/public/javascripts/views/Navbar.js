@@ -43,18 +43,15 @@ Voyant.Navbar = (function() {
 						$(this).css("background-color", "#3B3B3C");
 					}
 				});
+		 	} else {
+		 		$("#analyze-corpus").css("cursor","not-allowed");
 		 	}
 		} else {
 			$("#corpus-settings, #select-tool, #analyze-corpus").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("cursor", "not-allowed");
-					$(this).attr("title", "Upload Corpus first");
 				}
 			});
-
-			$("#corpus-settings, #select-tool, #analyze-corpus").mouseleave(function() {
-				$(this).removeAttr("title");
-			}); 
 
 			$("#help-container, #upload-corpus").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
