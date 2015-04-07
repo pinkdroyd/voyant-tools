@@ -22,12 +22,14 @@ Voyant.Navbar = (function() {
 					$(this).css("cursor", "pointer");
 				}
 			});
+
 			$("#upload-corpus, #corpus-settings, #select-tool").mouseleave(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("background-color", "#3B3B3C");
 				}
 			});
-		} else  {
+
+		} else {
 			$("#corpus-settings, #select-tool, #analyze-corpus").mouseenter(function() {
 				if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 					$(this).css("cursor", "not-allowed");
@@ -60,11 +62,10 @@ Voyant.Navbar = (function() {
 
 				switch(clickedElement) {
 					case "upload-corpus":
-					console.log("hi");
 						if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 							$(".nav-element").css("background-color", "#3B3B3C");
 							$(this).css("background-color", "#B02130");
-							$("#analyze-corpus").css("background-color", "#C0C0C0");
+							$("#analyze-corpus").css("background-color", "#C0C0C0")
 							appendUpload();
 						}
 		        		break;
@@ -72,7 +73,7 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
 			        		appendUpload();
 						}
 		        		break;
@@ -80,7 +81,7 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
 			        		appendSettings();
 			        	}
 		        		break;
@@ -88,7 +89,7 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        			$(".nav-element").css("background-color", "#3B3B3C");
 		        			$(this).css("background-color", "#B02130");
-		        			$("#analyze-corpus").css("background-color", "#C0C0C0");
+		        			$("#analyze-corpus").css("background-color", "#C0C0C0")
 		        			appendSettings();
 		        		}
 		        		break;
@@ -96,7 +97,7 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 			        		$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
 			        		appendSelectTools();
 			        	}
 		        		break;
@@ -112,7 +113,7 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        			$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
 			        		appendHelp(); 
 			        	}
 		        		break; 
@@ -120,7 +121,7 @@ Voyant.Navbar = (function() {
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 		        			$(".nav-element").css("background-color", "#3B3B3C");
 			        		$(this).css("background-color", "#B02130");
-			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0")
 			        		appendHelp(); 
 			        	}
 		        		break; 
@@ -162,71 +163,6 @@ Voyant.Navbar = (function() {
 			}); 
 		}
 	}
-
-	/*setupMenuClicklistener = function() {
-		$(".nav-element").click(function(e) {
-			var clickedElement = e.target.id;
-
-			switch(clickedElement) {
-				case "upload-corpus":
-					if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-						$(".nav-element").css("background-color", "#3B3B3C");
-						$(this).css("background-color", "#B02130");
-						appendUpload();
-					}
-	        		break;
-	        	case "upload-corpus-span":
-	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-						$(".nav-element").css("background-color", "#3B3B3C");
-						$(this).css("background-color", "#B02130");
-						appendUpload();
-					}
-	        		break;
-	        	case "corpus-settings":
-	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-		        		$(".nav-element").css("background-color", "#3B3B3C");
-		        		$(this).css("background-color", "#B02130");
-		        		appendSettings();
-		        	}
-	        		break;
-	        	case "corpus-settings-span":
-	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-	        			$(".nav-element").css("background-color", "#3B3B3C");
-	        			$(this).css("background-color", "#B02130");
-	        			appendSettings();
-	        		}
-	        		break;
-	        	case "select-tool":
-	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-		        		$(".nav-element").css("background-color", "#3B3B3C");
-		        		$(this).css("background-color", "#B02130");
-		        		appendSelectTools();
-		        	}
-	        		break;
-	        	case "select-tool-span":
-	        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-		        		$(".nav-element").css("background-color", "#3B3B3C");
-		        		$(this).css("background-color", "#B02130");
-		        		appendSelectTools();
-		        	}
-	        		break;
-        		case "analyze-corpus":
-        			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-	        			$(".nav-element").css("background-color", "#3B3B3C");
-	        			$(this).css("background-color", "#B02130");
-	        			appendAnalyze(); 
-	        		}
-        		break;
-        		case "analyze-corpus-span":
-        			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-	        			$(".nav-element").css("background-color", "#3B3B3C");
-	        			$(this).css("background-color", "#B02130");
-	        			appendAnalyze(); 
-	        		}
-        		break;
-			}
-		});
-	},*/
 
 	appendUpload = function () {
 		MainController.appendUpload();
