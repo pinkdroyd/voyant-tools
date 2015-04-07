@@ -54,12 +54,13 @@ Voyant.Navbar = (function() {
 	},
 
 	setupMenuClicklistener = function () {
-		if (corpusUploaded === true) {
+		if (corpusUploaded == true) {
 			$(".nav-element").click(function(e) {
 			var clickedElement = e.target.id;
 
 				switch(clickedElement) {
 					case "upload-corpus":
+					console.log("hi");
 						if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 							$(".nav-element").css("background-color", "#3B3B3C");
 							$(this).css("background-color", "#B02130");
@@ -69,10 +70,10 @@ Voyant.Navbar = (function() {
 		        		break;
 		        	case "upload-corpus-span":
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
-							$(".nav-element").css("background-color", "#3B3B3C");
-							$(this).css("background-color", "#B02130");
-							$("#analyze-corpus").css("background-color", "#C0C0C0");
-							appendUpload();
+			        		$(".nav-element").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
+			        		appendUpload();
 						}
 		        		break;
 		        	case "corpus-settings":
@@ -109,11 +110,17 @@ Voyant.Navbar = (function() {
 		        		break;
 		        	case "help-container":
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+		        			$(".nav-element").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
 			        		appendHelp(); 
 			        	}
 		        		break; 
 		        	case "help-span":
 		        		if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
+		        			$(".nav-element").css("background-color", "#3B3B3C");
+			        		$(this).css("background-color", "#B02130");
+			        		$("#analyze-corpus").css("background-color", "#C0C0C0");
 			        		appendHelp(); 
 			        	}
 		        		break; 
@@ -243,6 +250,7 @@ Voyant.Navbar = (function() {
 
 	corpusUploaded = function () {
 		corpusUploaded = true; 
+		$('.nav-element').unbind('click');
 		setActiveColors(); 
 		setupHover(); 
 		setupMenuClicklistener();
@@ -255,6 +263,7 @@ Voyant.Navbar = (function() {
 
 		$("#corpus-settings, #select-tool").css("background-color", "#C0C0C0");
 		setupHover();
+		setupMenuClicklistener();
 	}
 
 	setActiveColors = function () {
@@ -271,7 +280,6 @@ Voyant.Navbar = (function() {
 		});
 		$("#analyze-corpus").click(function(e) {
 			$(".nav-element").css("background-color", "#3B3B3C");
-	        $(this).css("background-color", "#B02130");
 	        $(this).css("background-color", "#B02130");
 			appendAnalyze(); 
 		});
