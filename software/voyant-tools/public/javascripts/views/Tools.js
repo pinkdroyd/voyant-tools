@@ -42,7 +42,7 @@ Voyant.Tools = (function() {
 			toolName: "Document Type Collocate Frequencies Grid",
 			toolDescription: "Document Type Collocate Frequencies Grid provides and ordered list of word collocation for a specified word and document.",
 			toolLink: "DocumentTypeCollocateFrequenciesGrid",
-			toolSrc : "/images/documenttypecollocatefrequenciesgrid.jpg"
+			toolSrc : "/images/documenttypecollocatefrequenciesgrid.png"
 		},
 		{
 			toolName: "Document Type Frequencies Grid",
@@ -90,7 +90,7 @@ Voyant.Tools = (function() {
 			toolName: "RezoViz",
 			toolDescription: "RezoViz visualizes the relationships between people, locations and organizations in a collection of documents. Links are created between every pair of people, locations and organizations that occur in the same document.",
 			toolLink: "RezoViz",
-			toolSrc : "/images/rezoviz.jpg"
+			toolSrc : "/images/rezoviz.png"
 		},
 		{
 			toolName: "ScatterPlot",
@@ -102,13 +102,13 @@ Voyant.Tools = (function() {
 			toolName: "Termometer",
 			toolDescription: "Termometer depicts the change of the frequency of word across a corpus spread over time. It provides a more compact version of the tool TermsRadio. Unlike TermsRadio the temporal dimension of the tool is not expanded across the x-axis. Instead the change in frequency of the word is captured in through movement in the y-axis. ",
 			toolLink: "Termometer",
-			toolSrc : "/images/termometer.jpg"
+			toolSrc : "/images/termometer.png"
 		},
 		{
 			toolName: "TermsRadio",
 			toolDescription: "TermsRadio provides a scrolling line graph that can depict the change of the frequency of word across a corpus spread over time.",
 			toolLink: "TermsRadio",
-			toolSrc : "/images/termsradio.jpg"
+			toolSrc : "/images/termsradio.png"
 		},
 		{
 			toolName: "Type Frequencies Chart",

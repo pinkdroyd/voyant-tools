@@ -3,14 +3,9 @@
 - Hilfefunktion: Screenshots für die verschiedenen Punkte erstellen, anzeigen lassen und beschreiben 
 - Überschriften bei der Analyze-Ansicht? 
 - Zu Beginn bestimmte buttons ausgrauen. nach und nach enablen 
-- Tools clickbar. Sandbox nicht möglich. Wenn div darüber gelegt wird, kann mit tool nicht mehr interagiert werden. => akzeptieren, dass man weitergeleitet wird? 
 - bilder zuschneiden
 - meldungen beim verlassen der seite
-- beschriftungen für upload
 - Auswahl der Tools setzen 
-
-- dropdown setzen 
-
 
 
 
@@ -33,3 +28,6 @@ Erledigt:
 - dropdown überarbeiten 
 - Apply, Next - Buttons am Seitenende verändern. (Fix top / fix buttom und scrollt mit)
 -aktueller x-path setzen 
+- dropdown setzen 
+- Tools clickbar. Sandbox nicht möglich. Wenn div darüber gelegt wird, kann mit tool nicht mehr interagiert werden. => akzeptieren, dass man weitergeleitet wird? 
+- beschriftungen für upload
