@@ -264,7 +264,17 @@ Voyant.Navbar = (function() {
 	}, 
 
 	toolsSelected = function () {
-
+		toolsSelected = true; 
+		$("#analyze-corpus").css("background-color", "#3B3B3C");
+		$("#analyze-corpus").mouseenter(function() {
+			$(this).css("cursor", "pointer");
+		});
+		$("#analyze-corpus").click(function(e) {
+			$(".nav-element").css("background-color", "#3B3B3C");
+	        $(this).css("background-color", "#B02130");
+	        $(this).css("background-color", "#B02130");
+			appendAnalyze(); 
+		});
 	}, 
 
 	that.init = init;

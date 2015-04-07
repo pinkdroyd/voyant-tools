@@ -198,6 +198,7 @@ Voyant.Tools = (function() {
 		$("#apply-tools-button").click(function(e) {
 			convertSelectedItemsToList();
 			Voyant.ToolController.setToolList(toolList); 
+			Voyant.Navbar.toolsSelected(); 
 			console.log(toolList);
 		});
 	},
