@@ -183,13 +183,14 @@ Voyant.Tools = (function() {
 				selectedItems[index] = 1;
 			} else {
 				$(this).css("background-color", "#3B3B3C");
-				selectedItems[index] = 0;			
+				selectedItems[index] = 0;				
 			}
-			if(checkIfListIsEmpty() == false) {
+			$("#to-analyze-button").addClass("disabled");
+			/*if(checkIfListIsEmpty() == false) {
 				$("#to-analyze-button").removeClass("disabled");
 			} else {
 				$("#to-analyze-button").addClass("disabled");
-			}
+			}*/
 		});
 
 		$("#apply-tools-button").click(function(e) {
@@ -202,7 +203,9 @@ Voyant.Tools = (function() {
 			} else {
 				Voyant.ToolController.setToolList(toolList); 
 				Voyant.Navbar.toolsSelected(); 
-				var $feedback = $('<div class="alert alert-success" role="alert">Selected Tools Saved!</div>)').hide().fadeIn(2000);
+				var $feedback = $('<div class="alert alert-success" role="alert">Selected Tools Saved!</div>)').hide().fadeIn(2000, function(){
+					$(this).fadeOut();
+				});	
 				$feedback.appendTo($("#file-tools-feedback"));
 				$("#to-analyze-button").removeClass("disabled");
 			}
@@ -234,14 +237,14 @@ Voyant.Tools = (function() {
 		}
 	},
 
-	checkIfListIsEmpty = function () {
+	/*checkIfListIsEmpty = function () {
 		for (var i = 0; i < selectedItems.length; i++) {
 			if (selectedItems[i] == 1) {
 				return false;
 			} 
 		}
 		return true; 
-	};
+	};*/
 
 	getToolList = function () {
 		return toolList;
