@@ -1,6 +1,6 @@
 #settings-content {
 	height: 500px;
-	overflow: scroll;
+	overflow: hidden;
 }
 
 
@@ -43,7 +43,7 @@
 	border-color: white;
 	border-width: 1px;
 	margin-top: 20px;
-	height: 300px;
+	height: 250px;
 }
 
 .xpath-line{
