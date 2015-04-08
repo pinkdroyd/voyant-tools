@@ -9,11 +9,13 @@
 
 .analyze-tool-container{
 	height: 400px;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	overflow: hidden;
-	margin-bottom: 0;
-	padding-bottom: 20px;
+	margin-left: 0;
+	margin-right: 0;
+	border: solid;
+    border-color: white;
+    border-width: 1px;
+    padding: 0;
 }
 
 .iframe {
