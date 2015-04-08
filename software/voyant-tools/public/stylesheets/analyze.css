@@ -12,7 +12,8 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	overflow: hidden;
-
+	margin-bottom: 0;
+	padding-bottom: 20px;
 }
 
 .iframe {
