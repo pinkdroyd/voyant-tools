@@ -19,17 +19,13 @@ html{
 #content {
 	background-color: #3B3B3C;
 	clear: both;
-	overflow: auto;
 	padding: 0;
 	border: solid;
 	border-color: white;
 	border-width: 1px;
-	height: 700px; 
+	height: 600px; 
 }
 
-::-webkit-scrollbar { 
-    display: none; 
-}
 
 .btn-primary {
 	  background-color: rgb(176, 33, 48);
