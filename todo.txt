@@ -5,6 +5,11 @@
 
 
 
+Doku: 
+- Java - Probleme bei manchen Tools
+- Iframes sind klickbar und leiten auf Voyant-TOols weiter. Kann mit Attribut Sandbox verhindert werden, dann funktionieren manche tools nicht mehr
+
+
 
 
 nach tests: 
