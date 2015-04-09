@@ -8,11 +8,7 @@ Einschränkungen (Doku)
 
 Erweiterungen (Doku):
 
-- analyze: tools sortieren
-- Stopwordlist nach Tool-Select und für jedes Tool einzeln wählen. Müssen weitere Tests zeigen, ob das gewünscht ist 
-- Design überarbeiten um die Seite für Nutzer attraktiver zu Gestalten. Evtl Landingpage => MÜssen auch Nutzertests zeigen
-- Hilfefunktion ausbauen mit Tutorials
-- Tools überarbeiten !!!!!
+
 
 - Bilder und Quellen
 
@@ -39,3 +35,9 @@ Erledigt:
 - Anzeigen, wie viele Tools selektiert wurden
 - feedbacks überprüfen
 - pixelgröße anpassen / scrollleisten
+DOKU:
+- Tools überarbeiten !!!!!
+- Stopwordlist nach Tool-Select und für jedes Tool einzeln wählen. Müssen weitere Tests zeigen, ob das gewünscht ist 
+- analyze: tools sortieren
+- (Design überarbeiten um die Seite für Nutzer attraktiver zu Gestalten.) Evtl Landingpage => MÜssen auch Nutzertests zeigen
+- Hilfefunktion ausbauen mit Tutorials
