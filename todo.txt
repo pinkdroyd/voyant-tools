@@ -1,31 +1,19 @@
-
-
-- Hilfefunktion: Screenshots für die verschiedenen Punkte erstellen, anzeigen lassen und beschreiben 
-- Überschriften bei der Analyze-Ansicht? 
-
-
-
-Doku: 
+Einschränkungen (Doku) 
 - Java - Probleme bei manchen Tools
 - Iframes sind klickbar und leiten auf Voyant-TOols weiter. Kann mit Attribut Sandbox verhindert werden, dann funktionieren manche tools nicht mehr
 - Xpath wurde bei Nutzertests weggelassen, weil keiner der Probanden wusste, was XPATH ist
 
 
 
-nach tests: 
-- feedbacks überprüfen
-- pixelgröße anpassen / scrollleisten
 
+Erweiterungen (Doku):
 
+- analyze: tools sortieren
+- Stopwordlist nach Tool-Select und für jedes Tool einzeln wählen. Müssen weitere Tests zeigen, ob das gewünscht ist 
+- Design überarbeiten um die Seite für Nutzer attraktiver zu Gestalten. Evtl Landingpage => MÜssen auch Nutzertests zeigen
+- Hilfefunktion ausbauen mit Tutorials
+- Tools überarbeiten !!!!!
 
-Kleinigkeiten
-- Schriftart
-
-
-
-Erweiterungen (für doku):
-
-analyze: tools sortieren
 
 
 
@@ -44,3 +32,8 @@ Erledigt:
 - bilder zuschneiden
 - Zu Beginn bestimmte buttons ausgrauen. nach und nach enablen 
 - meldungen beim verlassen der seite
+- Next-Buttons
+- Settings: Bei Next trotzdem Speichern
+- Anzeigen, wie viele Tools selektiert wurden
+- feedbacks überprüfen
+- pixelgröße anpassen / scrollleisten
