@@ -28,6 +28,9 @@ Voyant.Settings = (function() {
 		$("#to-tools-button").click(function(e) {
 			$(".nav-element").css("background-color", "#3B3B3C");
     		$("#select-tool").css("background-color", "#B02130");
+    		selectedStopwordlist = $("#select-stopwordlist").text(); 
+			contentText = $("#xpath-content").val(); 
+			documentsText = $("#xpath-documents").val(); 
     		if (Voyant.Navbar.getIfToolSelected() == false) {
 				$("#analyze-corpus").css("background-color", "#C0C0C0");
 				$("#analyze-corpus").css("cursor","not-allowed");

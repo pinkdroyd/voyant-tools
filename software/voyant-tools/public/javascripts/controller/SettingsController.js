@@ -10,7 +10,7 @@ Voyant.SettingsController = (function() {
 	initButtons = function(){
 		var buttonNext = $("#apply-xpath-button");
 
-		$(document).on('click','#apply-xpath-button', function(event){
+		$(document).on('click','#apply-xpath-button #to-tools-button', function(event){
 			event.preventDefault();	
 
 			if(corpusObject.file.file_uploaded){
