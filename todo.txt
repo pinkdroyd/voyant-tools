@@ -14,6 +14,8 @@ Erweiterungen (Doku):
 - Hilfefunktion ausbauen mit Tutorials
 - Tools überarbeiten !!!!!
 
+- Bilder und Quellen
+
 
 
 
