@@ -58,3 +58,10 @@
     margin-top: 20px;
     text-align: center;
 }
+
+#count-selected-files {
+    color: #006600;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}

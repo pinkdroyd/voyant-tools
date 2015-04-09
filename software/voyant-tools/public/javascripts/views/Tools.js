@@ -126,6 +126,7 @@ Voyant.Tools = (function() {
 
 	selectedItems, 
 	toolList, 
+	toolCounter = 0, 
 
 	init = function() {
 		console.log("init Tools.js");
@@ -155,6 +156,7 @@ Voyant.Tools = (function() {
 		}
 		setupHover();
 		setupClickListener();
+		$("#count-selected-files").text(toolCounter + " Tools selected");
 	},
 
 	setupHover = function() {
@@ -181,16 +183,15 @@ Voyant.Tools = (function() {
 			if ($(this).css('background-color')!=="rgb(176, 33, 48)"){
 				$(this).css("background-color", "#B02130");
 				selectedItems[index] = 1;
+				toolCounter ++;
+				$("#count-selected-files").text(toolCounter  + " Tools selected");
 			} else {
 				$(this).css("background-color", "#3B3B3C");
-				selectedItems[index] = 0;				
+				selectedItems[index] = 0;	
+				toolCounter --; 
+				$("#count-selected-files").text(toolCounter  + " Tools selected");			
 			}
 			$("#to-analyze-button").addClass("disabled");
-			/*if(checkIfListIsEmpty() == false) {
-				$("#to-analyze-button").removeClass("disabled");
-			} else {
-				$("#to-analyze-button").addClass("disabled");
-			}*/
 		});
 
 		$("#apply-tools-button").click(function(e) {
@@ -236,15 +237,6 @@ Voyant.Tools = (function() {
 			}
 		}
 	},
-
-	/*checkIfListIsEmpty = function () {
-		for (var i = 0; i < selectedItems.length; i++) {
-			if (selectedItems[i] == 1) {
-				return false;
-			} 
-		}
-		return true; 
-	};*/
 
 	getToolList = function () {
 		return toolList;
