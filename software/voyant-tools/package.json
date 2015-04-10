@@ -16,6 +16,7 @@
     "nodemon": "*",
     "node-xml": "*",
     "serve-favicon": "~2.2.0",
+    "xmldom": "*",
     "xpath": "*"
   }
 }
